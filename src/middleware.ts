@@ -26,27 +26,34 @@ export function middleware(request: NextRequest) {
     pathname == '/login/'
   ) {
     if (token) {
-      if (
-        // pathname == "/" ||
-        pathname == '/login/'
-      ) {
+      if (pathname === '/login/') {
         return NextResponse.redirect(new URL('/home', request.url))
+      } else {
+        return NextResponse.next()
+      }
+    }
+
+    return NextResponse.next()
+  } else if (process.env.NODE_ENV === 'production') {
+    if (token) {
+      if (pathname === '/login/') {
+        return NextResponse.redirect(new URL('/home', request.url))
+      } else {
+        return NextResponse.next()
       }
     } else {
       return NextResponse.redirect(new URL('/login', request.url))
     }
-
-    return NextResponse.next()
   }
 
-  if (!token) {
-    console.log('login redirect')
+  // if (!token) {
+  //   console.log('login redirect')
 
-    return NextResponse.redirect(new URL('/login', request.url))
-  } else if (
-    // pathname == "/" ||
-    pathname == '/login/'
-  ) {
-    // return NextResponse.redirect(new URL('/home', request.url))
-  }
+  //   return NextResponse.redirect(new URL('/login', request.url))
+  // } else if (
+  //   // pathname == "/" ||
+  //   pathname == '/login/'
+  // ) {
+  //   // return NextResponse.redirect(new URL('/home', request.url))
+  // }
 }
