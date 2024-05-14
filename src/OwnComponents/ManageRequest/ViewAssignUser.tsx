@@ -1,0 +1,245 @@
+'use Client'
+import React, { useState } from 'react'
+import { Box, Card, Grid, InputAdornment, Switch, TextField } from '@mui/material'
+import { GridColDef, DataGrid } from '@mui/x-data-grid'
+
+import { gridPageCountSelector, GridPagination, useGridApiContext, useGridSelector } from '@mui/x-data-grid'
+import MuiPagination from '@mui/material/Pagination'
+import { TablePaginationProps } from '@mui/material/TablePagination'
+import UserIcon from 'src/layouts/components/UserIcon'
+import { styled } from '@mui/material/styles'
+import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+
+const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
+  marginLeft: 0,
+  '& .MuiSwitch-root': {
+    width: 42,
+    height: 26,
+    padding: 0,
+    marginRight: theme.spacing(3),
+    '& .MuiSwitch-switchBase': {
+      padding: 1,
+      '&.Mui-checked': {
+        transform: 'translateX(16px)',
+        color: theme.palette.common.white,
+        '& + .MuiSwitch-track': {
+          opacity: 1,
+          border: 'none',
+          backgroundColor: '#3635C9'
+        }
+      }
+    },
+    '& .MuiSwitch-thumb': {
+      width: 24,
+      height: 24
+    },
+    '& .MuiSwitch-track': {
+      opacity: 1,
+      borderRadius: 13,
+      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.action.selected : theme.palette.grey[50],
+      border: `1px solid ${theme.palette.grey[400]}`,
+      transition: theme.transitions.create(['background-color', 'border'])
+    }
+  }
+}))
+
+function Pagination({
+  page,
+  onPageChange,
+  className
+}: Pick<TablePaginationProps, 'page' | 'onPageChange' | 'className'>) {
+  const apiRef = useGridApiContext()
+  const pageCount = useGridSelector(apiRef, gridPageCountSelector)
+
+  return (
+    <MuiPagination
+      color='primary'
+      className={className}
+      count={pageCount}
+      page={page + 1}
+      shape='rounded'
+      onChange={(event, newPage) => {
+        onPageChange(event as any, newPage - 1)
+      }}
+    />
+  )
+}
+
+function CustomPagination(props: any) {
+  return <GridPagination ActionsComponent={Pagination} {...props} />
+}
+
+export default function ViewAssignUser() {
+  const [isSwitch, setIsSwitch] = useState(false)
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
+  const [searhRole, setSearchRole] = useState<string>('')
+
+  //Column for Data Grid
+  const columns: GridColDef[] = [
+    {
+      field: 'serialNumber',
+      headerName: 'Sr No',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      minWidth: 80
+    },
+    {
+      field: 'empName',
+      headerName: 'EMP Name',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      minWidth: 100
+    },
+    {
+      field: 'empId',
+      headerName: 'EMP ID',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      minWidth: 114
+    },
+    {
+      field: 'lob',
+      headerName: 'LOB',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      minWidth: 145
+    },
+    {
+      field: 'school',
+      headerName: 'School',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      minWidth: 100
+    },
+    {
+      field: 'hrRole',
+      headerName: 'HR Role',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      minWidth: 110
+    },
+    {
+      field: 'action',
+      headerName: 'Action',
+      flex: 1,
+      align: 'left',
+      headerAlign: 'left',
+      width: 80,
+      renderCell: () => <FormControlLabel label='' control={<Switch defaultChecked />} />
+    }
+  ]
+
+  //Rows For DataGrid
+  const rows = [
+    {
+      id: 1,
+      serialNumber: '01',
+      empName: 'Nittal',
+      empId: 'EMP 123',
+      lob: 'LOB 123',
+      school: 'VKH - Airoli',
+      hrRole: 'Principal'
+    },
+    {
+      id: 2,
+      serialNumber: '02',
+      empName: 'Suman',
+      empId: 'EMP 124',
+      lob: 'LOB 124',
+      school: 'VKH - Balewadi',
+      hrRole: 'Manager'
+    },
+    {
+      id: 3,
+      serialNumber: '03',
+      empName: 'Imad',
+      empId: 'EMP 125',
+      lob: 'LOB 125',
+      school: 'VKH - Borivali West',
+      hrRole: 'Teacher'
+    },
+    {
+      id: 4,
+      serialNumber: '04',
+      empName: 'Divanshu',
+      empId: 'EMP 126',
+      lob: 'LOB 126',
+      school: 'VKH - Chinchwad',
+      hrRole: 'Vice Principal'
+    },
+    {
+      id: 5,
+      serialNumber: '05',
+      empName: 'Ankita',
+      empId: 'EMP 127',
+      lob: 'LOB 127',
+      school: 'VKH - Chokkanahalli',
+      hrRole: 'Grades Incharge'
+    },
+    {
+      id: 6,
+      serialNumber: '06',
+      empName: 'Chirag',
+      empId: 'EMP 128',
+      lob: 'LOB 128',
+      school: 'VKH - Coiambatore',
+      hrRole: 'EF'
+    }
+  ]
+
+  return (
+    <>
+      <Box sx={{ background: '#fff', borderRadius: '10px', padding: '20px 0px' }}>
+        <Grid container spacing={2} alignItems='center'>
+          <Grid item xs={12}>
+            <Box
+              sx={{
+                mb: 3,
+                ml: 3,
+                padding: '0px 10px',
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'center'
+              }}
+            >
+              <TextField
+                className='custom-textfield'
+                value={searhRole}
+                placeholder='Search Role'
+                onChange={e => setSearchRole(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <UserIcon icon='mdi:magnify' />
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
+        <Card sx={{ borderRadius: '0px' }} elevation={0}>
+          <Box sx={{ height: '450px' }}>
+            <DataGrid
+              columns={columns}
+              rows={rows}
+              pagination={true}
+              checkboxSelection={false}
+              pageSizeOptions={[7, 10, 25, 50]}
+              paginationModel={paginationModel}
+              slots={{ pagination: CustomPagination }}
+              onPaginationModelChange={setPaginationModel}
+              className='dataTable'
+            />
+          </Box>
+        </Card>
+      </Box>
+    </>
+  )
+}

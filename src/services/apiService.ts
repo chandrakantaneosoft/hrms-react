@@ -1,0 +1,119 @@
+import { getToken } from '../utils/helper'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { AutoLogoutUser } from '../services/authService'
+import { toast } from 'react-hot-toast'
+
+const serviceURLList: any = {
+  marketing: process.env.NEXT_PUBLIC_API_BASE_URL,
+  admin: process.env.NEXT_PUBLIC_ADMIN_PANEL_BASE_URL,
+  mdm: process.env.NEXT_PUBLIC_MDM_BASE_URL
+}
+const token = getToken()
+const axiosInstance = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}`,
+  headers: {
+    ...(token && { Authorization: `Bearer ${token.accessToken}` })
+  }
+})
+
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
+
+const handleSignout = async () => {
+  // const storageToken = localStorage.getItem('token')
+  AutoLogoutUser()
+}
+
+const handleResponseError = (error: any) => {
+  const res = {
+    data: null,
+    error: null
+  }
+
+  // if (error.response) {
+  //   console.error('Response error:', error.response.data)
+  //   console.error('Status code:', error.response.status)
+  // } else if (error.request) {
+  //   console.error('No response received:', error.request)
+  // } else {
+  //   console.error('Request error:', error.message)
+  // }
+  // console.log('error.response.data', error.response)
+
+  if (error?.response?.status === 401) {
+    // If status code is 401 (Unauthorized), redirect to login page
+    // window.location.href = '/401'
+    toast.error('Unauthenticated Logging out')
+    handleSignout()
+
+    // throw new Error('Unauthorized')
+  } else if (error?.response?.status === 403) {
+    // If status code is 401 (Unauthorized), redirect to login page
+    toast.error('Unauthorized')
+    window.location.href = '/403'
+
+    // throw new Error('Unauthorized')
+  } else if (error?.response?.status === 500) {
+    // alert(JSON.stringify(response))
+    toast.error('there is erro in api with response')
+  } else {
+    // For other status codes, throw an error
+    toast.error('there is erro in api with response')
+  }
+
+  if (error?.response?.data) {
+    res.error = error.response.data
+  } else {
+    res.error = error
+  }
+
+  return res
+}
+
+async function httpRequest(
+  method: HttpMethod,
+  endpoint: string,
+  data?: any,
+  headers: Record<string, string> = {},
+  params?: any,
+  serviceURL?: string
+): Promise<any> {
+  // const res = {
+  //   data: null,
+  //   error: null
+  // }
+
+  try {
+    const url = serviceURL ? serviceURLList[serviceURL] + endpoint : axiosInstance.defaults.baseURL + endpoint
+    const config: AxiosRequestConfig = {
+      method: method,
+      url: url,
+      data: data,
+      headers: headers,
+      params: params
+    }
+    const response: AxiosResponse = await axios(config)
+    const jsonData = response.data
+
+    return jsonData
+
+    // return (res.data = response.data)
+  } catch (err: any) {
+    return handleResponseError(err)
+  }
+}
+
+export const postRequest = async (params: any) => {
+  return httpRequest('POST', `${params.url}`, params?.data, params.headers, null, params?.serviceURL)
+}
+
+export const getRequest = async (params: any) => {
+  return httpRequest('GET', `${params.url}`, null, params.headers, params?.params, params.serviceURL)
+}
+
+export const deleteRequest = async (params: any) => {
+  return httpRequest('DELETE', `${params.url}`, null, params.headers, null, params?.serviceURL)
+}
+
+export const putRequest = async (params: any) => {
+  return httpRequest('PUT', `${params.url}`, params.data, params.headers, null, params?.serviceURL)
+}
