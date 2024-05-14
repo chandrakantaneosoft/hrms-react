@@ -120,7 +120,7 @@ export const Auto1: Autocomplete[] = [
 
 const CreateTemporaryRole = () => {
   // ** State
-  const [value, setValue] = useState<any>(1)
+  const [value, setValue] = useState<any>('1')
   const [erpRoleName, setErpRoleName] = useState<string>('Vice Principal')
   const [tempRoleName, setTempRoleName] = useState<string>('Vice Principal')
   const [roleName, setRoleName] = useState<string>('Teaching Faculty')
@@ -178,9 +178,10 @@ const CreateTemporaryRole = () => {
 
   //Handle Button action
   const handleNext = () => {
-    if (value !== 3 && activeStep == 0) {
-      setValue(value + 1)
-    } else if (value === 3 && !isLastStep()) {
+    if (value !== '3' && activeStep == 0) {
+      console.log()
+      setValue((Number(value) + 1).toString())
+    } else if (value === '3' && !isLastStep()) {
       console.log('click ')
       setActiveStep(prev => prev + 1)
     } else {
@@ -188,9 +189,9 @@ const CreateTemporaryRole = () => {
     }
   }
   const handleBack = () => {
-    if (value !== 1 && activeStep == 0) {
-      setValue(value - 1)
-    } else if (value === 3 && isLastStep()) {
+    if (value !== '1' && activeStep == 0) {
+      setValue((Number(value) - 1).toString())
+    } else if (value === '3' && isLastStep()) {
       setActiveStep(activeStep - 1)
     } else {
       router.push('/temporary-role-listing')
@@ -204,6 +205,7 @@ const CreateTemporaryRole = () => {
 
     // handleRoleDialog(false)
   }
+  console.log(value, 'value ')
 
   return (
     <Box sx={{ background: '#fff', borderRadius: '10px', padding: '10px 0px' }}>
@@ -214,9 +216,9 @@ const CreateTemporaryRole = () => {
           aria-label='full width tabs example'
           sx={activeStep === 1 ? { display: 'none' } : { display: 'block' }}
         >
-          <Tab value={1} label='I Want To Assign Permanent Role Temporarily' />
-          <Tab value={2} label='I Want To Assign Predefined Temporary Role' />
-          <Tab value={3} label='I Want To Create And Assign Custom Temporary Role' />
+          <Tab value={'1'} label='I Want To Assign Permanent Role Temporarily' />
+          <Tab value={'2'} label='I Want To Assign Predefined Temporary Role' />
+          <Tab value={'3'} label='I Want To Create And Assign Custom Temporary Role' />
         </TabList>
         <TabPanel value={'1'}>
           <Grid container spacing={5} sx={{ marginTop: '10px' }}>
