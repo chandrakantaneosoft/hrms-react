@@ -480,21 +480,20 @@ function TemporaryRoleListing() {
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '25px' }}>
             {/* <TableFilter /> */}
-            <Card sx={{ borderRadius: '0px' }}>
-              {/* <CardHeader title='Quick Filter' /> */}
 
-              <DataGrid
-                autoHeight
-                columns={columns}
-                pagination
-                pageSizeOptions={[7, 10, 25, 50]}
-                paginationModel={paginationModel}
-                slots={{ pagination: CustomPagination }}
-                onPaginationModelChange={setPaginationModel}
-                rows={data}
-                className='dataTable'
-              />
-            </Card>
+            {/* <CardHeader title='Quick Filter' /> */}
+
+            <DataGrid
+              autoHeight
+              columns={columns}
+              pagination
+              pageSizeOptions={[7, 10, 25, 50]}
+              paginationModel={paginationModel}
+              slots={{ pagination: CustomPagination }}
+              onPaginationModelChange={setPaginationModel}
+              rows={data}
+              className='dataTable'
+            />
           </Grid>
         </Grid>
 

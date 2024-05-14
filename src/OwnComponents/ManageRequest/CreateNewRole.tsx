@@ -75,23 +75,6 @@ export const Auto1: Autocomplete[] = [
 ]
 
 // Define a styled FormControl component
-const StyledFormControl = styled(FormControl)<any>(({ theme, hasValue }) => ({
-  '& .MuiOutlinedInput-root': {
-    borderColor: hasValue ? 'black' : 'default', // Change border color when value is added
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C6C8D2' // Border color when hovering
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C6C8D2' // Border color when focused
-    }
-  },
-  '& .MuiInputLabel-root': {
-    color: hasValue ? 'black' : 'default', // Change label color when value is added
-    '&.Mui-focused': {
-      color: 'black' // Label color when focused
-    }
-  }
-}))
 
 const steps = ['Create Role', 'Assign Role']
 
@@ -284,7 +267,7 @@ const CreateNewRole = () => {
               })}
             </Stepper>
           </Box>
-          <Box sx={{ width: '5%' }}>
+          <Box sx={{ width: '5%', mt: 4 }}>
             <InfoIcon style={{ color: '#FA5A7D' }} />
           </Box>
         </Box>
@@ -330,7 +313,7 @@ const CreateNewRole = () => {
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -379,18 +362,16 @@ const CreateNewRole = () => {
                     <MenuItem value='1000-1500'>1000-1500</MenuItem>
                     <MenuItem value='2000'>2000</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
 
               <Grid item xs={12} sm={12}>
-                <Card sx={{ borderRadius: '0px' }} elevation={0}>
-                  <Box sx={{ height: '300px' }}>
-                    <DataGrid columns={columns} rows={rows} hideFooterPagination />
-                  </Box>
-                </Card>
+                <Box sx={{ height: '300px' }}>
+                  <DataGrid columns={columns} rows={rows} hideFooterPagination />
+                </Box>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -440,10 +421,10 @@ const CreateNewRole = () => {
                     <MenuItem value='9903'>9903</MenuItem>
                     <MenuItem value='>9904'>9904</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -493,7 +474,7 @@ const CreateNewRole = () => {
                     <MenuItem value='2302'>2302</MenuItem>
                     <MenuItem value='2303'>2303</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Autocomplete

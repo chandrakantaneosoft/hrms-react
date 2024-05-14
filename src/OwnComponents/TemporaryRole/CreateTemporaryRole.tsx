@@ -100,23 +100,23 @@ export const Auto1: Autocomplete[] = [
 //multiselect style
 
 // Define a styled FormControl component
-const StyledFormControl = styled(FormControl)<any>(({ theme, hasValue }) => ({
-  '& .MuiOutlinedInput-root': {
-    borderColor: hasValue ? 'black' : 'default', // Change border color when value is added
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C6C8D2' // Border color when hovering
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C6C8D2' // Border color when focused
-    }
-  },
-  '& .MuiInputLabel-root': {
-    color: hasValue ? 'black' : 'default', // Change label color when value is added
-    '&.Mui-focused': {
-      color: 'black' // Label color when focused
-    }
-  }
-}))
+// const FormControl = styled(FormControl)<any>(({ theme, hasValue }) => ({
+//   '& .MuiOutlinedInput-root': {
+//     borderColor: hasValue ? 'black' : 'default', // Change border color when value is added
+//     '&:hover .MuiOutlinedInput-notchedOutline': {
+//       borderColor: '#C6C8D2' // Border color when hovering
+//     },
+//     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+//       borderColor: '#C6C8D2' // Border color when focused
+//     }
+//   },
+//   '& .MuiInputLabel-root': {
+//     color: hasValue ? 'black' : 'default', // Change label color when value is added
+//     '&.Mui-focused': {
+//       color: 'black' // Label color when focused
+//     }
+//   }
+// }))
 
 const CreateTemporaryRole = () => {
   // ** State
@@ -292,7 +292,7 @@ const CreateTemporaryRole = () => {
             )}
             {role === 'group users' && (
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -341,7 +341,7 @@ const CreateTemporaryRole = () => {
                     <MenuItem value='user3'>user3</MenuItem>
                     <MenuItem value='user4'>user4</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
             )}
             {role === 'role' && (
@@ -365,7 +365,7 @@ const CreateTemporaryRole = () => {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -415,10 +415,10 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='9903'>9903</MenuItem>
                       <MenuItem value='>9904'>9904</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -468,10 +468,10 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='2302'>2302</MenuItem>
                       <MenuItem value='2303'>2303</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -521,7 +521,7 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='9903'>9903</MenuItem>
                       <MenuItem value='>9904'>9904</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
               </>
             )}
@@ -625,7 +625,7 @@ const CreateTemporaryRole = () => {
             )}
             {role === 'group users' && (
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -674,7 +674,7 @@ const CreateTemporaryRole = () => {
                     <MenuItem value='user3'>user3</MenuItem>
                     <MenuItem value='user4'>user4</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
             )}
             {role === 'role' && (
@@ -698,7 +698,7 @@ const CreateTemporaryRole = () => {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -748,10 +748,10 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='9903'>9903</MenuItem>
                       <MenuItem value='>9904'>9904</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -801,10 +801,10 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='2302'>2302</MenuItem>
                       <MenuItem value='2303'>2303</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -854,7 +854,7 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='9903'>9903</MenuItem>
                       <MenuItem value='>9904'>9904</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
               </>
             )}
@@ -970,7 +970,7 @@ const CreateTemporaryRole = () => {
               )}
               {role === 'group users' && (
                 <Grid item xs={12} sm={6}>
-                  <StyledFormControl
+                  <FormControl
                     fullWidth
 
                     // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -1019,7 +1019,7 @@ const CreateTemporaryRole = () => {
                       <MenuItem value='user3'>user3</MenuItem>
                       <MenuItem value='user4'>user4</MenuItem>
                     </Select>
-                  </StyledFormControl>
+                  </FormControl>
                 </Grid>
               )}
               {role === 'role' && (
@@ -1043,7 +1043,7 @@ const CreateTemporaryRole = () => {
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <StyledFormControl
+                    <FormControl
                       fullWidth
 
                       // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -1093,10 +1093,10 @@ const CreateTemporaryRole = () => {
                         <MenuItem value='9903'>9903</MenuItem>
                         <MenuItem value='>9904'>9904</MenuItem>
                       </Select>
-                    </StyledFormControl>
+                    </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <StyledFormControl
+                    <FormControl
                       fullWidth
 
                       // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -1146,10 +1146,10 @@ const CreateTemporaryRole = () => {
                         <MenuItem value='2302'>2302</MenuItem>
                         <MenuItem value='2303'>2303</MenuItem>
                       </Select>
-                    </StyledFormControl>
+                    </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={6}>
-                    <StyledFormControl
+                    <FormControl
                       fullWidth
 
                       // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -1199,7 +1199,7 @@ const CreateTemporaryRole = () => {
                         <MenuItem value='9903'>9903</MenuItem>
                         <MenuItem value='>9904'>9904</MenuItem>
                       </Select>
-                    </StyledFormControl>
+                    </FormControl>
                   </Grid>
                 </>
               )}

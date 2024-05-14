@@ -102,7 +102,7 @@ const Button = () => {
         outlined: ({ theme }: OwnerStateThemeType) => ({
           '&.MuiButton-outlinedInherit': {
             boxShadow: theme.shadows[0],
-            backgroundColor: theme.palette.grey[50],
+            backgroundColor: 'transperent',
             color: theme.palette.customColors.mainText,
             '&:hover': {
               boxShadow: theme.shadows[1],
@@ -133,7 +133,7 @@ const Button = () => {
           },
           '&.MuiButton-outlinedPrimary': {
             boxShadow: theme.shadows[0],
-            background: theme.palette.common.white,
+            backgroundColor: 'transperent',
             border: `1px solid ${theme.palette.grey[100]}`,
             color: theme.palette.primary.dark,
             '&.Mui-disabled': {
@@ -166,7 +166,7 @@ const Button = () => {
           },
           '&.MuiButton-outlinedSecondary': {
             boxShadow: theme.shadows[0],
-            background: theme.palette.common.white,
+            backgroundColor: 'transperent',
             border: `1px solid ${theme.palette.secondary.light}`,
             color: theme.palette.secondary.main,
             '&.Mui-disabled': {
@@ -185,7 +185,7 @@ const Button = () => {
         text: ({ theme }: OwnerStateThemeType) => ({
           '&.MuiButton-textprimary': {
             boxShadow: theme.shadows[0],
-            backgroundColor: theme.palette.common.white,
+            backgroundColor: 'transperent',
             color: theme.palette.primary.dark,
             '&:hover': {
               boxShadow: theme.shadows[1],

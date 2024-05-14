@@ -14,6 +14,7 @@ const Breadcrumbs = () => {
             color: theme.palette.customColors.inactive
           }
         }),
+
         li: ({ theme }: OwnerStateThemeType) => ({
           color: theme.palette.customColors.inactive,
           '& a': {

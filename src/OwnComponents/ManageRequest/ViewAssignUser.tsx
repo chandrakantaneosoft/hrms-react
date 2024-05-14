@@ -224,21 +224,20 @@ export default function ViewAssignUser() {
             </Box>
           </Grid>
         </Grid>
-        <Card sx={{ borderRadius: '0px' }} elevation={0}>
-          <Box sx={{ height: '450px' }}>
-            <DataGrid
-              columns={columns}
-              rows={rows}
-              pagination={true}
-              checkboxSelection={false}
-              pageSizeOptions={[7, 10, 25, 50]}
-              paginationModel={paginationModel}
-              slots={{ pagination: CustomPagination }}
-              onPaginationModelChange={setPaginationModel}
-              className='dataTable'
-            />
-          </Box>
-        </Card>
+
+        <Box sx={{ height: '450px' }}>
+          <DataGrid
+            columns={columns}
+            rows={rows}
+            pagination={true}
+            checkboxSelection={false}
+            pageSizeOptions={[7, 10, 25, 50]}
+            paginationModel={paginationModel}
+            slots={{ pagination: CustomPagination }}
+            onPaginationModelChange={setPaginationModel}
+            className='dataTable'
+          />
+        </Box>
       </Box>
     </>
   )

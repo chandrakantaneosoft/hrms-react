@@ -142,3 +142,9 @@ code[class*='language-'] {
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active .MuiTypography-root {
   color: blue !important;
 }
+
+/*Bredcrumb button*/
+.MuiBreadcrumbs-ol li .MuiButtonBase-root {
+  background-color: transparent !important;
+  color: '#929090' !important;
+}
