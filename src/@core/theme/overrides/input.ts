@@ -1,5 +1,4 @@
 // ** Type Import
-import { padding } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const input = () => {
@@ -177,8 +176,27 @@ const input = () => {
           '&.MuiCheckbox-indeterminate': {
             color: theme.palette.customColors.chipBorder
           },
-          '&.MuiCheckbox-colorPrimary': {
+          '&.MuiCheckbox-colorDefault': {
             color: theme.palette.customColors.chipBorder,
+            '&:hover': {
+              backgroundColor: theme.palette.customColors.disabled,
+              borderRadius: '100%'
+            },
+            '&.Mui-checked': {
+              color: theme.palette.customColors.chipBorder
+            },
+            '&.Mui-disabled': {
+              color: theme.palette.customColors.chipBorder
+            },
+            '&.Mui-disabled.Mui-checked': {
+              color: theme.palette.customColors.chipBorder
+            },
+            '&.MuiCheckbox-indeterminate.Mui-checked': {
+              color: theme.palette.customColors.chipBorder
+            }
+          },
+          '&.MuiCheckbox-colorPrimary': {
+            color: theme.palette.primary.main,
             '&:hover': {
               backgroundColor: theme.palette.customColors.primaryLightest,
               borderRadius: '100%'
@@ -194,10 +212,13 @@ const input = () => {
             },
             '&.MuiCheckbox-indeterminate.Mui-checked': {
               color: theme.palette.customColors.chipBorder
+            },
+            '&.MuiCheckbox-indeterminate': {
+              color: theme.palette.customColors.chipBorder
             }
           },
           '&.MuiCheckbox-colorSecondary': {
-            color: theme.palette.customColors.chipBorder,
+            color: theme.palette.secondary.main,
             '&:hover': {
               backgroundColor: theme.palette.customColors.primaryLightest,
               borderRadius: '100%'
@@ -212,6 +233,9 @@ const input = () => {
               color: theme.palette.customColors.chipBorder
             },
             '&.MuiCheckbox-indeterminate.Mui-checked': {
+              color: theme.palette.customColors.chipBorder
+            },
+            '&.MuiCheckbox-indeterminate': {
               color: theme.palette.customColors.chipBorder
             }
           }

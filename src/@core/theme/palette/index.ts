@@ -56,7 +56,12 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       chipHoverBackground: '#FCF8FF',
       chipTonalBackground: '#F4F0EF',
       dividerColor: '#C7C4D7',
-      badgeColorDefault: '#B3234B'
+      badgeColorDefault: '#B3234B',
+      sliderMainColor: '#3635C9',
+      sliderSecColor: '#5D5FEF',
+      sliderLabelColor: '#302F39',
+      sliderLabelTextColor: '#F2EFFB',
+      datepickerText: '#464555'
     },
     mode: mode,
     common: {
@@ -103,9 +108,9 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       200: '#EEEEEE',
       300: '#E0E0E0',
       400: '#BDBDBD',
-      500: '#9E9E9E',
+      500: '#1D1B201F',
       600: '#757575',
-      700: '#616161',
+      700: '#1D1B20',
       800: '#424242',
       900: '#212121',
       A100: '#F5F5F5',

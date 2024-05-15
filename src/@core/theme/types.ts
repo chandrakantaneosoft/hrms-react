@@ -36,6 +36,11 @@ declare module '@mui/material/styles' {
       chipTonalBackground: string
       dividerColor: string
       badgeColorDefault: string
+      sliderMainColor: string
+      sliderSecColor: string
+      sliderLabelColor: string
+      sliderLabelTextColor: string
+      datepickerText: string
     }
   }
   interface PaletteOptions {
@@ -75,6 +80,11 @@ declare module '@mui/material/styles' {
       chipTonalBackground?: string
       dividerColor?: string
       badgeColorDefault?: string
+      sliderMainColor?: string
+      sliderSecColor?: string
+      sliderLabelColor?: string
+      sliderLabelTextColor?: string
+      datepickerText?: string
     }
   }
 }

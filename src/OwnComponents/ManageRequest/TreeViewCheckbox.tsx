@@ -178,6 +178,7 @@ export default function TreeViewCheckbox() {
         label={
           <Box display='flex' alignItems='center'>
             <Checkbox
+              color={!checked[node.id] ? 'default' : 'primary'}
               checked={!!checked[node.id]}
               onChange={event => handleCheckboxChange(event, node.id)}
               indeterminate={node.children ? node.children.some(child => !!checked[child.id]) : false}

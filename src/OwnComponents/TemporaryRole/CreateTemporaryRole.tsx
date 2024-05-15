@@ -210,16 +210,21 @@ const CreateTemporaryRole = () => {
   return (
     <Box sx={{ background: '#fff', borderRadius: '10px', padding: '10px 0px' }}>
       <TabContext value={value}>
-        <TabList
-          variant='fullWidth'
-          onChange={handleChange}
-          aria-label='full width tabs example'
-          sx={activeStep === 1 ? { display: 'none' } : { display: 'block' }}
-        >
-          <Tab value={'1'} label='I Want To Assign Permanent Role Temporarily' />
-          <Tab value={'2'} label='I Want To Assign Predefined Temporary Role' />
-          <Tab value={'3'} label='I Want To Create And Assign Custom Temporary Role' />
-        </TabList>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList
+            variant='fullWidth'
+            onChange={handleChange}
+            aria-label='full width tabs example'
+            TabIndicatorProps={{ children: <span /> }}
+            sx={activeStep === 1 ? { display: 'none' } : { display: 'block' }}
+            textColor='primary'
+            className='fullwidth primary'
+          >
+            <Tab value={'1'} label='I Want To Assign Permanent Role Temporarily' />
+            <Tab value={'2'} label='I Want To Assign Predefined Temporary Role' />
+            <Tab value={'3'} label='I Want To Create And Assign Custom Temporary Role' />
+          </TabList>
+        </Box>
         <TabPanel value={'1'}>
           <Grid container spacing={5} sx={{ marginTop: '10px' }}>
             <Grid item xs={12} sm={6}>

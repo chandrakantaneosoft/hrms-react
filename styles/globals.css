@@ -56,20 +56,8 @@ code[class*='language-'] {
 .layout-page-content {
   min-width: 100%;
 }
-.dataTable .MuiTablePagination-displayedRows {
-  display: none;
-}
-.dataTable .MuiTablePagination-root:last-child {
-  width: 100% !important;
-}
-.dataTable .MuiDataGrid-footerContainer .MuiTablePagination-toolbar {
-  display: flex !important;
-  justify-content: space-between !important;
-}
-.dataTable .MuiTablePagination-spacer {
-  display: none;
-}
-.dataTable .css-8ygak9-MuiInputBase-root-MuiTablePagination-select {
+
+.dataTable .MuiInputBase-root-MuiTablePagination-select {
   margin-right: 62% !important;
 }
 .css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {

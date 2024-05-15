@@ -230,12 +230,12 @@ function ManageRequest() {
     },
     {
       flex: 0.275,
-      minWidth: 150,
+      minWidth: 190,
       field: 'uniqueRole',
       headerName: 'HRIS Unique Role',
       renderCell: params => {
         return (
-          <div style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }} onClick={handleClickOpen}>
+          <div style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleClickOpen}>
             {params.value}
           </div>
         )
@@ -243,7 +243,7 @@ function ManageRequest() {
     },
     {
       flex: 0.275,
-      minWidth: 150,
+      minWidth: 200,
       field: 'schoolCategories',
       headerName: 'School Categories'
     },
@@ -254,7 +254,7 @@ function ManageRequest() {
       headerName: 'LOB Assigned',
       renderCell: params => {
         return (
-          <div style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }} onClick={handleOpenLob}>
+          <div style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleOpenLob}>
             {params.value}
           </div>
         )
@@ -274,7 +274,7 @@ function ManageRequest() {
       renderCell: params => {
         return (
           <div
-            style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }}
+            style={{ textDecoration: 'underline', cursor: 'pointer' }}
             onClick={() => router.push('/permanent-role/view-assign-user/')}
           >
             {params.value}
