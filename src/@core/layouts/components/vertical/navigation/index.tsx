@@ -223,7 +223,7 @@ const Navigation = (props: Props) => {
           ? afterNavMenuContent(navMenuContentProps)
           : null}
       </Drawer>
-      {isOpen && (
+      {isOpen ? (
         <div
           className='sideBar-Link'
           style={{
@@ -243,6 +243,8 @@ const Navigation = (props: Props) => {
           </Typography>
           {NewVerticalNavItems(navigationChildItems)}
         </div>
+      ) : (
+        ''
       )}
     </ThemeProvider>
   )
