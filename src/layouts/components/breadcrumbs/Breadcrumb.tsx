@@ -1,11 +1,13 @@
 import { Breadcrumbs, Link, Typography } from '@mui/material'
 import * as React from 'react'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 type Bread = {
   currentPath?: string
 }
 
 function Breadcrumb({ currentPath }: Bread) {
+  const { pagePaths } = useGlobalContext()
   let moduleName
   switch (currentPath) {
     case '/permanent-role/':
@@ -21,7 +23,7 @@ function Breadcrumb({ currentPath }: Bread) {
       moduleName = 'CRM'
       break
     default:
-      moduleName = 'Default'
+      moduleName = 'Home'
   }
 
   // const moduleName = currentPath === '/permanent-role/' ? 'RBAC' : ''
@@ -36,7 +38,9 @@ function Breadcrumb({ currentPath }: Bread) {
     .map(current => current.replaceAll('/', '').replaceAll('-', ' '))
     .map(curr => capitalizeWords(curr))
 
-  const title = sample && sample.length > 0 ? sample[sample.length - 1].toString() : ''
+  //const title = sample && sample.length > 0 ? sample[sample.length - 1].toString() : ''
+
+  const title = pagePaths && pagePaths.length > 0 ? pagePaths[pagePaths.length - 1] : ''
 
   // const title = capitalizeWords(CurrentPaths)
   // console.log(currentPath, 'current path')
@@ -49,23 +53,28 @@ function Breadcrumb({ currentPath }: Bread) {
 
   return (
     <div role='presentation'>
-      <Breadcrumbs maxItems={2} aria-label='breadcrumb'>
-        <Link underline='hover' color='inherit' href='#'>
+      <Breadcrumbs aria-label='breadcrumb'>
+        <Link underline='hover' color='inherit' href='/'>
           {moduleName}
         </Link>
-        {CurrentPath?.map((curr, index) => (
+        {pagePaths?.map((curr: any, index: any) => (
           <>
-            <Link
-              underline={index === 0 && CurrentPath.length > 1 ? 'hover' : 'none'}
-              color='inherit'
-              href={index === 0 && CurrentPath.length > 1 ? `/${CurrentPath[index]}` : '#'}
-            >
-              {sample && sample.length > 0 && sample[index]}
+            <Link underline={'hover'} color='inherit' href={curr.path}>
+              {/* {sample && sample.length > 0 && sample[index]} */}
+              {curr.title}
             </Link>
           </>
         ))}
       </Breadcrumbs>
-      <Typography variant='h6'>{title}</Typography>
+      <Typography
+        variant='h5'
+        sx={{
+          flexGrow: 1,
+          color: '#1B1B1B'
+        }}
+      >
+        {title.title}
+      </Typography>
     </div>
   )
 }

@@ -41,6 +41,8 @@ export default function CreateEnquiry() {
   const [count, setCount] = useState(0)
   const [isSlugValid, setIsSlugValid] = useState(true)
   const [sources, setSources] = useState<any>([])
+  const { setPagePaths } = useGlobalContext()
+
   const {
     handleSubmit,
     formState: { errors },
@@ -117,6 +119,12 @@ export default function CreateEnquiry() {
     }
   }
   useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Create Enquiry',
+        path: 'enquiry-type/create'
+      }
+    ])
     getDropDownData()
   }, [])
 
