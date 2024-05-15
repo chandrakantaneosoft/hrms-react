@@ -161,16 +161,15 @@ const VerticalNavGroup = (props: Props) => {
 
     // ** If Group is already open and clicked, close the group
     if (openGroup.includes(item.title)) {
-      openGroup.splice(openGroup.indexOf(item.title), 1)
-
-      // If clicked Group has open group children, Also remove those children to close those groups
-      if (item.children) {
-        removeChildren(item.children, openGroup, currentActiveGroup)
-      }
+      // openGroup.splice(openGroup.indexOf(item.title), 1)
+      // // If clicked Group has open group children, Also remove those children to close those groups
+      // if (item.children) {
+      //   // removeChildren(item.children, openGroup, currentActiveGroup)
+      // }
     } else if (parent) {
       // ** If Group clicked is the child of an open group, first remove all the open groups under that parent
       if (parent.children) {
-        removeChildren(parent.children, openGroup, currentActiveGroup)
+        // removeChildren(parent.children, openGroup, currentActiveGroup)
       }
 
       // ** After removing all the open groups under that parent, add the clicked group to open group array
