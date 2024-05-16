@@ -454,8 +454,9 @@ function ManageRequest() {
 
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
-    // router.push('/permanent-role/create-role')
-    setAnchorEl(event?.currentTarget)
+    router.push('/permanent-role/create-role')
+
+    // setAnchorEl(event?.currentTarget)
   }
 
   //Hanlder for dialog box in mui datagrid
@@ -486,7 +487,7 @@ function ManageRequest() {
                   ml: 3,
                   padding: '0px 10px',
                   display: 'flex',
-                  justifyContent: 'flex-end',
+                  justifyContent: { sm: 'flex-start', lg: 'flex-end' },
                   alignItems: 'center'
                 }}
               >
@@ -503,10 +504,28 @@ function ManageRequest() {
                     )
                   }}
                 />
-                <Fab size='small' sx={{ mr: 3 }}>
+                <Fab
+                  size='small'
+                  sx={{
+                    mr: 3,
+                    '@media (max-width: 910px)': {
+                      ml: 3
+                    }
+                  }}
+                >
                   <SimCardDownloadOutlinedIcon />
                 </Fab>
-                <Button variant='contained' color='inherit' sx={{ mr: 3 }} startIcon={<FilterAltIcon />}>
+                <Button
+                  variant='contained'
+                  color='inherit'
+                  sx={{
+                    mr: 3,
+                    '@media (max-width: 910px)': {
+                      ml: 3
+                    }
+                  }}
+                  startIcon={<FilterAltIcon />}
+                >
                   filter
                 </Button>
 
@@ -520,7 +539,7 @@ function ManageRequest() {
                 >
                   Create
                 </Button>
-                <Menu
+                {/* <Menu
                   id='basic-menu'
                   anchorEl={anchorEl}
                   open={open}
@@ -536,7 +555,7 @@ function ManageRequest() {
                     My account
                   </MenuItem>
                   <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Menu>
+                </Menu> */}
               </Box>
             </Grid>
             <Grid item xs={12} sx={{ marginTop: '25px' }}>

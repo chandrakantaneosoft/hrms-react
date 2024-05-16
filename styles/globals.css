@@ -70,6 +70,11 @@ code[class*='language-'] {
   padding: 0px 12px;
   border-radius: 45px;
 }
+@media screen and (max-width: 910px) {
+  .custom-textfield .MuiInputBase-root {
+    width: 100% !important;
+  }
+}
 
 /*css for sidebar*/
 .sideBar-Link {

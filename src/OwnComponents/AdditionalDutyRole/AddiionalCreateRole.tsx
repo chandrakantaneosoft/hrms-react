@@ -729,7 +729,7 @@ const AddiionalCreateRole = () => {
                 <Divider />
               </Grid>
               <Grid item xs={12} sm={12}>
-                <Typography variant='body1'>
+                <Typography variant='body2' sx={{ lineHeight: '20px', color: '#5D5FEF' }}>
                   LOBs will appear based on the selected school category
                   <br />
                   If School Category is marked as NA then LOB selection will be allowed and

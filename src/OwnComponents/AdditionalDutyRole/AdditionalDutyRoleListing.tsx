@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
-import { Button, IconButton, InputAdornment, TextField } from '@mui/material'
+import { Button, Fab, IconButton, InputAdornment, TextField } from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -18,6 +18,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
+import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
 
 // table for Lob Assigned Modal
 const columnsLobAssign: GridColDef[] = [
@@ -298,7 +299,7 @@ function AdditionalDutyRoleListing() {
                 ml: 3,
                 padding: '0px 10px',
                 display: 'flex',
-                justifyContent: 'flex-end',
+                justifyContent: { sm: 'flex-start', lg: 'flex-end' },
                 alignItems: 'center'
               }}
             >
@@ -316,7 +317,28 @@ function AdditionalDutyRoleListing() {
                 }}
               />
 
-              <Button variant='contained' color='inherit' sx={{ mr: 3 }} startIcon={<FilterAltIcon />}>
+              <Fab
+                size='small'
+                sx={{
+                  mr: 3,
+                  '@media (max-width: 910px)': {
+                    ml: 3
+                  }
+                }}
+              >
+                <SimCardDownloadOutlinedIcon />
+              </Fab>
+              <Button
+                variant='contained'
+                color='inherit'
+                sx={{
+                  mr: 3,
+                  '@media (max-width: 910px)': {
+                    ml: 3
+                  }
+                }}
+                startIcon={<FilterAltIcon />}
+              >
                 filter
               </Button>
 
