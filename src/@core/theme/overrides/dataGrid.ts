@@ -103,11 +103,13 @@ const DataGrid = () => {
           paddingRight: `${theme.spacing(5)} !important`,
           paddingLeft: `${theme.spacing(3.25)} !important`
         }),
+
         columnHeaders: ({ theme }: OwnerStateThemeType) => ({
           backgroundColor: theme.palette.customColors.tableHeaderBg,
           borderRadius: '0px'
         }),
         columnHeader: ({ theme }: OwnerStateThemeType) => ({
+          backgroundColor: theme.palette.customColors.tableHeaderBg,
           '&:not(.MuiDataGrid-columnHeaderCheckbox)': {
             paddingLeft: theme.spacing(4),
             paddingRight: theme.spacing(4),
