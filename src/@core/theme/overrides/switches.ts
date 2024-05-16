@@ -1,7 +1,6 @@
 // ** Type Import
-import { border, borderColor, color, height, margin, padding, positions, width } from '@mui/system'
+
 import { OwnerStateThemeType } from './'
-import { left } from '@popperjs/core'
 
 const Switch = () => {
   return {
