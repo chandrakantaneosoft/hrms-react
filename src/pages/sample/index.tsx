@@ -1,8 +1,10 @@
-import * as React from 'react'
-import Badge from '@mui/material/Badge'
-import Stack from '@mui/material/Stack'
-import MailIcon from '@mui/icons-material/Mail'
+import React from 'react'
+import Switch from '@mui/material/Switch'
 
-export default function ColorBadge() {
-  return <h1>Sample Page</h1>
+export default function SwitchSample() {
+  return (
+    <>
+      <Switch defaultChecked />
+    </>
+  )
 }

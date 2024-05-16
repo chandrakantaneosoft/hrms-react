@@ -153,7 +153,7 @@ const VerticalNavLink = ({
         <Divider
           style={{
             width: '70%',
-            marginTop: 'calc(100vh - 400px)',
+            marginTop: 'calc(100% + 100px)',
             marginLeft: '20px',
             borderWidth: '1px',
             borderColor: '#C6C8D2',

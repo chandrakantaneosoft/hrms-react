@@ -320,7 +320,7 @@ function ManageRequest() {
     // },
     {
       flex: 0.2,
-      minWidth: 100,
+      minWidth: 110,
       field: 'status',
       headerName: 'Status',
       renderCell: (params: GridRenderCellParams) => {
