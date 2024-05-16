@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 
-import { Button, IconButton, InputAdornment, TextField } from '@mui/material'
+import { Button, Fab, IconButton, InputAdornment, TextField } from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -19,6 +19,9 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
+import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -447,10 +450,12 @@ function ManageRequest() {
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [openPSCodeModal, setOpenPSCodeModal] = useState(false)
   const [openLobModal, setOpenLobModal] = useState(false)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
-  const handleChange = () => {
+  const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
-    router.push('/permanent-role/create-role')
+    // router.push('/permanent-role/create-role')
+    setAnchorEl(event?.currentTarget)
   }
 
   //Hanlder for dialog box in mui datagrid
@@ -458,6 +463,16 @@ function ManageRequest() {
   const handleClickClose = () => setOpenPSCodeModal(false)
   const handleOpenLob = () => setOpenLobModal(true)
   const handleCloseLob = () => setOpenLobModal(false)
+
+  //handler for Menu Collapse create role button
+  const open = Boolean(anchorEl)
+
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget)
+  // }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -488,7 +503,9 @@ function ManageRequest() {
                     )
                   }}
                 />
-
+                <Fab size='small' sx={{ mr: 3 }}>
+                  <SimCardDownloadOutlinedIcon />
+                </Fab>
                 <Button variant='contained' color='inherit' sx={{ mr: 3 }} startIcon={<FilterAltIcon />}>
                   filter
                 </Button>
@@ -496,13 +513,30 @@ function ManageRequest() {
                 <Button
                   variant='contained'
                   color='secondary'
-                  onClick={() => handleChange()}
+                  onClick={e => handleChange(e)}
                   disableFocusRipple
                   disableTouchRipple
                   startIcon={<AddIcon />}
                 >
-                  Create Role
+                  Create
                 </Button>
+                <Menu
+                  id='basic-menu'
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button'
+                  }}
+                >
+                  <MenuItem color='primary' onClick={handleClose}>
+                    Profile
+                  </MenuItem>
+                  <MenuItem color='primary' onClick={handleClose}>
+                    My account
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
               </Box>
             </Grid>
             <Grid item xs={12} sx={{ marginTop: '25px' }}>

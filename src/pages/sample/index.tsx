@@ -4,7 +4,7 @@ import Switch from '@mui/material/Switch'
 export default function SwitchSample() {
   return (
     <>
-      <Switch defaultChecked />
+      <Switch />
     </>
   )
 }

@@ -101,6 +101,7 @@ export default function TreeViewCheckbox() {
   //   };
 
   const [expanded, setExpanded] = React.useState<string | false>('panel1')
+  const [expandedItems, setExpandedItems] = React.useState<string[]>([])
   const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
     setExpanded(newExpanded ? panel : false)
   }
@@ -119,6 +120,42 @@ export default function TreeViewCheckbox() {
   //     [nodeId]: checked,
   //   }));
   // };
+
+  const handleExpandedItemsChange = (event: React.SyntheticEvent, itemIds: string[]) => {
+    setExpandedItems(itemIds)
+  }
+
+  const handleExpandClick = () => {
+    setExpandedItems(oldExpanded =>
+      oldExpanded.length === 0
+        ? [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14',
+            '15',
+            '16',
+            '17',
+            '18',
+            '19',
+            '20',
+            '21',
+            '22',
+            '23'
+          ]
+        : []
+    )
+  }
 
   // Function to handle checkbox change
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>, nodeId: string) => {
@@ -151,6 +188,16 @@ export default function TreeViewCheckbox() {
       ...prev,
       ...updatedCheckedState
     }))
+    console.log(updatedCheckedState, 'Updated check state')
+
+    for (const [key, value] of Object.entries(updatedCheckedState)) {
+      if (value === false) {
+        const item = expandedItems?.filter(curr => curr !== key.toString())
+        console.log(item, 'filter out item')
+        console.log(expandedItems, 'expanded items')
+        handleExpandedItemsChange(event, item)
+      }
+    }
   }
 
   // Function to find a node by its id in the tree data
@@ -209,17 +256,19 @@ export default function TreeViewCheckbox() {
                 expanded={expanded === 'panel1'}
                 onChange={handleChange('panel1')}
                 className='tree-vcard'
-                sx={{ boxShadow: 'none' }}
+                sx={{ boxShadow: 'none', borderBottom: '0px' }}
               >
                 <AccordionSummary aria-controls='panel1bh-content' id='panel1bh-header'>
                   <SimpleTreeView
                     aria-label='customized'
-                    defaultExpandedItems={['1']}
+                    defaultExpandedItems={[]}
                     sx={{
                       overflowX: 'hidden',
                       flexGrow: 1,
                       maxWidth: 300
                     }}
+                    expandedItems={expandedItems}
+                    onExpandedItemsChange={handleExpandClick}
                     className='header-dropdown'
                   >
                     {renderTree(treeData)}
@@ -229,7 +278,7 @@ export default function TreeViewCheckbox() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item md={3}>
+        {/* <Grid item md={3}>
           <Grid container spacing={2}>
             <Grid item md={12}>
               <Accordion
@@ -254,8 +303,8 @@ export default function TreeViewCheckbox() {
               </Accordion>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item md={3}>
+        </Grid> */}
+        {/* <Grid item md={3}>
           <Grid container spacing={2}>
             <Grid item md={12}>
               <Accordion
@@ -299,6 +348,10 @@ export default function TreeViewCheckbox() {
                       maxWidth: 300
                     }}
                     className='header-dropdown'
+
+                    // expandedItems={expandedItems}
+
+                    // onExpandedItemsChange={handleExpandedItemsChange}
                   >
                     {renderTree(treeData)}
                   </SimpleTreeView>
@@ -306,7 +359,7 @@ export default function TreeViewCheckbox() {
               </Accordion>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   )

@@ -62,7 +62,8 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       sliderLabelColor: '#302F39',
       sliderLabelTextColor: '#F2EFFB',
       datepickerText: '#464555',
-      primarySuperLight: '#3F41D114'
+      primarySuperLight: '#3F41D114',
+      menuItemTextColor: '#434343'
     },
     mode: mode,
     common: {

@@ -41,7 +41,8 @@ declare module '@mui/material/styles' {
       sliderLabelColor: string
       sliderLabelTextColor: string
       datepickerText: string
-      primarySuperLight?: string
+      primarySuperLight: string
+      menuItemTextColor: string
     }
   }
   interface PaletteOptions {
@@ -87,6 +88,7 @@ declare module '@mui/material/styles' {
       sliderLabelTextColor?: string
       datepickerText?: string
       primarySuperLight?: string
+      menuItemTextColor?: string
     }
   }
 }
