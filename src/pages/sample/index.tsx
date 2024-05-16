@@ -1,12 +1,17 @@
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import * as React from 'react'
+import Badge from '@mui/material/Badge'
+import Stack from '@mui/material/Stack'
+import MailIcon from '@mui/icons-material/Mail'
 
-export default function BasicDatePicker() {
+export default function ColorBadge() {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker label='Basic date picker' />
-    </LocalizationProvider>
+    <Stack spacing={2} direction='row'>
+      <Badge badgeContent={4} color='secondary'>
+        <MailIcon color='action' />
+      </Badge>
+      <Badge variant='dot' color='secondary'>
+        <MailIcon color='action' />
+      </Badge>
+    </Stack>
   )
 }

@@ -125,191 +125,191 @@ const input = () => {
           }
         })
       }
-    },
-
-    MuiRadio: {
-      styleOverrides: {
-        root: ({ theme }: OwnerStateThemeType) => ({
-          color: theme.palette.customColors.mainText,
-          '&:hover': {
-            backgroundColor: theme.palette.customColors.disabled
-          },
-          '&.Mui-disabled': {
-            color: theme.palette.customColors.disable
-          },
-          '&.MuiRadio-colorPrimary': {
-            color: theme.palette.primary.main,
-            '&:hover': {
-              backgroundColor: theme.palette.customColors.primaryLightest
-            },
-            '&.Mui-disabled': {
-              color: theme.palette.customColors.disable
-            }
-          },
-          '&.MuiRadio-colorSecondary': {
-            color: theme.palette.secondary.main,
-            '&:hover': {
-              backgroundColor: theme.palette.customColors.disabled
-            },
-            '&.Mui-disabled': {
-              color: theme.palette.customColors.disable
-            }
-          }
-        })
-      }
-    },
-    MuiCheckbox: {
-      styleOverrides: {
-        root: ({ theme }: OwnerStateThemeType) => ({
-          borderRadius: '2px',
-          color: theme.palette.customColors.chipBorder,
-          '&:hover': {
-            backgroundColor: theme.palette.customColors.disabled,
-            borderRadius: '100%'
-          },
-          '&.Mui-disabled': {
-            color: theme.palette.customColors.chipBorder
-          },
-          '&.Mui-disabled.Mui-checked': {
-            color: theme.palette.customColors.chipBorder
-          },
-          '&.MuiCheckbox-indeterminate': {
-            color: theme.palette.customColors.chipBorder
-          },
-          '&.MuiCheckbox-colorDefault': {
-            color: theme.palette.customColors.chipBorder,
-            '&:hover': {
-              backgroundColor: theme.palette.customColors.disabled,
-              borderRadius: '100%'
-            },
-            '&.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.Mui-disabled': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.Mui-disabled.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.MuiCheckbox-indeterminate.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            }
-          },
-          '&.MuiCheckbox-colorPrimary': {
-            color: theme.palette.primary.main,
-            '&:hover': {
-              backgroundColor: theme.palette.customColors.primaryLightest,
-              borderRadius: '100%'
-            },
-            '&.Mui-checked': {
-              color: theme.palette.primary.main
-            },
-            '&.Mui-disabled': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.Mui-disabled.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.MuiCheckbox-indeterminate.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.MuiCheckbox-indeterminate': {
-              color: theme.palette.customColors.chipBorder
-            }
-          },
-          '&.MuiCheckbox-colorSecondary': {
-            color: theme.palette.secondary.main,
-            '&:hover': {
-              backgroundColor: theme.palette.customColors.primaryLightest,
-              borderRadius: '100%'
-            },
-            '&.Mui-checked': {
-              color: theme.palette.secondary.main
-            },
-            '&.Mui-disabled': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.Mui-disabled.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.MuiCheckbox-indeterminate.Mui-checked': {
-              color: theme.palette.customColors.chipBorder
-            },
-            '&.MuiCheckbox-indeterminate': {
-              color: theme.palette.customColors.chipBorder
-            }
-          }
-        })
-      }
-    },
-    MuiBadge: {
-      styleOverrides: {
-        badge: ({ theme }: OwnerStateThemeType) => ({
-          fontSize: '11px',
-          lineHeight: '16px',
-          fontWeight: 500,
-          boxShadow: '0px !important',
-          backgroundColor: 'transperent',
-          '&.MuiBadge-dot': {
-            width: '6px',
-            height: '6px',
-            minWidth: '6px',
-            borderRadius: '50px',
-            backgroundColor: theme.palette.customColors.badgeColorDefault,
-            color: theme.palette.common.white,
-            '&.MuiBadge-colorPrimary': {
-              backgroundColor: theme.palette.primary.dark,
-              color: theme.palette.common.white
-            },
-            '&.MuiBadge-colorSecondary': {
-              backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.common.white
-            },
-            '&.MuiBadge-colorInfo': {
-              backgroundColor: theme.palette.info.main,
-              color: theme.palette.common.white
-            },
-            '&.MuiBadge-colorSuccess': {
-              backgroundColor: theme.palette.success.main,
-              color: theme.palette.success.dark
-            },
-            '&.MuiBadge-colorError': {
-              backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.common.white
-            }
-          },
-          '&.MuiBadge-standard': {
-            width: '18px',
-            height: '18px',
-            minWidth: '18px',
-            borderRadius: '50px',
-            padding: '0px 4px',
-            backgroundColor: theme.palette.customColors.badgeColorDefault,
-            color: theme.palette.common.white,
-            '&.MuiBadge-colorPrimary': {
-              backgroundColor: theme.palette.primary.dark,
-              color: theme.palette.common.white
-            },
-            '&.MuiBadge-colorSecondary': {
-              backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.common.white
-            },
-            '&.MuiBadge-colorInfo': {
-              backgroundColor: theme.palette.info.main,
-              color: theme.palette.common.white
-            },
-            '&.MuiBadge-colorSuccess': {
-              backgroundColor: theme.palette.success.main,
-              color: theme.palette.success.dark
-            },
-            '&.MuiBadge-colorError': {
-              backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.common.white
-            }
-          }
-        })
-      }
     }
+
+    // MuiRadio: {
+    //   styleOverrides: {
+    //     root: ({ theme }: OwnerStateThemeType) => ({
+    //       color: theme.palette.customColors.mainText,
+    //       '&:hover': {
+    //         backgroundColor: theme.palette.customColors.disabled
+    //       },
+    //       '&.Mui-disabled': {
+    //         color: theme.palette.customColors.disable
+    //       },
+    //       '&.MuiRadio-colorPrimary': {
+    //         color: theme.palette.primary.main,
+    //         '&:hover': {
+    //           backgroundColor: theme.palette.customColors.primaryLightest
+    //         },
+    //         '&.Mui-disabled': {
+    //           color: theme.palette.customColors.disable
+    //         }
+    //       },
+    //       '&.MuiRadio-colorSecondary': {
+    //         color: theme.palette.secondary.main,
+    //         '&:hover': {
+    //           backgroundColor: theme.palette.customColors.disabled
+    //         },
+    //         '&.Mui-disabled': {
+    //           color: theme.palette.customColors.disable
+    //         }
+    //       }
+    //     })
+    //   }
+    // },
+    // MuiCheckbox: {
+    //   styleOverrides: {
+    //     root: ({ theme }: OwnerStateThemeType) => ({
+    //       borderRadius: '2px',
+    //       color: theme.palette.customColors.chipBorder,
+    //       '&:hover': {
+    //         backgroundColor: theme.palette.customColors.disabled,
+    //         borderRadius: '100%'
+    //       },
+    //       '&.Mui-disabled': {
+    //         color: theme.palette.customColors.chipBorder
+    //       },
+    //       '&.Mui-disabled.Mui-checked': {
+    //         color: theme.palette.customColors.chipBorder
+    //       },
+    //       '&.MuiCheckbox-indeterminate': {
+    //         color: theme.palette.customColors.chipBorder
+    //       },
+    //       '&.MuiCheckbox-colorDefault': {
+    //         color: theme.palette.customColors.chipBorder,
+    //         '&:hover': {
+    //           backgroundColor: theme.palette.customColors.disabled,
+    //           borderRadius: '100%'
+    //         },
+    //         '&.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.Mui-disabled': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.Mui-disabled.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.MuiCheckbox-indeterminate.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         }
+    //       },
+    //       '&.MuiCheckbox-colorPrimary': {
+    //         color: theme.palette.primary.main,
+    //         '&:hover': {
+    //           backgroundColor: theme.palette.customColors.primaryLightest,
+    //           borderRadius: '100%'
+    //         },
+    //         '&.Mui-checked': {
+    //           color: theme.palette.primary.main
+    //         },
+    //         '&.Mui-disabled': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.Mui-disabled.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.MuiCheckbox-indeterminate.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.MuiCheckbox-indeterminate': {
+    //           color: theme.palette.customColors.chipBorder
+    //         }
+    //       },
+    //       '&.MuiCheckbox-colorSecondary': {
+    //         color: theme.palette.secondary.main,
+    //         '&:hover': {
+    //           backgroundColor: theme.palette.customColors.primaryLightest,
+    //           borderRadius: '100%'
+    //         },
+    //         '&.Mui-checked': {
+    //           color: theme.palette.secondary.main
+    //         },
+    //         '&.Mui-disabled': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.Mui-disabled.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.MuiCheckbox-indeterminate.Mui-checked': {
+    //           color: theme.palette.customColors.chipBorder
+    //         },
+    //         '&.MuiCheckbox-indeterminate': {
+    //           color: theme.palette.customColors.chipBorder
+    //         }
+    //       }
+    //     })
+    //   }
+    // },
+    // MuiBadge: {
+    //   styleOverrides: {
+    //     badge: ({ theme }: OwnerStateThemeType) => ({
+    //       fontSize: '11px',
+    //       lineHeight: '16px',
+    //       fontWeight: 500,
+    //       boxShadow: '0px !important',
+    //       backgroundColor: 'transperent',
+    //       '&.MuiBadge-dot': {
+    //         width: '6px',
+    //         height: '6px',
+    //         minWidth: '6px',
+    //         borderRadius: '50px',
+    //         backgroundColor: theme.palette.customColors.badgeColorDefault,
+    //         color: theme.palette.common.white,
+    //         '&.MuiBadge-colorPrimary': {
+    //           backgroundColor: theme.palette.primary.dark,
+    //           color: theme.palette.common.white
+    //         },
+    //         '&.MuiBadge-colorSecondary': {
+    //           backgroundColor: theme.palette.secondary.main,
+    //           color: theme.palette.common.white
+    //         },
+    //         '&.MuiBadge-colorInfo': {
+    //           backgroundColor: theme.palette.info.main,
+    //           color: theme.palette.common.white
+    //         },
+    //         '&.MuiBadge-colorSuccess': {
+    //           backgroundColor: theme.palette.success.main,
+    //           color: theme.palette.success.dark
+    //         },
+    //         '&.MuiBadge-colorError': {
+    //           backgroundColor: theme.palette.secondary.main,
+    //           color: theme.palette.common.white
+    //         }
+    //       },
+    //       '&.MuiBadge-standard': {
+    //         width: '18px',
+    //         height: '18px',
+    //         minWidth: '18px',
+    //         borderRadius: '50px',
+    //         padding: '0px 4px',
+    //         backgroundColor: theme.palette.customColors.badgeColorDefault,
+    //         color: theme.palette.common.white,
+    //         '&.MuiBadge-colorPrimary': {
+    //           backgroundColor: theme.palette.primary.dark,
+    //           color: theme.palette.common.white
+    //         },
+    //         '&.MuiBadge-colorSecondary': {
+    //           backgroundColor: theme.palette.secondary.main,
+    //           color: theme.palette.common.white
+    //         },
+    //         '&.MuiBadge-colorInfo': {
+    //           backgroundColor: theme.palette.info.main,
+    //           color: theme.palette.common.white
+    //         },
+    //         '&.MuiBadge-colorSuccess': {
+    //           backgroundColor: theme.palette.success.main,
+    //           color: theme.palette.success.dark
+    //         },
+    //         '&.MuiBadge-colorError': {
+    //           backgroundColor: theme.palette.secondary.main,
+    //           color: theme.palette.common.white
+    //         }
+    //       }
+    //     })
+    //   }
+    // }
   }
 }
 

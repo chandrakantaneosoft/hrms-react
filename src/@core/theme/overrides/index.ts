@@ -43,6 +43,12 @@ import MuiBreadcrumb from './breadcrumbs'
 import MuiButtonGroup from './buttonGroup'
 import MuiAutocomplete from './autocomplete'
 import MuiToggleButton from './toggleButton'
+import MuiSlider from './slider'
+import MuiPickersLayout from './datepicker'
+import MuiStepper from './stepper'
+import MuiRadio from './radio'
+import MuiCheckbox from './checkbox'
+import MuiBadge from './badge'
 
 const Overrides = (settings: Settings) => {
   const { skin, mode } = settings
@@ -73,6 +79,12 @@ const Overrides = (settings: Settings) => {
   const snackbar = MuiSnackbar(skin)
   const pagination = MuiPagination()
   const autocomplete = MuiAutocomplete(skin)
+  const slider = MuiSlider()
+  const datepicker = MuiPickersLayout()
+  const stepper = MuiStepper()
+  const radio = MuiRadio()
+  const checkbox = MuiCheckbox()
+  const badge = MuiBadge()
 
   return Object.assign(
     fab,
@@ -83,6 +95,12 @@ const Overrides = (settings: Settings) => {
     cards,
     input,
     select,
+    slider,
+    datepicker,
+    stepper,
+    radio,
+    checkbox,
+    badge,
     alerts,
     button,
     dialog,
