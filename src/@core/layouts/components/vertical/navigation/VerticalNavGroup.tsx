@@ -1,5 +1,5 @@
 // ** React Imports
-import { useEffect, Fragment } from 'react'
+import { useEffect, Fragment, ElementType } from 'react'
 
 // ** Next Import
 import { useRouter } from 'next/router'
@@ -12,7 +12,7 @@ import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import Box, { BoxProps } from '@mui/material/Box'
 import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemButton from '@mui/material/ListItemButton'
+import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton'
 
 // ** Third Party Imports
 import clsx from 'clsx'
@@ -61,6 +61,74 @@ const MenuItemTextWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   justifyContent: 'space-between',
   transition: 'opacity .25s ease-in-out',
   ...(themeConfig.menuTextTruncate && { overflow: 'hidden' })
+}))
+
+//styles for nav group
+// ** Styled Components
+const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: ElementType }>(({ theme }) => ({
+  width: '100%',
+  borderRadius: 8,
+  transition: 'padding-left .25s ease-in-out',
+  backgroundColor: theme.palette.common.white,
+
+  '&.Mui-selected': {
+    backgroundColor: 'transparent !important',
+    '& .MuiListItemIcon-root': {
+      width: '56px',
+      height: '32px',
+      borderRadius: '100px',
+      backgroundColor: 'blue',
+      display: 'flex',
+      justifyContent: 'center',
+      paddingTop: '2px',
+      marginLeft: '5px',
+      color: `${theme.palette.common.white} !important`,
+      '& .MuiTypography-root': {
+        fontSize: '14px !important',
+        fontWeight: 500,
+        lineHeight: '21px',
+        textAlign: 'center',
+
+        color: theme.palette.primary.main
+      },
+      '&.Mui-focusVisible': {
+        backgroundColor: theme.palette.primary.main
+      }
+    }
+  },
+
+  '&:hover': {
+    backgroundColor: theme.palette.common.white,
+    '& .MuiListItemIcon-root': {
+      backgroundColor: theme.palette.grey[500],
+
+      color: theme.palette.common.white
+    },
+    '& .MuiTypography-root': {
+      fontSize: '14px !important',
+      fontWeight: 500,
+      lineHeight: '21px',
+      textAlign: 'center',
+      color: `${theme.palette.grey[500]} !important`
+    }
+  },
+  '& .MuiTypography-root': {
+    fontSize: '14px !important',
+    fontWeight: 500,
+    lineHeight: '21px',
+    textAlign: 'center',
+    color: `${theme.palette.grey[600]} `
+  },
+  '& .MuiListItemIcon-root': {
+    color: `${theme.palette.grey[600]} !important`,
+    width: '56px',
+    height: '32px',
+    borderRadius: '100px',
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: '2px',
+    marginLeft: '5px'
+  }
 }))
 
 const VerticalNavGroup = (props: Props) => {
@@ -207,7 +275,7 @@ const VerticalNavGroup = (props: Props) => {
                   : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
             }}
           >
-            <ListItemButton
+            <MenuNavLink
               style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
               onClick={() => handleDialog()}
               className={clsx({
@@ -284,7 +352,7 @@ const VerticalNavGroup = (props: Props) => {
                 </Box>
                 {/* <Icon icon={direction === 'ltr' ? 'mdi:chevron-right' : 'mdi:chevron-left'} /> */}
               </MenuItemTextWrapper>
-            </ListItemButton>
+            </MenuNavLink>
             {/* <Collapse
             component='ul'
             onClick={e => e.stopPropagation()}

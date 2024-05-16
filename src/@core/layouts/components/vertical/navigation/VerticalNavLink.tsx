@@ -50,6 +50,7 @@ const MenuNavLink = styled(ListItemButton)<
   borderRadius: 8,
   transition: 'padding-left .25s ease-in-out',
   backgroundColor: theme.palette.common.white,
+
   '&.active': {
     '& .MuiListItemIcon-root': {
       width: '56px',
@@ -62,8 +63,12 @@ const MenuNavLink = styled(ListItemButton)<
       color: `${theme.palette.common.white} !important`
     },
     '& .MuiTypography-root': {
+      fontSize: '14px !important',
       fontWeight: 500,
-      color: 'blue !important'
+      lineHeight: '21px',
+      textAlign: 'center',
+
+      color: theme.palette.primary.main
     },
     '&.Mui-focusVisible': {
       backgroundColor: theme.palette.primary.main
@@ -77,12 +82,18 @@ const MenuNavLink = styled(ListItemButton)<
       color: theme.palette.common.white
     },
     '& .MuiTypography-root': {
+      fontSize: '14px !important',
       fontWeight: 500,
+      lineHeight: '21px',
+      textAlign: 'center',
       color: `${theme.palette.grey[500]} !important`
     }
   },
   '& .MuiTypography-root': {
+    fontSize: '14px !important',
     fontWeight: 500,
+    lineHeight: '21px',
+    textAlign: 'center',
     color: `${theme.palette.grey[600]} `
   },
   '& .MuiListItemIcon-root': {
@@ -92,7 +103,8 @@ const MenuNavLink = styled(ListItemButton)<
     borderRadius: '100px',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: '2px'
+    paddingTop: '2px',
+    marginLeft: '5px'
   }
 }))
 
