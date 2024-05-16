@@ -77,7 +77,7 @@ code[class*='language-'] {
 }
 .sideBar-Link .sidebarHeading {
   width: '80% ' !important;
-  padding: 18px 16px;
+  padding: 10px 16px;
   border-radius: 45px;
   background-color: #ebebfa !important;
   color: #3635c9 !important;
@@ -87,8 +87,27 @@ code[class*='language-'] {
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root {
   background-color: transparent !important;
-  padding: 18px 16px;
+  padding: 10px 16px;
   transition: all 0.5s;
+  align-items: flex-start;
+}
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiBox-root {
+  justify-content: flex-start !important;
+}
+.sideBar-Link .MuiButtonBase-root-MuiListItemButton-root .MuiTypography-root {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  letter-spacing: 0.1 !important;
+  color: #535252 !important;
+  text-align: left !important;
+}
+
+.sideBar-Link .MuiButtonBase-root-MuiListItemButton-root .MuiTypography-root::before {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 100px !important;
+  background-color: red !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiListItemIcon-root {
   display: none;
@@ -96,14 +115,14 @@ code[class*='language-'] {
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root:hover {
   background-color: #e1e1e1 !important;
-  padding: 18px 16px;
+  padding: 10px 16px;
   border-radius: 45px;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active {
   background-color: transparent !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active .MuiTypography-root {
-  color: blue !important;
+  color: #3635c9 !important;
 }
 
 /*Bredcrumb button*/

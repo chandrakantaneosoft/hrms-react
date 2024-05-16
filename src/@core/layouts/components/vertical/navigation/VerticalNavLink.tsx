@@ -96,6 +96,7 @@ const MenuNavLink = styled(ListItemButton)<
     textAlign: 'center',
     color: `${theme.palette.grey[600]} `
   },
+
   '& .MuiListItemIcon-root': {
     color: `${theme.palette.grey[600]} !important`,
     width: '56px',
