@@ -18,9 +18,11 @@ const Page: React.FC = () => {
   const session = useSession()
 
   const handleSignout = async () => {
-    if (session) {
+    if (session?.data) {
       console.log(session.data, 'session>>')
       await logoutUser(session)
+    } else {
+      window.location.href = '/signout'
     }
   }
 

@@ -63,11 +63,12 @@ const LoginPage = () => {
   console.log(process.env.NODE_ENV)
 
   const logintoDashboard = () => {
-    if (process.env.NODE_ENV === 'development') {
-      window.location.href = '/dashboard'
-    } else {
-      signIn('keycloak')
-    }
+    signIn('keycloak')
+    // if (process.env.NODE_ENV === 'development') {
+    //   window.location.href = '/dashboard'
+    // } else {
+    //   signIn('keycloak')
+    // }
   }
 
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'

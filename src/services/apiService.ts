@@ -54,10 +54,10 @@ const handleResponseError = (error: any) => {
     // throw new Error('Unauthorized')
   } else if (error?.response?.status === 500) {
     // alert(JSON.stringify(response))
-    toast.error('there is erro in api with response')
+    toast.error('There Is An Internal Error')
   } else {
     // For other status codes, throw an error
-    toast.error('there is erro in api with response')
+    toast.error('There Is An Internal Error')
   }
 
   if (error?.response?.data) {
@@ -84,6 +84,7 @@ async function httpRequest(
 
   try {
     const url = serviceURL ? serviceURLList[serviceURL] + endpoint : axiosInstance.defaults.baseURL + endpoint
+    console.log('url' + '>>>>' + url)
     const config: AxiosRequestConfig = {
       method: method,
       url: url,
@@ -103,6 +104,8 @@ async function httpRequest(
 }
 
 export const postRequest = async (params: any) => {
+  console.log('post intita')
+  console.log(params)
   return httpRequest('POST', `${params.url}`, params?.data, params.headers, null, params?.serviceURL)
 }
 
