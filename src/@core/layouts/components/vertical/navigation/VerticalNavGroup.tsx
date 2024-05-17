@@ -300,7 +300,7 @@ const VerticalNavGroup = (props: Props) => {
           >
             <MenuNavLink
               style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
-              onClick={() => handleDialog()}
+              onMouseEnter={() => handleDialog()}
               className={clsx({
                 'Mui-selected': groupActive.includes(item.title) || currentActiveGroup.includes(item.title)
               })}

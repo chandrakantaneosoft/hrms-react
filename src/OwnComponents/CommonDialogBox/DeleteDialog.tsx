@@ -29,12 +29,12 @@ function DeleteDialog({ openModal, closeModal, handleSubmitClose }: customModal)
           <DialogTitle sx={{ color: '#313030', lineHeight: '16px' }} id='customized-dialog-title'>
             Delete Role
           </DialogTitle>
-          <IconButton disableFocusRipple disableRipple onClick={closeModal}>
-            {/* <UserIcon icon='mdi:close-circle-outline' /> */}
+          {/* <IconButton disableFocusRipple disableRipple onClick={closeModal}>
+          
             <HighlightOffIcon />
-          </IconButton>
+          </IconButton> */}
         </Box>
-        <DialogContent dividers>
+        <DialogContent>
           <Typography sx={{ color: '#313030', lineHeight: '20px' }} variant='body2'>
             Are You Sure You Want To Delete This Role?
           </Typography>
