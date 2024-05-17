@@ -1,5 +1,6 @@
 // ** Type Import
 
+import { borderRadius, padding } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const DataGrid = () => {
@@ -14,7 +15,7 @@ const DataGrid = () => {
             outline: 'none'
           },
           '& .MuiDataGrid-columnHeader': {
-            backgroundColor: theme.palette.customColors.tableHeaderBg,
+            backgroundColor: '#F5F5F7',
             '& .MuiDataGrid-columnHeaderTitleContainer': {
               '& .MuiDataGrid-columnHeaderTitleContainerContent': {
                 '& .MuiDataGrid-columnHeaderTitle': {
@@ -105,11 +106,11 @@ const DataGrid = () => {
         }),
 
         columnHeaders: ({ theme }: OwnerStateThemeType) => ({
-          backgroundColor: theme.palette.customColors.tableHeaderBg,
+          backgroundColor: '#F5F5F7',
           borderRadius: '0px'
         }),
         columnHeader: ({ theme }: OwnerStateThemeType) => ({
-          backgroundColor: theme.palette.customColors.tableHeaderBg,
+          backgroundColor: '#F5F5F7',
           '&:not(.MuiDataGrid-columnHeaderCheckbox)': {
             paddingLeft: theme.spacing(4),
             paddingRight: theme.spacing(4),
@@ -198,7 +199,7 @@ const DataGrid = () => {
                   marginRight: '62% !important'
                 },
                 '& .MuiSvgIcon-root': {
-                  color: theme.palette.customColors.title
+                  color: theme.palette.customColors.mainText
                 }
               },
               '& .MuiTablePagination-displayedRows': {
@@ -215,6 +216,8 @@ const DataGrid = () => {
                   color: theme.palette.customColors.title
                 },
                 '& .MuiPaginationItem-root.Mui-selected': {
+                  borderRadius: '4px',
+                  padding: '0px 8px',
                   color: theme.palette.common.white,
                   backgroundColor: theme.palette.primary.dark
                 }

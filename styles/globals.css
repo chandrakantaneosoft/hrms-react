@@ -56,6 +56,12 @@ code[class*='language-'] {
 .layout-page-content {
   min-width: 100%;
 }
+.layout-footer {
+  background-color: #f3f0f0;
+  padding: '16px 0px';
+  border-top: 0px;
+  outline: 0px;
+}
 
 /* .dataTable .MuiInputBase-root-MuiTablePagination-select {
   margin-right: 62% !important;
@@ -85,8 +91,9 @@ code[class*='language-'] {
   padding: 10px 16px;
   border-radius: 45px;
   background-color: #ebebfa !important;
-  color: #3635c9 !important;
+  color: #3f41d1 !important;
   font-size: 16px !important;
+  font-weight: 500 !important;
   line-height: 24px !important;
   letter-spacing: 0.15 !important;
 }
@@ -99,7 +106,7 @@ code[class*='language-'] {
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiBox-root {
   justify-content: flex-start !important;
 }
-.sideBar-Link .MuiButtonBase-root-MuiListItemButton-root .MuiTypography-root {
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiTypography-root {
   font-size: 14px !important;
   font-weight: 500 !important;
   line-height: 20px !important;
@@ -112,7 +119,7 @@ code[class*='language-'] {
   width: 20px !important;
   height: 20px !important;
   border-radius: 100px !important;
-  background-color: #3635c9 !important;
+  background-color: #3f41d1 !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiListItemIcon-root,
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active:hover .MuiListItemIcon-root {
@@ -120,15 +127,20 @@ code[class*='language-'] {
   height: 0px !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root:hover {
-  background-color: #e1e1e1 !important;
+  background-color: #ebebfa !important;
   padding: 10px 16px;
   border-radius: 45px;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active {
   background-color: transparent !important;
 }
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active:hover {
+  background-color: #ebebfa !important;
+  padding: 10px 16px;
+  border-radius: 45px;
+}
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active .MuiTypography-root {
-  color: #3635c9 !important;
+  color: #3f41d1 !important;
 }
 
 /*Bredcrumb button*/

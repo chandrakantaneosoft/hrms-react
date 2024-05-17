@@ -18,7 +18,8 @@ const Button = () => {
           lineHeight: '21px',
           padding: '10px 24px',
           letterSpacing: 0.1,
-          minWidth: '86px'
+          minWidth: '86px',
+          textTransform: 'capitalize'
         }),
 
         contained: ({ theme }: OwnerStateThemeType) => ({
@@ -211,10 +212,11 @@ const Button = () => {
     MuiIconButton: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          width: '40px',
-          height: '40px',
+          width: '48px',
+          height: '48px',
+          color: theme.palette.customColors.inactive,
           '&.contained': {
-            backgroundColor: theme.palette.grey[50],
+            backgroundColor: theme.palette.customColors.chipTonalBackground,
             color: theme.palette.customColors.mainText
           },
           '&.contained.MuiIconButton-colorPrimary': {

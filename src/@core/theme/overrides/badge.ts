@@ -1,4 +1,5 @@
 // ** Type Import
+import { letterSpacing } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const badge = () => {
@@ -9,6 +10,7 @@ const badge = () => {
           fontSize: '11px',
           lineHeight: '16px',
           fontWeight: 500,
+          letterSpacing: '0.5px',
           boxShadow: '0px !important',
           backgroundColor: 'transperent',
           '&.MuiBadge-dot': {
@@ -36,13 +38,17 @@ const badge = () => {
             },
             '&.MuiBadge-colorError': {
               backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.common.white
+              color: theme.palette.customColors.title
             }
           },
           '&.MuiBadge-standard': {
-            width: '18px',
-            height: '18px',
-            minWidth: '18px',
+            fontSize: '11px',
+            lineHeight: '16px',
+            fontWeight: 500,
+            letterSpacing: '0.5px',
+            width: '16px',
+            height: '16px',
+            minWidth: '16px',
             borderRadius: '50px',
             padding: '0px 4px',
             backgroundColor: theme.palette.customColors.badgeColorDefault,
@@ -65,7 +71,7 @@ const badge = () => {
             },
             '&.MuiBadge-colorError': {
               backgroundColor: theme.palette.secondary.main,
-              color: theme.palette.common.white
+              color: theme.palette.customColors.title
             }
           }
         })

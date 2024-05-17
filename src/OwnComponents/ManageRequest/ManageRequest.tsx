@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 
-import { Button, Fab, IconButton, InputAdornment, TextField } from '@mui/material'
+import { Button, Fab, IconButton, InputAdornment, TextField, Tooltip } from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -539,17 +539,20 @@ function ManageRequest() {
                     )
                   }}
                 />
-                <Fab
-                  size='small'
-                  sx={{
-                    mr: 3,
-                    '@media (max-width: 910px)': {
-                      ml: 3
-                    }
-                  }}
-                >
-                  <SimCardDownloadOutlinedIcon />
-                </Fab>
+                <Tooltip title='Download Role List'>
+                  <Fab
+                    size='small'
+                    sx={{
+                      zIndex: 1,
+                      mr: 3,
+                      '@media (max-width: 910px)': {
+                        ml: 3
+                      }
+                    }}
+                  >
+                    <SimCardDownloadOutlinedIcon />
+                  </Fab>
+                </Tooltip>
                 <Button
                   variant='contained'
                   color='inherit'

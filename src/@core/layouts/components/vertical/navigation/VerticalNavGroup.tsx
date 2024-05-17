@@ -89,10 +89,10 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
         lineHeight: '21px',
         textAlign: 'center',
 
-        color: theme.palette.primary.main
+        color: theme.palette.primary.dark
       },
       '&.Mui-focusVisible': {
-        backgroundColor: theme.palette.primary.main
+        backgroundColor: theme.palette.primary.dark
       }
     },
     '&:hover': {
@@ -124,16 +124,16 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
   '&:hover': {
     backgroundColor: theme.palette.common.white,
     '& .MuiListItemIcon-root': {
-      backgroundColor: theme.palette.grey[500],
+      backgroundColor: theme.palette.grey[50],
 
-      color: theme.palette.customColors.datepickerText
+      color: theme.palette.customColors.mainText
     },
     '& .MuiTypography-root': {
       fontSize: '14px !important',
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
-      color: `${theme.palette.customColors.datepickerText} !important`
+      color: `${theme.palette.customColors.mainText} !important`
     }
   },
   '& .MuiTypography-root': {
@@ -141,10 +141,10 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
     fontWeight: 500,
     lineHeight: '21px',
     textAlign: 'center',
-    color: `${theme.palette.customColors.datepickerText} `
+    color: `${theme.palette.customColors.mainText} `
   },
   '& .MuiListItemIcon-root': {
-    color: `${theme.palette.customColors.datepickerText} !important`,
+    color: `${theme.palette.customColors.mainText} !important`,
     width: '56px',
     height: '32px',
     borderRadius: '100px',

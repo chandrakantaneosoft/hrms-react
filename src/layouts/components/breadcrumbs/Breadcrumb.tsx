@@ -66,7 +66,9 @@ function Breadcrumb({ currentPath }: Bread) {
           </>
         ))}
       </Breadcrumbs>
-      <Typography variant='h6'>{title.title}</Typography>
+      <Typography variant='h6' sx={{ color: '#111111', lineHeight: '30px' }}>
+        {title.title}
+      </Typography>
     </div>
   )
 }

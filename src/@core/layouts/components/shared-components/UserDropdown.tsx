@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 // ** Context
 import { useAuth } from 'src/hooks/useAuth'
@@ -87,16 +88,26 @@ const UserDropdown = (props: Props) => {
       <Box onClick={handleDropdownOpen} sx={{ ml: 2, cursor: 'pointer' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
           <Avatar
+            className='secondary'
             alt='John Doe'
             onClick={handleDropdownOpen}
             sx={{ width: 56, height: 56, borderRadius: '16px' }}
-            src='/images/avatars/1.png'
-          />
+
+            // src='/images/avatars/1.png'
+          >
+            <Typography variant='h6' color='#310000'>
+              SS
+            </Typography>
+          </Avatar>
           <Box sx={{ marginLeft: '10px', marginRight: '5px' }}>
-            <Typography variant='h6'>Hi, Senafu Sen</Typography>
-            <Typography variant='body1'>CEO | Founder</Typography>
+            <Typography variant='subtitle1' sx={{ fontWeight: 500, color: '#151D48', lineHeight: '24px' }}>
+              Hi, Senafu Sen
+            </Typography>
+            <Typography variant='body2' sx={{ lineHeight: '20px', color: '#737791' }}>
+              CEO | Founder
+            </Typography>
           </Box>
-          <UserIcon icon='mdi:chevron-down' />
+          <ExpandMoreIcon sx={{ color: '#292D32', marginTop: '-20px' }} />
         </Box>
       </Box>
       <Menu
