@@ -122,8 +122,11 @@ const App = (props: ExtendedAppProps) => {
 
   useEffect(() => {
     console.log('effect')
-    if (props.pageProps.session?.user) {
-      localStorage.setItem('token', props.pageProps.cookies?.['next-auth.session-token'])
+    if (props.pageProps.session?.accessToken) {
+      localStorage.setItem('token', props.pageProps.session?.accessToken)
+      localStorage.setItem('refreshToken', props.pageProps.session?.refreshToken)
+      localStorage.setItem('idToken', props.pageProps.session?.idToken)
+
       localStorage.setItem('userDetails', JSON.stringify(props.pageProps.session?.user))
       setAuthGuard(true)
       setguestGuard(false)
