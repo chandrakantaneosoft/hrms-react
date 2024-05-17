@@ -108,13 +108,14 @@ code[class*='language-'] {
   text-align: left !important;
 }
 
-.sideBar-Link .MuiButtonBase-root-MuiListItemButton-root .MuiTypography-root::before {
+.sideBar-Link .MuiButtonBase-root-MuiListItemButton-root::before {
   width: 20px !important;
   height: 20px !important;
   border-radius: 100px !important;
-  background-color: red !important;
+  background-color: #3635c9 !important;
 }
-.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiListItemIcon-root {
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiListItemIcon-root,
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active:hover .MuiListItemIcon-root {
   display: none;
   height: 0px !important;
 }

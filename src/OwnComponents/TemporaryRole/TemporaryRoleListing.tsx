@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 import { Button, Fab, IconButton, InputAdornment, TextField } from '@mui/material'
@@ -18,6 +18,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 // table for Lob Assigned Modal
 // table for Lob Assigned Modal
@@ -412,6 +413,8 @@ function TemporaryRoleListing() {
   const [data] = useState(rows)
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [userAssign, setUserAssign] = useState(false)
+  const { setPagePaths } = useGlobalContext()
+
   const handleChange = () => {
     // handleRoleDialog(true)
     router.push('/temporary-role-listing/create-new-temporary-role')
@@ -421,6 +424,16 @@ function TemporaryRoleListing() {
 
   const handleUserAssign = () => setUserAssign(true)
   const handleCloseUserAssign = () => setUserAssign(false)
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Temporary Role',
+        path: '/temporary-role-listing'
+      }
+    ])
+  }, [])
 
   return (
     <>
@@ -496,7 +509,7 @@ function TemporaryRoleListing() {
                 disableTouchRipple
                 startIcon={<AddIcon />}
               >
-                Create Temporary Role
+                Create
               </Button>
             </Box>
           </Grid>

@@ -94,6 +94,30 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       '&.Mui-focusVisible': {
         backgroundColor: theme.palette.primary.main
       }
+    },
+    '&:hover': {
+      '& .MuiListItemIcon-root': {
+        width: '56px',
+        height: '32px',
+        borderRadius: '100px',
+        backgroundColor: 'blue',
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: '2px',
+        marginLeft: '5px',
+        color: `${theme.palette.common.white} !important`,
+        '& .MuiTypography-root': {
+          fontSize: '14px !important',
+          fontWeight: 500,
+          lineHeight: '21px',
+          textAlign: 'center',
+
+          color: theme.palette.primary.main
+        },
+        '&.Mui-focusVisible': {
+          backgroundColor: theme.palette.primary.main
+        }
+      }
     }
   },
 
@@ -102,14 +126,14 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
     '& .MuiListItemIcon-root': {
       backgroundColor: theme.palette.grey[500],
 
-      color: theme.palette.common.white
+      color: theme.palette.customColors.datepickerText
     },
     '& .MuiTypography-root': {
       fontSize: '14px !important',
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
-      color: `${theme.palette.grey[500]} !important`
+      color: `${theme.palette.customColors.datepickerText} !important`
     }
   },
   '& .MuiTypography-root': {
@@ -117,10 +141,10 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
     fontWeight: 500,
     lineHeight: '21px',
     textAlign: 'center',
-    color: `${theme.palette.grey[600]} `
+    color: `${theme.palette.customColors.datepickerText} `
   },
   '& .MuiListItemIcon-root': {
-    color: `${theme.palette.grey[600]} !important`,
+    color: `${theme.palette.customColors.datepickerText} !important`,
     width: '56px',
     height: '32px',
     borderRadius: '100px',

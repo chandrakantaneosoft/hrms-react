@@ -53,7 +53,7 @@ function Breadcrumb({ currentPath }: Bread) {
 
   return (
     <div role='presentation'>
-      <Breadcrumbs aria-label='breadcrumb'>
+      <Breadcrumbs maxItems={2} aria-label='breadcrumb'>
         <Link underline='hover' color='inherit' href='/'>
           {moduleName}
         </Link>
@@ -66,15 +66,7 @@ function Breadcrumb({ currentPath }: Bread) {
           </>
         ))}
       </Breadcrumbs>
-      <Typography
-        variant='h5'
-        sx={{
-          flexGrow: 1,
-          color: '#1B1B1B'
-        }}
-      >
-        {title.title}
-      </Typography>
+      <Typography variant='h6'>{title.title}</Typography>
     </div>
   )
 }

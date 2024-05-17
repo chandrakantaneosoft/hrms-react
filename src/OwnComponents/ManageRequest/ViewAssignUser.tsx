@@ -1,5 +1,5 @@
 'use Client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Card, Grid, InputAdornment, Switch, TextField } from '@mui/material'
 import { GridColDef, DataGrid } from '@mui/x-data-grid'
 
@@ -9,6 +9,7 @@ import { TablePaginationProps } from '@mui/material/TablePagination'
 import UserIcon from 'src/layouts/components/UserIcon'
 import { styled } from '@mui/material/styles'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 function Pagination({
   page,
@@ -40,6 +41,7 @@ export default function ViewAssignUser() {
   const [isSwitch, setIsSwitch] = useState(false)
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [searhRole, setSearchRole] = useState<string>('')
+  const { setPagePaths } = useGlobalContext()
 
   //Column for Data Grid
   const columns: GridColDef[] = [
@@ -159,6 +161,20 @@ export default function ViewAssignUser() {
       hrRole: 'EF'
     }
   ]
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Permanant Role',
+        path: '/permanent-role'
+      },
+      {
+        title: 'User Assigned - Role Teaching Faculty',
+        path: '/permanent-role/view-assign-user'
+      }
+    ])
+  }, [])
 
   return (
     <>

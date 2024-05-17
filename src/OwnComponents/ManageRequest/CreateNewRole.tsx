@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -26,6 +26,7 @@ import TreeViewCheckbox from './TreeViewCheckbox'
 import SuccessDialog from './Dialog/SuccessDialog'
 import { useRouter } from 'next/navigation'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
   marginLeft: 0,
@@ -207,6 +208,7 @@ const CreateNewRole = () => {
   const [selectedItems3, setSelectedItems3] = useState([])
   const [openDialog, setOpenDialog] = useState(false)
   const router = useRouter()
+  const { setPagePaths } = useGlobalContext()
 
   //Handler for multi select option
   const handleChange1 = (e: any) => {
@@ -248,6 +250,20 @@ const CreateNewRole = () => {
       setOpenDialog(true)
     }
   }
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Permanant Role',
+        path: '/permanent-role'
+      },
+      {
+        title: 'Create New Permanant Role',
+        path: '/permanent-role/create-role'
+      }
+    ])
+  }, [])
 
   return (
     <Fragment>

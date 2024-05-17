@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 import { Button, Fab, IconButton, InputAdornment, TextField } from '@mui/material'
@@ -19,6 +19,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 // table for Lob Assigned Modal
 const columnsLobAssign: GridColDef[] = [
@@ -266,6 +267,8 @@ function AdditionalDutyRoleListing() {
   const [data] = useState(rows)
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [openLobModal, setOpenLobModal] = useState(false)
+  const { setPagePaths } = useGlobalContext()
+
   const handleChange = () => {
     // handleRoleDialog(true)
     router.push('/additional-duty-role-listing/create-new-additional-duty-role')
@@ -275,6 +278,16 @@ function AdditionalDutyRoleListing() {
 
   const handleOpenLob = () => setOpenLobModal(true)
   const handleCloseLob = () => setOpenLobModal(false)
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Additional Duty Listing',
+        path: '/additional-duty-role-listing'
+      }
+    ])
+  }, [])
 
   return (
     <>
@@ -350,7 +363,7 @@ function AdditionalDutyRoleListing() {
                 disableTouchRipple
                 startIcon={<AddIcon />}
               >
-                Create Role
+                Create
               </Button>
             </Box>
           </Grid>

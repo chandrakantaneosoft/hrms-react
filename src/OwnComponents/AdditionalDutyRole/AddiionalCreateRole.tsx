@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -21,6 +21,7 @@ import TreeViewCheckbox from '../ManageRequest/TreeViewCheckbox'
 import SuccessDialog from '../ManageRequest/Dialog/SuccessDialog'
 import { useRouter } from 'next/navigation'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
   marginLeft: 0,
@@ -101,6 +102,7 @@ const AddiionalCreateRole = () => {
   const [selectedItems3, setSelectedItems3] = useState([])
   const [selectedItems4, setSelectedItems4] = useState([])
   const [openDialog, setOpenDialog] = useState(false)
+  const { setPagePaths } = useGlobalContext()
 
   //Handler for multi select option
   const handleChange1 = (e: any) => {
@@ -146,6 +148,20 @@ const AddiionalCreateRole = () => {
       setOpenDialog(true)
     }
   }
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Additional Duty',
+        path: '/additional-duty-role-listing'
+      },
+      {
+        title: 'Create New Additional Duty',
+        path: '/additional-duty-role-listing/create-new-additional-duty-role'
+      }
+    ])
+  }, [])
 
   // const handleReset = () => {
   //   setErpRoleName('')

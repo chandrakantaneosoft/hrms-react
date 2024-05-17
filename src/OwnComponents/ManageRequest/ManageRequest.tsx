@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 
@@ -22,6 +22,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -451,6 +452,7 @@ function ManageRequest() {
   const [openPSCodeModal, setOpenPSCodeModal] = useState(false)
   const [openLobModal, setOpenLobModal] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const { setPagePaths } = useGlobalContext()
 
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
@@ -474,6 +476,16 @@ function ManageRequest() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Permanant Role',
+        path: '/permanent-role'
+      }
+    ])
+  }, [])
 
   return (
     <>

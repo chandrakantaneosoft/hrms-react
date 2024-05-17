@@ -1,5 +1,5 @@
 // ** React Imports
-import { SyntheticEvent, useState } from 'react'
+import { SyntheticEvent, useEffect, useState } from 'react'
 
 // ** MUI Imports
 import { styled } from '@mui/material/styles'
@@ -50,6 +50,7 @@ import UserIcon from 'src/layouts/components/UserIcon'
 import TreeViewCheckbox from '../ManageRequest/TreeViewCheckbox'
 import { useRouter } from 'next/navigation'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
   marginLeft: 0,
@@ -130,6 +131,7 @@ const CreateTemporaryRole = () => {
   const [selectedItems3, setSelectedItems3] = useState([])
   const [openDialog, setOpenDialog] = useState(false)
   const router = useRouter()
+  const { setPagePaths } = useGlobalContext()
 
   //   const [date, setDate] = useState<DateType>(new Date())
   const [activeStep, setActiveStep] = useState(0)
@@ -206,6 +208,20 @@ const CreateTemporaryRole = () => {
     // handleRoleDialog(false)
   }
   console.log(value, 'value ')
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Temporary Role',
+        path: '/temporary-role-listing'
+      },
+      {
+        title: 'Create New Temporary Role',
+        path: '/temporary-role-listing/create-new-temporary-role'
+      }
+    ])
+  }, [])
 
   return (
     <Box sx={{ background: '#fff', borderRadius: '10px', padding: '10px 0px' }}>
