@@ -455,6 +455,28 @@ function ManageRequest() {
   const [deleteDialog, setDeleteDialog] = useState<boolean>(false)
   const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
 
+  //Delete dialog funactionality
+  //enable delete dialog
+  const handleDelete = (params: GridRenderCellParams) => {
+    setDeleteDialog(true)
+  }
+
+  //disable Delet Dialog
+  const handleDeleteDialog = () => {
+    setDeleteDialog(false)
+  }
+
+  //close delete and enable succes dialog
+  const handleDeleteCloseDialog = () => {
+    setDeleteDialog(false)
+    setDeleteRoleDialog(true)
+  }
+
+  //close success dialog
+  const handleDeleteRoleDialog = () => {
+    setDeleteRoleDialog(false)
+  }
+
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
     router.push('/permanent-role/create-role')
@@ -487,30 +509,6 @@ function ManageRequest() {
       }
     ])
   }, [])
-
-  //enable delete dialog
-  const handleDelete = (params: GridRenderCellParams) => {
-    setDeleteDialog(true)
-  }
-
-  //disable Delet Dialog
-  const handleDeleteDialog = () => {
-    setDeleteDialog(false)
-  }
-
-  //close delete and enable succes dialog
-  const handleDeleteCloseDialog = () => {
-    setDeleteDialog(false)
-    setDeleteRoleDialog(true)
-  }
-
-  //close success dialog
-  const handleDeleteRoleDialog = () => {
-    setDeleteRoleDialog(false)
-  }
-
-  console.log(deleteDialog, 'delete Dialog')
-  console.log(deleteRoleDialog, 'success Dialog')
 
   return (
     <>

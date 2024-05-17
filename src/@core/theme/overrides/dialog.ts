@@ -50,7 +50,7 @@ const Dialog = (skin: Skin) => {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
           fontSize: '24px !important',
-          fontWeight: 400,
+          fontWeight: 500,
           lineHeight: '36px',
           color: theme.palette.customColors.text7,
           padding: theme.spacing(5)
