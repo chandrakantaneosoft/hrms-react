@@ -64,6 +64,7 @@ const LoginPage = () => {
 
   const logintoDashboard = () => {
     signIn('keycloak')
+
     // if (process.env.NODE_ENV === 'development') {
     //   window.location.href = '/dashboard'
     // } else {

@@ -8,18 +8,16 @@ import { useRouter } from 'next/navigation'
 const Home = (props: any) => {
   console.log('props', props)
 
-  const { session } = props;
-  const router = useRouter();
+  const { session } = props
+  const router = useRouter()
   const reciredtNewPortal = () => {
-    console.log("session details before redirect");
-    console.log(session);
+    console.log('session details before redirect')
+    console.log(session)
 
     window.open(
       `http://localhost:3004/sso-login?token=${session.accessToken}`,
       '_blank' // <- This is what makes it open in a new window.
-    );
-
-
+    )
   }
 
   return (

@@ -106,6 +106,7 @@ async function httpRequest(
 export const postRequest = async (params: any) => {
   console.log('post intita')
   console.log(params)
+
   return httpRequest('POST', `${params.url}`, params?.data, params.headers, null, params?.serviceURL)
 }
 
