@@ -170,7 +170,7 @@ const UserDropdown = (props: Props) => {
           onClick={handleLogout}
           sx={{ py: 2, '& svg': { mr: 2, fontSize: '1.375rem', color: 'text.primary' } }}
         >
-          <Icon icon='mdi:logout-variant' />
+          <Icon onClick={handleLogout} icon='mdi:logout-variant' />
           Logout
         </MenuItem>
       </Menu>

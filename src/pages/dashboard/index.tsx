@@ -19,6 +19,7 @@ const Page: React.FC = () => {
 
   const handleSignout = async () => {
     if (session) {
+      console.log(session.data, 'session>>')
       await logoutUser(session)
     }
   }

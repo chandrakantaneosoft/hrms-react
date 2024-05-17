@@ -2,6 +2,7 @@
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from './api/auth/[...nextauth]'
 import { postRequest } from 'src/services/apiService'
+import { logoutUserData } from 'src/services/authService'
 
 const Home = (props: any) => {
   console.log('props', props)
@@ -45,7 +46,13 @@ export const getServerSideProps = async (context: any) => {
         }
       }
     } else {
+      const logoutPath = logoutUserData(session)
+
       return {
+        redirect: {
+          destination: logoutPath?.url,
+          permanent: false
+        },
         props: {
           session: null
         }
