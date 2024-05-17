@@ -20,6 +20,8 @@ import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
+import DeleteDialog from '../CommonDialogBox/DeleteDialog'
+import SuccessDialog from '../ManageRequest/Dialog/SuccessDialog'
 
 // table for Lob Assigned Modal
 const columnsLobAssign: GridColDef[] = [
@@ -125,9 +127,6 @@ function AdditionalDutyRoleListing() {
   const handleEdit = (params: GridRenderCellParams) => {
     console.log(params, 'edit')
     router.push('/additional-duty-role-listing/create-new-additional-duty-role')
-  }
-  const handleDelete = (params: GridRenderCellParams) => {
-    console.log(params, 'delete')
   }
 
   const columns: GridColDef[] = [
@@ -268,6 +267,30 @@ function AdditionalDutyRoleListing() {
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [openLobModal, setOpenLobModal] = useState(false)
   const { setPagePaths } = useGlobalContext()
+  const [deleteDialog, setDeleteDialog] = useState<boolean>(false)
+  const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
+
+  //Delete dialog funactionality
+  //enable delete dialog
+  const handleDelete = (params: GridRenderCellParams) => {
+    setDeleteDialog(true)
+  }
+
+  //disable Delet Dialog
+  const handleDeleteDialog = () => {
+    setDeleteDialog(false)
+  }
+
+  //close delete and enable succes dialog
+  const handleDeleteCloseDialog = () => {
+    setDeleteDialog(false)
+    setDeleteRoleDialog(true)
+  }
+
+  //close success dialog
+  const handleDeleteRoleDialog = () => {
+    setDeleteRoleDialog(false)
+  }
 
   const handleChange = () => {
     // handleRoleDialog(true)
@@ -391,6 +414,20 @@ function AdditionalDutyRoleListing() {
             header='LOBs Assigned'
             columnsRolCode={columnsLobAssign}
             rowsRoleCode={rowsLobAssign}
+          />
+        )}
+        {deleteDialog && (
+          <DeleteDialog
+            openModal={deleteDialog}
+            handleSubmitClose={handleDeleteCloseDialog}
+            closeModal={handleDeleteDialog}
+          />
+        )}
+        {deleteRoleDialog && (
+          <SuccessDialog
+            openDialog={deleteRoleDialog}
+            title='Deleted Successfully'
+            handleClose={handleDeleteRoleDialog}
           />
         )}
       </Box>

@@ -1334,7 +1334,7 @@ const CreateTemporaryRole = () => {
           </Grid>
         </Grid>
       </Box>
-      <SuccessDialog openDialog={openDialog} handleClose={handleCloseDialog} />
+      <SuccessDialog title='Successfuly! Role Created' openDialog={openDialog} handleClose={handleCloseDialog} />
     </Box>
   )
 }

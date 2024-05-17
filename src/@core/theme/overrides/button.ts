@@ -17,7 +17,8 @@ const Button = () => {
           fontWeight: 500,
           lineHeight: '21px',
           padding: '10px 24px',
-          letterSpacing: 0.1
+          letterSpacing: 0.1,
+          minWidth: '86px'
         }),
 
         contained: ({ theme }: OwnerStateThemeType) => ({
@@ -210,6 +211,8 @@ const Button = () => {
     MuiIconButton: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
+          width: '40px',
+          height: '40px',
           '&.contained': {
             backgroundColor: theme.palette.grey[50],
             color: theme.palette.customColors.mainText

@@ -793,7 +793,7 @@ const AddiionalCreateRole = () => {
             </>
           )}
         </Box>
-        <SuccessDialog openDialog={openDialog} handleClose={handleCloseDialog} />
+        <SuccessDialog title='Successfuly! Role Created' openDialog={openDialog} handleClose={handleCloseDialog} />
         <Box sx={{ mt: 5, mb: 5 }}>
           <Divider />
         </Box>

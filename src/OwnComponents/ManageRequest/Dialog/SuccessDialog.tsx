@@ -16,9 +16,10 @@ import { Box } from '@mui/material'
 type DialogBox = {
   openDialog: boolean
   handleClose?: () => void
+  title?: string
 }
 
-function SuccessDialog({ openDialog, handleClose }: DialogBox) {
+function SuccessDialog({ openDialog, handleClose, title }: DialogBox) {
   // ** Hooks
   const theme = useTheme()
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
@@ -30,7 +31,7 @@ function SuccessDialog({ openDialog, handleClose }: DialogBox) {
           <Box sx={{ textAlign: 'center' }}>
             <Image src={SuccessLogo} width={100} height={100} alt='success' />
           </Box>
-          <DialogContentText>Successfuly! Role Created</DialogContentText>
+          <DialogContentText>{title}</DialogContentText>
         </DialogContent>
         <DialogActions className='dialog-actions-dense' sx={{ display: 'flex', justifyContent: 'center' }}>
           <Button variant='contained' color='primary' onClick={handleClose}>

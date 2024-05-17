@@ -23,6 +23,8 @@ import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutl
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
+import DeleteDialog from '../CommonDialogBox/DeleteDialog'
+import SuccessDialog from './Dialog/SuccessDialog'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -220,9 +222,6 @@ function ManageRequest() {
   const handleEdit = (params: GridRenderCellParams) => {
     console.log(params, 'edit')
     router.push('/permanent-role/create-role/')
-  }
-  const handleDelete = (params: GridRenderCellParams) => {
-    console.log(params, 'delete')
   }
 
   const columns: GridColDef[] = [
@@ -453,6 +452,8 @@ function ManageRequest() {
   const [openLobModal, setOpenLobModal] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const { setPagePaths } = useGlobalContext()
+  const [deleteDialog, setDeleteDialog] = useState<boolean>(false)
+  const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
 
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
@@ -486,6 +487,30 @@ function ManageRequest() {
       }
     ])
   }, [])
+
+  //enable delete dialog
+  const handleDelete = (params: GridRenderCellParams) => {
+    setDeleteDialog(true)
+  }
+
+  //disable Delet Dialog
+  const handleDeleteDialog = () => {
+    setDeleteDialog(false)
+  }
+
+  //close delete and enable succes dialog
+  const handleDeleteCloseDialog = () => {
+    setDeleteDialog(false)
+    setDeleteRoleDialog(true)
+  }
+
+  //close success dialog
+  const handleDeleteRoleDialog = () => {
+    setDeleteRoleDialog(false)
+  }
+
+  console.log(deleteDialog, 'delete Dialog')
+  console.log(deleteRoleDialog, 'success Dialog')
 
   return (
     <>
@@ -605,6 +630,21 @@ function ManageRequest() {
             header='LOBs Assigned'
             columnsRolCode={columnsLobAssign}
             rowsRoleCode={rowsLobAssign}
+          />
+        )}
+
+        {deleteDialog && (
+          <DeleteDialog
+            openModal={deleteDialog}
+            handleSubmitClose={handleDeleteCloseDialog}
+            closeModal={handleDeleteDialog}
+          />
+        )}
+        {deleteRoleDialog && (
+          <SuccessDialog
+            openDialog={deleteRoleDialog}
+            title='Deleted Successfully'
+            handleClose={handleDeleteRoleDialog}
           />
         )}
       </Box>
