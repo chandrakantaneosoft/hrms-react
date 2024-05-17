@@ -20,13 +20,12 @@ function TransitionComponent(props: TransitionProps) {
   )
 }
 
-const CustomTreeItem = React.forwardRef((props: TreeItemProps, ref: React.Ref<HTMLLIElement>) => (
+const CustomTreeItem = forwardRef((props: TreeItemProps, ref: React.Ref<HTMLLIElement>) => (
   <TreeItem {...props} slots={{ groupTransition: TransitionComponent, ...props.slots }} ref={ref} />
 ))
 
 CustomTreeItem.displayName = 'CustomTreeItem'
 
-// checkbox
 interface TreeNode {
   id: string
   label: string
@@ -94,113 +93,49 @@ const treeData: TreeNode[] = [
 ]
 
 export default function TreeViewCheckbox() {
-  // const [expanded, setExpanded] = useState(false);
-  // const handleChange =
-  //   (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-  //     setExpanded(isExpanded ? panel : false);
-  //   };
+  const [expanded, setExpanded] = useState<string | false>('panel1')
+  const [expandedItems, setExpandedItems] = useState<string[]>([])
+  const [checked, setChecked] = useState<{ [key: string]: boolean }>({})
 
-  const [expanded, setExpanded] = React.useState<string | false>('panel1')
-  const [expandedItems, setExpandedItems] = React.useState<string[]>([])
   const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
     setExpanded(newExpanded ? panel : false)
   }
 
-  // State to manage the checkboxes
-  const [checked, setChecked] = useState<{ [key: string]: boolean }>({})
-
-  // Function to handle checkbox change
-  // const handleCheckboxChange = (
-  //   event: ChangeEvent<HTMLInputElement>,
-  //   nodeId: string
-  // ) => {
-  //   const { checked } = event.target;
-  //   setChecked((prev) => ({
-  //     ...prev,
-  //     [nodeId]: checked,
-  //   }));
-  // };
-
-  const handleExpandedItemsChange = (event: React.SyntheticEvent, itemIds: string[]) => {
-    setExpandedItems(itemIds)
+  const handleExpandedItemsChange = (nodeIds: string[]) => {
+    setExpandedItems(nodeIds)
   }
 
-  const handleExpandClick = () => {
-    setExpandedItems(oldExpanded =>
-      oldExpanded.length === 0
-        ? [
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9',
-            '10',
-            '11',
-            '12',
-            '13',
-            '14',
-            '15',
-            '16',
-            '17',
-            '18',
-            '19',
-            '20',
-            '21',
-            '22',
-            '23'
-          ]
-        : []
-    )
-  }
-
-  // Function to handle checkbox change
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>, nodeId: string) => {
     const { checked } = event.target
     const updatedCheckedState: { [key: string]: boolean } = {}
+    const expandedNodeIds: string[] = []
 
-    // Function to recursively update the checked state of all children nodes
     const updateChildrenCheckedState = (nodes: TreeNode[]) => {
       nodes.forEach(node => {
         updatedCheckedState[node.id] = checked
+        expandedNodeIds.push(node.id)
         if (node.children) {
           updateChildrenCheckedState(node.children)
         }
       })
     }
 
-    // Find the node in the tree data
     const node = findNodeById(treeData, nodeId)
-
-    // Update the checked state of the clicked node
     updatedCheckedState[nodeId] = checked
+    expandedNodeIds.push(nodeId)
 
-    // If the clicked node has children, update the checked state of all its children nodes
     if (node && node.children) {
       updateChildrenCheckedState(node.children)
     }
 
-    // Update the checked state
     setChecked(prev => ({
       ...prev,
       ...updatedCheckedState
     }))
-    console.log(updatedCheckedState, 'Updated check state')
 
-    for (const [key, value] of Object.entries(updatedCheckedState)) {
-      if (value === false) {
-        const item = expandedItems?.filter(curr => curr !== key.toString())
-        console.log(item, 'filter out item')
-        console.log(expandedItems, 'expanded items')
-        handleExpandedItemsChange(event, item)
-      }
-    }
+    handleExpandedItemsChange(checked ? expandedNodeIds : expandedItems.filter(id => !expandedNodeIds.includes(id)))
   }
 
-  // Function to find a node by its id in the tree data
   const findNodeById = (nodes: TreeNode[], nodeId: string): TreeNode | undefined => {
     for (let i = 0; i < nodes.length; i++) {
       if (nodes[i].id === nodeId) {
@@ -221,7 +156,13 @@ export default function TreeViewCheckbox() {
       <CustomTreeItem
         key={node.id}
         itemId={node.id}
+        nodeId={node.id}
         className='label'
+        onClick={() =>
+          handleExpandedItemsChange(
+            expandedItems.includes(node.id) ? expandedItems.filter(id => id !== node.id) : [...expandedItems, node.id]
+          )
+        }
         label={
           <Box display='flex' alignItems='center'>
             <Checkbox
@@ -241,6 +182,7 @@ export default function TreeViewCheckbox() {
             </Typography>
           </Box>
         }
+        expanded={expandedItems.includes(node.id)}
       >
         {node.children && renderTree(node.children)}
       </CustomTreeItem>
@@ -268,7 +210,6 @@ export default function TreeViewCheckbox() {
                       maxWidth: 300
                     }}
                     expandedItems={expandedItems}
-                    onExpandedItemsChange={handleExpandClick}
                     className='header-dropdown'
                   >
                     {renderTree(treeData)}
@@ -278,88 +219,6 @@ export default function TreeViewCheckbox() {
             </Grid>
           </Grid>
         </Grid>
-        {/* <Grid item md={3}>
-          <Grid container spacing={2}>
-            <Grid item md={12}>
-              <Accordion
-                expanded={expanded === 'panel5'}
-                onChange={handleChange('panel5')}
-                className='tree-vcard'
-                sx={{ boxShadow: 'none' }}
-              >
-                <AccordionSummary aria-controls='panel5bh-content' id='panel5bh-header'>
-                  <SimpleTreeView
-                    aria-label='customized'
-                    sx={{
-                      overflowX: 'hidden',
-                      flexGrow: 1,
-                      maxWidth: 300
-                    }}
-                    className='header-dropdown'
-                  >
-                    {renderTree(treeData)}
-                  </SimpleTreeView>
-                </AccordionSummary>
-              </Accordion>
-            </Grid>
-          </Grid>
-        </Grid> */}
-        {/* <Grid item md={3}>
-          <Grid container spacing={2}>
-            <Grid item md={12}>
-              <Accordion
-                expanded={expanded === 'panel9'}
-                onChange={handleChange('panel9')}
-                className='tree-vcard'
-                sx={{ boxShadow: 'none' }}
-              >
-                <AccordionSummary aria-controls='panel9bh-content' id='panel9bh-header'>
-                  <SimpleTreeView
-                    aria-label='customized'
-                    sx={{
-                      overflowX: 'hidden',
-                      flexGrow: 1,
-                      maxWidth: 300
-                    }}
-                    className='header-dropdown'
-                  >
-                    {renderTree(treeData)}
-                  </SimpleTreeView>
-                </AccordionSummary>
-              </Accordion>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item md={3}>
-          <Grid container spacing={2}>
-            <Grid item md={12}>
-              <Accordion
-                expanded={expanded === 'panel13'}
-                onChange={handleChange('panel13')}
-                className='tree-vcard'
-                sx={{ boxShadow: 'none' }}
-              >
-                <AccordionSummary aria-controls='panel13bh-content' id='panel13bh-header'>
-                  <SimpleTreeView
-                    aria-label='customized'
-                    sx={{
-                      overflowX: 'hidden',
-                      flexGrow: 1,
-                      maxWidth: 300
-                    }}
-                    className='header-dropdown'
-
-                    // expandedItems={expandedItems}
-
-                    // onExpandedItemsChange={handleExpandedItemsChange}
-                  >
-                    {renderTree(treeData)}
-                  </SimpleTreeView>
-                </AccordionSummary>
-              </Accordion>
-            </Grid>
-          </Grid>
-        </Grid> */}
       </Grid>
     </>
   )

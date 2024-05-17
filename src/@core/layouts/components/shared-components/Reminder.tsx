@@ -104,8 +104,8 @@ const Reminder = (props: Props) => {
     <Fragment>
       <IconButton
         sx={{
-          width: '56px',
-          height: '56px',
+          width: '48px',
+          height: '48px',
           borderRadius: '16px',
           backgroundColor: '#F4F0EF',
           marginLeft: '10px'

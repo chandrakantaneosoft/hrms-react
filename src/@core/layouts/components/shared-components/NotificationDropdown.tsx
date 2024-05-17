@@ -166,7 +166,7 @@ const NotificationDropdown = (props: Props) => {
       <IconButton
         color='inherit'
         aria-haspopup='true'
-        sx={{ width: '56px', height: '56px', borderRadius: '16px', backgroundColor: '#F4F0EF' }}
+        sx={{ width: '48px', height: '48px', borderRadius: '16px', backgroundColor: '#F4F0EF' }}
         onClick={handleDropdownOpen}
         disableRipple
         disableFocusRipple
