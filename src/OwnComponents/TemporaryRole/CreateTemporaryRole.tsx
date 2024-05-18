@@ -246,6 +246,37 @@ const CreateTemporaryRole = () => {
         <TabPanel value={'1'}>
           <Grid container spacing={5} sx={{ marginTop: '10px' }}>
             <Grid item xs={12} sm={6}>
+              <FormControl fullWidth>
+                <InputLabel id='demo-simple-select-outlined-label'>
+                  {
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Applications
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Applications'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                </InputLabel>
+                <Select
+                  label='Applications'
+                  defaultValue=''
+                  id='demo-simple-select-outlined'
+                  labelId='demo-simple-select-outlined-label'
+                >
+                  <MenuItem value=''>
+                    <em>Select</em>
+                  </MenuItem>
+                  <MenuItem value='School ERP'>School ERP</MenuItem>
+                  <MenuItem value='Oracle'>Oracle</MenuItem>
+                  <MenuItem value='LMS'>LMS</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <Autocomplete
                 multiple
                 id='autocomplete-multiple-filled'
@@ -287,10 +318,10 @@ const CreateTemporaryRole = () => {
                 fullWidth
                 label={
                   <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
-                    ERP Role Name
+                    ERP Role
                     {infoDialog && (
                       <span>
-                        <Tooltip title='ERP Role Name'>
+                        <Tooltip title='ERP Role'>
                           <InfoIcon sx={{ ml: 3 }} />
                         </Tooltip>
                       </span>
@@ -672,9 +703,8 @@ const CreateTemporaryRole = () => {
               <Typography
                 variant='h6'
                 sx={{
-                  flexGrow: 1,
-                  color: '#1D2939',
-                  fontWeight: 'bold'
+                  fontWeight: 500,
+                  lineHeight: '27px'
                 }}
               >
                 Set Expiry Date Of Role
@@ -753,12 +783,7 @@ const CreateTemporaryRole = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <div className='toggle-select'>
-                <span className='toggle-status'>Active</span>
-                <FormControlLabel label='' control={<Switch defaultChecked />} />
-              </div>
-            </Grid>
+
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
                 <InputLabel id='demo-simple-select-outlined-label'>
@@ -1116,6 +1141,12 @@ const CreateTemporaryRole = () => {
                 </Grid>
               </>
             )}
+            <Grid item xs={12} sm={6}>
+              <div className='toggle-select'>
+                <span className='toggle-status'>Active</span>
+                <FormControlLabel label='' control={<Switch defaultChecked />} />
+              </div>
+            </Grid>
 
             <Grid item xs={12} sm={12}>
               <Divider />
@@ -1124,9 +1155,8 @@ const CreateTemporaryRole = () => {
               <Typography
                 variant='h6'
                 sx={{
-                  flexGrow: 1,
-                  color: '#1D2939',
-                  fontWeight: 'bold'
+                  fontWeight: 500,
+                  lineHeight: '27px'
                 }}
               >
                 Set Expiry Date Of Role
@@ -1220,19 +1250,14 @@ const CreateTemporaryRole = () => {
                   onChange={e => setTempRoleName(e.target.value)}
                   InputProps={{
                     endAdornment: (
-                      <Link onClick={handleSetRights} underline='none' sx={{ width: '120px' }}>
+                      <Link onClick={handleSetRights} underline='none' sx={{ width: '130px' }}>
                         ++ Set Rights
                       </Link>
                     )
                   }}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <div className='toggle-select'>
-                  <span className='toggle-status'>Active</span>
-                  <FormControlLabel label='' control={<Switch defaultChecked />} />
-                </div>
-              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <InputLabel id='demo-simple-select-outlined-label'>
@@ -1590,7 +1615,12 @@ const CreateTemporaryRole = () => {
                   </Grid>
                 </>
               )}
-
+              <Grid item xs={12} sm={6}>
+                <div className='toggle-select'>
+                  <span className='toggle-status'>Active</span>
+                  <FormControlLabel label='' control={<Switch defaultChecked />} />
+                </div>
+              </Grid>
               <Grid item xs={12} sm={12}>
                 <Divider />
               </Grid>
@@ -1677,9 +1707,8 @@ const CreateTemporaryRole = () => {
                     <Typography
                       variant='h6'
                       sx={{
-                        flexGrow: 1,
-                        color: '#1D2939',
-                        fontWeight: 'bold'
+                        fontWeight: 500,
+                        lineHeight: '27px'
                       }}
                     >
                       Set Expiry Date Of Role
@@ -1764,7 +1793,11 @@ const CreateTemporaryRole = () => {
           </Grid>
         </Grid>
       </Box>
-      <SuccessDialog title='Successfuly! Role Created' openDialog={openDialog} handleClose={handleCloseDialog} />
+      <SuccessDialog
+        title='Role & Rights Created Successfully'
+        openDialog={openDialog}
+        handleClose={handleCloseDialog}
+      />
     </Box>
   )
 }

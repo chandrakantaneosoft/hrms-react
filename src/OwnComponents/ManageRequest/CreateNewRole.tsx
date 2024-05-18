@@ -299,6 +299,37 @@ const CreateNewRole = () => {
           {activeStep === 0 && (
             <Grid container spacing={5}>
               <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                  <InputLabel id='demo-simple-select-outlined-label'>
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Applications
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Applications'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  </InputLabel>
+                  <Select
+                    label='Applications'
+                    defaultValue=''
+                    id='demo-simple-select-outlined'
+                    labelId='demo-simple-select-outlined-label'
+                  >
+                    <MenuItem value=''>
+                      <em>Select</em>
+                    </MenuItem>
+                    <MenuItem value='School ERP'>School ERP</MenuItem>
+                    <MenuItem value='Oracle'>Oracle</MenuItem>
+                    <MenuItem value='LMS'>LMS</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label={
@@ -318,12 +349,7 @@ const CreateNewRole = () => {
                   onChange={e => setErpRoleName(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <div className='toggle-select'>
-                  <span className='toggle-status'>Active</span>
-                  <FormControlLabel label='' control={<Switch defaultChecked />} />
-                </div>
-              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <Autocomplete
                   multiple
@@ -425,7 +451,12 @@ const CreateNewRole = () => {
                   </Select>
                 </FormControl>
               </Grid>
-
+              <Grid item xs={12} sm={6}>
+                <div className='toggle-select'>
+                  <span className='toggle-status'>Active</span>
+                  <FormControlLabel label='' control={<Switch defaultChecked />} />
+                </div>
+              </Grid>
               <Grid item xs={12} sm={12}>
                 <Box sx={{ height: '300px' }}>
                   <DataGrid columns={columns} rows={rows} hideFooterPagination />
@@ -658,7 +689,11 @@ const CreateNewRole = () => {
             </>
           )}
         </Box>
-        <SuccessDialog title='Successfuly! Role Created' openDialog={openDialog} handleClose={handleCloseDialog} />
+        <SuccessDialog
+          title='Role & Rights Created Successfully'
+          openDialog={openDialog}
+          handleClose={handleCloseDialog}
+        />
         <Box sx={{ mt: 5, mb: 5 }}>
           <Divider />
         </Box>

@@ -201,10 +201,10 @@ const AddiionalCreateRole = () => {
                   fullWidth
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
-                      Additional Duty Role Name
+                      Additional Duty Name
                       {infoDialog && (
                         <span>
-                          <Tooltip title='Additional Duty Role Name'>
+                          <Tooltip title='Additional Duty  Name'>
                             <InfoIcon sx={{ ml: 3 }} />
                           </Tooltip>
                         </span>
@@ -279,12 +279,7 @@ const AddiionalCreateRole = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <div className='toggle-select'>
-                  <span className='toggle-status'>Active</span>
-                  <FormControlLabel label='' control={<Switch defaultChecked />} />
-                </div>
-              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <FormControl
                   fullWidth
@@ -477,6 +472,12 @@ const AddiionalCreateRole = () => {
                   </Select>
                 </FormControl>
               </Grid>
+              <Grid item xs={12} sm={6}>
+                <div className='toggle-select'>
+                  <span className='toggle-status'>Active</span>
+                  <FormControlLabel label='' control={<Switch defaultChecked />} />
+                </div>
+              </Grid>
               <Grid item xs={12} sm={12}>
                 <Divider />
               </Grid>
@@ -499,10 +500,10 @@ const AddiionalCreateRole = () => {
                     fullWidth
                     label={
                       <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
-                        Additional Duty Role Name
+                        Additional Duty Name
                         {infoDialog && (
                           <span>
-                            <Tooltip title='Additional Duty Role Name'>
+                            <Tooltip title='Additional Duty Name'>
                               <InfoIcon sx={{ ml: 3 }} />
                             </Tooltip>
                           </span>
@@ -539,7 +540,11 @@ const AddiionalCreateRole = () => {
             </>
           )}
         </Box>
-        <SuccessDialog title='Successfuly! Role Created' openDialog={openDialog} handleClose={handleCloseDialog} />
+        <SuccessDialog
+          title='Role & Rights Created Successfully'
+          openDialog={openDialog}
+          handleClose={handleCloseDialog}
+        />
         <Box sx={{ mt: 5, mb: 5 }}>
           <Divider />
         </Box>
