@@ -6,7 +6,7 @@ const input = () => {
     MuiInputLabel: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          color: theme.palette.customColors.textLabel,
+          color: theme.palette.customColors.mainText,
           fontSize: '16px',
           lineHeight: '24px',
           letterSpacing: '0.5px',

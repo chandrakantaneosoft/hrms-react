@@ -12,7 +12,7 @@ import StepLabel from '@mui/material/StepLabel'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 
-import { FormControl, InputLabel, Select, MenuItem, Divider } from '@mui/material'
+import { FormControl, InputLabel, Select, MenuItem, Divider, Tooltip, IconButton } from '@mui/material'
 import InfoIcon from '@mui/icons-material/Info'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
 
@@ -207,6 +207,7 @@ const CreateNewRole = () => {
   const [selectedItems2, setSelectedItems2] = useState([])
   const [selectedItems3, setSelectedItems3] = useState([])
   const [openDialog, setOpenDialog] = useState(false)
+  const [infoDialog, setInfoDialog] = useState(false)
   const router = useRouter()
   const { setPagePaths } = useGlobalContext()
 
@@ -283,8 +284,15 @@ const CreateNewRole = () => {
               })}
             </Stepper>
           </Box>
-          <Box sx={{ width: '5%', mt: 4 }}>
-            <InfoIcon style={{ color: '#FA5A7D' }} />
+          <Box sx={{ width: '5%', mt: 1 }}>
+            <IconButton
+              disableFocusRipple
+              disableTouchRipple
+              color='secondary'
+              onClick={() => setInfoDialog(prev => !prev)}
+            >
+              <InfoIcon style={{ color: '#FA5A7D' }} />
+            </IconButton>
           </Box>
         </Box>
         <Box sx={{ mt: 5 }}>
@@ -293,7 +301,18 @@ const CreateNewRole = () => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
-                  label='ERP Role Name'
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      ERP Role Name{' '}
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='ERP Role Name'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
                   value={erpRoleName}
                   placeholder='ERP Role Name'
                   onChange={e => setErpRoleName(e.target.value)}
@@ -312,7 +331,22 @@ const CreateNewRole = () => {
                   defaultValue={[Auto1[1].title]}
                   options={Auto1.map(option => option.title)}
                   renderInput={params => (
-                    <TextField {...params} label='Select HRIS Unique Role' placeholder='Select HRIS Unique Role' />
+                    <TextField
+                      {...params}
+                      label={
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select HRIS Unique Role
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select HRIS Unique Role'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                      placeholder='Select HRIS Unique Role'
+                    />
                   )}
                   renderTags={(value: string[], getTagProps) =>
                     value.map((option: string, index: number) => (
@@ -342,7 +376,18 @@ const CreateNewRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    School Categories{' '}
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        School Categories
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='School Categories'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -400,7 +445,18 @@ const CreateNewRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    Business Vertical (LOB segment2 parent 2)
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Business Vertical (LOB segment2 parent 2)
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Business Vertical (LOB segment2 parent 2)'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -453,7 +509,18 @@ const CreateNewRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    Business Sub Vertical (LOB Segment2 Parent1)
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Business Sub Vertical (LOB Segment2 Parent1)
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Business Sub Vertical (LOB Segment2 Parent1)'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -499,7 +566,22 @@ const CreateNewRole = () => {
                   defaultValue={[Auto1[1].title]}
                   options={Auto1.map(option => option.title)}
                   renderInput={params => (
-                    <TextField {...params} label='Select HRIS Unique Role' placeholder='Select HRIS Unique Role' />
+                    <TextField
+                      {...params}
+                      label={
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select HRIS Unique Role
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select HRIS Unique Role'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                      placeholder='Select HRIS Unique Role'
+                    />
                   )}
                   renderTags={(value: string[], getTagProps) =>
                     value.map((option: string, index: number) => (
@@ -518,7 +600,7 @@ const CreateNewRole = () => {
                 <Divider />
               </Grid>
               <Grid item xs={12} sm={12}>
-                <Typography variant='body1'>
+                <Typography variant='body2' sx={{ lineHeight: '20px', color: '#5D5FEF' }}>
                   LOBs will appear based on the selected school category
                   <br />
                   If School Category is marked as NA then LOB selection will be allowed and
@@ -534,7 +616,18 @@ const CreateNewRole = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
-                    label='ERP Role Name'
+                    label={
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        ERP Role Name
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='ERP Role Name'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                     value={erpRoleName}
                     placeholder='ERP Role Name'
                     onChange={e => setErpRoleName(e.target.value)}
@@ -554,9 +647,8 @@ const CreateNewRole = () => {
                 <Typography
                   variant='h6'
                   sx={{
-                    flexGrow: 1,
-                    color: '#1D2939',
-                    fontWeight: 'bold'
+                    fontWeight: 500,
+                    lineHeight: '27px'
                   }}
                 >
                   Set Rights
@@ -572,12 +664,12 @@ const CreateNewRole = () => {
         </Box>
         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button
-            variant='contained'
+            variant='outlined'
             color='inherit'
             sx={{ mr: 2 }}
             onClick={() => (activeStep === 0 ? handleClose() : handleBack())}
           >
-            Cancel
+            {activeStep === 0 ? 'Cancel' : 'Go Back'}
           </Button>
           <Button variant='contained' color='inherit' sx={{ mr: 2 }} onClick={handleBack}>
             Save As Draft

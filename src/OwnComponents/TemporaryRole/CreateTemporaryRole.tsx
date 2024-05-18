@@ -44,7 +44,8 @@ import {
   Select,
   StepLabel,
   Switch,
-  TextField
+  TextField,
+  Tooltip
 } from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import TreeViewCheckbox from '../ManageRequest/TreeViewCheckbox'
@@ -130,6 +131,7 @@ const CreateTemporaryRole = () => {
   const [selectedItems2, setSelectedItems2] = useState([])
   const [selectedItems3, setSelectedItems3] = useState([])
   const [openDialog, setOpenDialog] = useState(false)
+  const [infoDialog, setInfoDialog] = useState(false)
   const router = useRouter()
   const { setPagePaths } = useGlobalContext()
 
@@ -250,7 +252,22 @@ const CreateTemporaryRole = () => {
                 defaultValue={[Auto1[1].title]}
                 options={Auto1.map(option => option.title)}
                 renderInput={params => (
-                  <TextField {...params} label='Select HRIS Unique Role' placeholder='Select HRIS Unique Role' />
+                  <TextField
+                    {...params}
+                    label={
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Select HRIS Unique Role
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Select HRIS Unique Role'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                    placeholder='Select HRIS Unique Role'
+                  />
                 )}
                 renderTags={(value: string[], getTagProps) =>
                   value.map((option: string, index: number) => (
@@ -268,7 +285,18 @@ const CreateTemporaryRole = () => {
             <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
-                label='ERP Role Name'
+                label={
+                  <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    ERP Role Name
+                    {infoDialog && (
+                      <span>
+                        <Tooltip title='ERP Role Name'>
+                          <InfoIcon sx={{ ml: 3 }} />
+                        </Tooltip>
+                      </span>
+                    )}
+                  </Box>
+                }
                 value={erpRoleName}
                 placeholder='ERP Role Name'
                 onChange={e => setErpRoleName(e.target.value)}
@@ -276,7 +304,20 @@ const CreateTemporaryRole = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-outlined-label'>Assign Temporary Role To</InputLabel>
+                <InputLabel id='demo-simple-select-outlined-label'>
+                  {
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Assign Temporary Role To
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Assign Temporary Role To'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                </InputLabel>
                 <Select
                   label='Assign Temporary Role To'
                   defaultValue=''
@@ -296,7 +337,20 @@ const CreateTemporaryRole = () => {
             {role === 'user' && (
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
-                  <InputLabel id='demo-simple-select-outlined-label'>Select User</InputLabel>
+                  <InputLabel id='demo-simple-select-outlined-label'>
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Select User
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Select User'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  </InputLabel>
                   <Select
                     label='Select User'
                     defaultValue=''
@@ -328,7 +382,18 @@ const CreateTemporaryRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    Select Group Users
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Select Group Users
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Select Group Users'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -371,7 +436,20 @@ const CreateTemporaryRole = () => {
               <>
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
-                    <InputLabel id='demo-simple-select-outlined-label'>Select Role</InputLabel>
+                    <InputLabel id='demo-simple-select-outlined-label'>
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select Role
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select Role'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                    </InputLabel>
                     <Select
                       label='Select Role'
                       defaultValue=''
@@ -401,7 +479,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Business Vertical (LOB Segment 2 Parent 2 )
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Business Vertical (LOB Segment 2 Parent 2 )
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Business Vertical (LOB Segment 2 Parent 2 )'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -454,7 +543,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Business Sub Vertical (LOB Segment 2 Parent 1 )
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Business Sub Vertical (LOB Segment 2 Parent 1 )
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Business Sub Vertical (LOB Segment 2 Parent 1 )'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -507,7 +607,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Business Sub Sub Vertical(LOB segment 2 Child )
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Business Sub Sub Vertical(LOB segment 2 Child )
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Business Sub Sub Vertical(LOB segment 2 Child )'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -571,12 +682,40 @@ const CreateTemporaryRole = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker sx={{ width: '100%' }} label='Start Date' />
+                <DatePicker
+                  sx={{ width: '100%' }}
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Start Date
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Start Date'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                />
               </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker sx={{ width: '100%' }} label='End Date' />
+                <DatePicker
+                  sx={{ width: '100%' }}
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      End Date
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='End Date'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                />
               </LocalizationProvider>
             </Grid>
           </Grid>
@@ -585,7 +724,20 @@ const CreateTemporaryRole = () => {
           <Grid container spacing={5} sx={{ marginTop: '10px' }}>
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-outlined-label'>Select Predefined Temporary Role To</InputLabel>
+                <InputLabel id='demo-simple-select-outlined-label'>
+                  {
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Select Predefined Temporary Role To
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Select Predefined Temporary Role To'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                </InputLabel>
                 <Select
                   label='Select Predefined Temporary Role To'
                   defaultValue=''
@@ -609,7 +761,20 @@ const CreateTemporaryRole = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-outlined-label'>Assign Temporary Role To</InputLabel>
+                <InputLabel id='demo-simple-select-outlined-label'>
+                  {
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Assign Temporary Role To
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Assign Temporary Role To'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                </InputLabel>
                 <Select
                   label='Assign Temporary Role To'
                   defaultValue=''
@@ -629,7 +794,20 @@ const CreateTemporaryRole = () => {
             {role === 'user' && (
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
-                  <InputLabel id='demo-simple-select-outlined-label'>Select User</InputLabel>
+                  <InputLabel id='demo-simple-select-outlined-label'>
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Select User
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Select User'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  </InputLabel>
                   <Select
                     label='Select User'
                     defaultValue=''
@@ -661,7 +839,18 @@ const CreateTemporaryRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    Select Group Users
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Select Group Users
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Select Group Users'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -704,7 +893,20 @@ const CreateTemporaryRole = () => {
               <>
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
-                    <InputLabel id='demo-simple-select-outlined-label'>Select Role</InputLabel>
+                    <InputLabel id='demo-simple-select-outlined-label'>
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select Role
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select Role'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                    </InputLabel>
                     <Select
                       label='Select Role'
                       defaultValue=''
@@ -734,7 +936,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Business Vertical (LOB Segment 2 Parent 2 )
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Business Vertical (LOB Segment 2 Parent 2 )
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Business Vertical (LOB Segment 2 Parent 2 )'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -787,7 +1000,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Business Sub Vertical (LOB Segment 2 Parent 1 )
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Business Sub Vertical (LOB Segment 2 Parent 1 )
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Business Sub Vertical (LOB Segment 2 Parent 1 )'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -840,7 +1064,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Business Sub Sub Vertical(LOB segment 2 Child )
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Business Sub Sub Vertical(LOB segment 2 Child )
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Business Sub Sub Vertical(LOB segment 2 Child )'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -899,12 +1134,40 @@ const CreateTemporaryRole = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker sx={{ width: '100%' }} label='Start Date' />
+                <DatePicker
+                  sx={{ width: '100%' }}
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Start Date
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Start Date'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                />
               </LocalizationProvider>
             </Grid>
             <Grid item xs={12} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker sx={{ width: '100%' }} label='End Date' />
+                <DatePicker
+                  sx={{ width: '100%' }}
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      End Date
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='End Date'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
+                />
               </LocalizationProvider>
             </Grid>
           </Grid>
@@ -924,8 +1187,15 @@ const CreateTemporaryRole = () => {
                 })}
               </Stepper>
             </Box>
-            <Box sx={{ width: '5%' }}>
-              <InfoIcon style={{ color: '#FA5A7D' }} />
+            <Box sx={{ width: '5%', mt: 1 }}>
+              <IconButton
+                disableFocusRipple
+                disableTouchRipple
+                color='secondary'
+                onClick={() => setInfoDialog(prev => !prev)}
+              >
+                <InfoIcon style={{ color: '#FA5A7D' }} />
+              </IconButton>
             </Box>
           </Box>
           {activeStep === 0 && (
@@ -933,7 +1203,18 @@ const CreateTemporaryRole = () => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
-                  label='Temporary Role Name'
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      Temporary Role Name
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='Temporary Role Name'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
                   value={tempRoleName}
                   placeholder='Temporary Role Name'
                   onChange={e => setTempRoleName(e.target.value)}
@@ -954,7 +1235,20 @@ const CreateTemporaryRole = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
-                  <InputLabel id='demo-simple-select-outlined-label'>Assign Temporary Role To</InputLabel>
+                  <InputLabel id='demo-simple-select-outlined-label'>
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Assign Temporary Role To
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Assign Temporary Role To'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  </InputLabel>
                   <Select
                     label='Assign Temporary Role To'
                     defaultValue=''
@@ -974,7 +1268,20 @@ const CreateTemporaryRole = () => {
               {role === 'user' && (
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth>
-                    <InputLabel id='demo-simple-select-outlined-label'>Select User</InputLabel>
+                    <InputLabel id='demo-simple-select-outlined-label'>
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select User
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select User'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                    </InputLabel>
                     <Select
                       label='Select User'
                       defaultValue=''
@@ -1006,7 +1313,18 @@ const CreateTemporaryRole = () => {
                       }}
                       id='demo-mutiple-chip-label'
                     >
-                      Select Group Users
+                      {
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select Group Users
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select Group Users'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
@@ -1049,7 +1367,20 @@ const CreateTemporaryRole = () => {
                 <>
                   <Grid item xs={12} sm={6}>
                     <FormControl fullWidth>
-                      <InputLabel id='demo-simple-select-outlined-label'>Select Role</InputLabel>
+                      <InputLabel id='demo-simple-select-outlined-label'>
+                        {
+                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                            Select Role
+                            {infoDialog && (
+                              <span>
+                                <Tooltip title='Select Role'>
+                                  <InfoIcon sx={{ ml: 3 }} />
+                                </Tooltip>
+                              </span>
+                            )}
+                          </Box>
+                        }
+                      </InputLabel>
                       <Select
                         label='Select Role'
                         defaultValue=''
@@ -1079,7 +1410,18 @@ const CreateTemporaryRole = () => {
                         }}
                         id='demo-mutiple-chip-label'
                       >
-                        Business Vertical (LOB Segment 2 Parent 2 )
+                        {
+                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                            Business Vertical (LOB Segment 2 Parent 2 )
+                            {infoDialog && (
+                              <span>
+                                <Tooltip title='Business Vertical (LOB Segment 2 Parent 2 )'>
+                                  <InfoIcon sx={{ ml: 3 }} />
+                                </Tooltip>
+                              </span>
+                            )}
+                          </Box>
+                        }
                       </InputLabel>
                       <Select
                         labelId='demo-mutiple-chip-label'
@@ -1132,7 +1474,18 @@ const CreateTemporaryRole = () => {
                         }}
                         id='demo-mutiple-chip-label'
                       >
-                        Business Sub Vertical (LOB Segment 2 Parent 1 )
+                        {
+                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                            Business Sub Vertical (LOB Segment 2 Parent 1 )
+                            {infoDialog && (
+                              <span>
+                                <Tooltip title='Business Sub Vertical (LOB Segment 2 Parent 1 )'>
+                                  <InfoIcon sx={{ ml: 3 }} />
+                                </Tooltip>
+                              </span>
+                            )}
+                          </Box>
+                        }
                       </InputLabel>
                       <Select
                         labelId='demo-mutiple-chip-label'
@@ -1185,7 +1538,18 @@ const CreateTemporaryRole = () => {
                         }}
                         id='demo-mutiple-chip-label'
                       >
-                        Business Sub Sub Vertical(LOB segment 2 Child )
+                        {
+                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                            Business Sub Sub Vertical(LOB segment 2 Child )
+                            {infoDialog && (
+                              <span>
+                                <Tooltip title='Business Sub Sub Vertical(LOB segment 2 Child )'>
+                                  <InfoIcon sx={{ ml: 3 }} />
+                                </Tooltip>
+                              </span>
+                            )}
+                          </Box>
+                        }
                       </InputLabel>
                       <Select
                         labelId='demo-mutiple-chip-label'
@@ -1235,12 +1599,40 @@ const CreateTemporaryRole = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker sx={{ width: '100%' }} label='Start Date' />
+                  <DatePicker
+                    sx={{ width: '100%' }}
+                    label={
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Start Date
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Start Date'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  />
                 </LocalizationProvider>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker sx={{ width: '100%' }} label='End Date' />
+                  <DatePicker
+                    sx={{ width: '100%' }}
+                    label={
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        End Date
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='End Date'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  />
                 </LocalizationProvider>
               </Grid>
             </Grid>
@@ -1252,7 +1644,18 @@ const CreateTemporaryRole = () => {
                   <Grid item xs={12} md={6}>
                     <TextField
                       fullWidth
-                      label='Role Name'
+                      label={
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Role Name
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Role Name'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
                       value={roleName}
                       placeholder='Role Name'
                       onChange={e => setRoleName(e.target.value)}
@@ -1284,12 +1687,40 @@ const CreateTemporaryRole = () => {
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DatePicker sx={{ width: '100%' }} label='Start Date' />
+                      <DatePicker
+                        sx={{ width: '100%' }}
+                        label={
+                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                            Start Date
+                            {infoDialog && (
+                              <span>
+                                <Tooltip title='Start Date'>
+                                  <InfoIcon sx={{ ml: 3 }} />
+                                </Tooltip>
+                              </span>
+                            )}
+                          </Box>
+                        }
+                      />
                     </LocalizationProvider>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DatePicker sx={{ width: '100%' }} label='End Date' />
+                      <DatePicker
+                        sx={{ width: '100%' }}
+                        label={
+                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                            End Date
+                            {infoDialog && (
+                              <span>
+                                <Tooltip title='End Date'>
+                                  <InfoIcon sx={{ ml: 3 }} />
+                                </Tooltip>
+                              </span>
+                            )}
+                          </Box>
+                        }
+                      />
                     </LocalizationProvider>
                   </Grid>
                 </Grid>
@@ -1299,9 +1730,8 @@ const CreateTemporaryRole = () => {
                 <Typography
                   variant='h6'
                   sx={{
-                    flexGrow: 1,
-                    color: '#1D2939',
-                    fontWeight: 'bold'
+                    fontWeight: 500,
+                    lineHeight: '27px'
                   }}
                 >
                   Set Rights
@@ -1316,8 +1746,8 @@ const CreateTemporaryRole = () => {
       <Box sx={{ padding: '10px 10px' }}>
         <Grid container spacing={5}>
           <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button size='large' variant='contained' color='inherit' sx={{ mr: 2 }} onClick={handleBack}>
-              Cancel
+            <Button size='large' variant='outlined' color='inherit' sx={{ mr: 2 }} onClick={handleBack}>
+              {activeStep === 0 ? 'Cancel' : 'Go Back'}
             </Button>
             <Button size='large' variant='contained' color='inherit' sx={{ mr: 2 }}>
               Save As Draft
