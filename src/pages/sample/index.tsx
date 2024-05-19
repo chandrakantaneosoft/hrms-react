@@ -1,19 +1,11 @@
 import * as React from 'react'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
+import LinearProgress from '@mui/material/LinearProgress'
 
-export default function BasicButtons() {
+export default function LinearIndeterminate() {
   return (
-    <Stack spacing={2} direction='row'>
-      <Button color='secondary' variant='text'>
-        Text
-      </Button>
-      <Button color='secondary' variant='contained'>
-        Contained
-      </Button>
-      <Button color='secondary' variant='outlined'>
-        Outlined
-      </Button>
-    </Stack>
+    <Box sx={{ width: '100%' }}>
+      <LinearProgress />
+    </Box>
   )
 }

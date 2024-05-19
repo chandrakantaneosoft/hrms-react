@@ -2,7 +2,17 @@ import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 
-import { Button, Fab, IconButton, InputAdornment, TextField, Tooltip } from '@mui/material'
+import {
+  Button,
+  Divider,
+  Fab,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -25,6 +35,8 @@ import MenuItem from '@mui/material/MenuItem'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
 import DeleteDialog from '../CommonDialogBox/DeleteDialog'
 import SuccessDialog from './Dialog/SuccessDialog'
+import Link from 'next/link'
+import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -454,6 +466,8 @@ function ManageRequest() {
   const { setPagePaths } = useGlobalContext()
   const [deleteDialog, setDeleteDialog] = useState<boolean>(false)
   const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
+  const [openDropzone, setOpenDropzone] = useState<boolean>(false)
+  const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
 
   //Delete dialog funactionality
   //enable delete dialog
@@ -479,9 +493,10 @@ function ManageRequest() {
 
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
-    router.push('/permanent-role/create-role')
+    // router.push('/permanent-role/create-role')
+    // setAnchorElPop(event.currentTarget)
 
-    // setAnchorEl(event?.currentTarget)
+    setAnchorEl(event?.currentTarget)
   }
 
   //Hanlder for dialog box in mui datagrid
@@ -509,6 +524,20 @@ function ManageRequest() {
       }
     ])
   }, [])
+
+  //Handler for dropxzone
+  const handleCloseDropzone = () => {
+    setOpenDropzone(false)
+  }
+
+  const handleSubmitDropzone = () => {
+    setOpenDropzone(false)
+    setOpenDropzoneSuccess(true)
+  }
+
+  const handleSuccessClose = () => {
+    setOpenDropzoneSuccess(false)
+  }
 
   return (
     <>
@@ -577,23 +606,27 @@ function ManageRequest() {
                 >
                   Create
                 </Button>
-                {/* <Menu
-                  id='basic-menu'
-                  anchorEl={anchorEl}
+                <Popover
                   open={open}
+                  anchorEl={anchorEl}
                   onClose={handleClose}
-                  MenuListProps={{
-                    'aria-labelledby': 'basic-button'
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left'
                   }}
                 >
-                  <MenuItem color='primary' onClick={handleClose}>
-                    Profile
-                  </MenuItem>
-                  <MenuItem color='primary' onClick={handleClose}>
-                    My account
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Menu> */}
+                  <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                    <Link href='/permanent-role/create-role'>Create Role</Link>
+                  </Typography>
+                  <Box sx={{ mt: 1, mb: 1 }}>
+                    <Divider />
+                  </Box>
+                  <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                    <Link href='#' onClick={() => setOpenDropzone(true)}>
+                      Bulk Upload
+                    </Link>
+                  </Typography>
+                </Popover>
               </Box>
             </Grid>
             <Grid item xs={12} sx={{ marginTop: '25px' }}>
@@ -646,6 +679,23 @@ function ManageRequest() {
             openDialog={deleteRoleDialog}
             title='Deleted Successfully'
             handleClose={handleDeleteRoleDialog}
+          />
+        )}
+
+        {openDropzone && (
+          <DropZoneDialog
+            title='Bulk Upload Data'
+            subTitle='Upload your data through csv or xls. file'
+            openModal={openDropzone}
+            closeModal={handleCloseDropzone}
+            handleSubmitClose={handleSubmitDropzone}
+          />
+        )}
+        {openDropzoneSuccess && (
+          <SuccessDialog
+            openDialog={openDropzoneSuccess}
+            title='File Uploaded Successfully'
+            handleClose={handleSuccessClose}
           />
         )}
       </Box>

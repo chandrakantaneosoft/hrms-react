@@ -27,7 +27,7 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       light: lightColor,
       darkBg: '#282A42',
       lightBg: '#F0f2f4',
-      bodyBg: mode === 'light' ? '#F7F7F9' : '#F7F7F9', // Same as palette.background.default but doesn't consider bordered skin
+      bodyBg: mode === 'light' ? '#F5F5F7' : '#F5F5F7', // Same as palette.background.default but doesn't consider bordered skin
       trackBg: mode === 'light' ? '#F2F2F4' : '#41435C',
       avatarBg: mode === 'light' ? '#F1F1F3' : '#3F425C',
       tooltipBg: mode === 'light' ? '#262732' : '#464A65',
@@ -125,7 +125,7 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       secondary: `rgba(${mainColor}, 0.6)`,
       disabled: `rgba(${mainColor}, 0.38)`
     },
-    divider: `rgba(${mainColor}, 0.12)`,
+    divider: '#C7C4D7',
     background: {
       paper: mode === 'light' ? whiteColor : '#30334E',
       default: defaultBgColor()

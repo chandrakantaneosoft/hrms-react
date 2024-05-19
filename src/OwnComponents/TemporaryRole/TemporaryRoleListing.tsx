@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
-import { Button, Fab, IconButton, InputAdornment, TextField, Tooltip } from '@mui/material'
+import {
+  Button,
+  Divider,
+  Fab,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -19,6 +29,9 @@ import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
 import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
+import Link from 'next/link'
+import SuccessDialog from '../ManageRequest/Dialog/SuccessDialog'
+import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 
 // table for Lob Assigned Modal
 // table for Lob Assigned Modal
@@ -414,10 +427,14 @@ function TemporaryRoleListing() {
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [userAssign, setUserAssign] = useState(false)
   const { setPagePaths } = useGlobalContext()
+  const [openDropzone, setOpenDropzone] = useState<boolean>(false)
+  const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
-  const handleChange = () => {
+  const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
-    router.push('/temporary-role-listing/create-new-temporary-role')
+    // router.push('/temporary-role-listing/create-new-temporary-role')
+    setAnchorEl(event?.currentTarget)
   }
 
   //Hanlder for dialog box in mui datagrid
@@ -434,6 +451,27 @@ function TemporaryRoleListing() {
       }
     ])
   }, [])
+
+  //Handler for dropxzone
+  const handleCloseDropzone = () => {
+    setOpenDropzone(false)
+  }
+
+  const handleSubmitDropzone = () => {
+    setOpenDropzone(false)
+    setOpenDropzoneSuccess(true)
+  }
+
+  const handleSuccessClose = () => {
+    setOpenDropzoneSuccess(false)
+  }
+
+  //handler for Menu Collapse create role button
+  const open = Boolean(anchorEl)
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   return (
     <>
@@ -505,13 +543,34 @@ function TemporaryRoleListing() {
               <Button
                 variant='contained'
                 color='secondary'
-                onClick={() => handleChange()}
+                onClick={e => handleChange(e)}
                 disableFocusRipple
                 disableTouchRipple
                 startIcon={<AddIcon />}
               >
                 Create
               </Button>
+              <Popover
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left'
+                }}
+              >
+                <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                  <Link href='/temporary-role-listing/create-new-temporary-role'>Create Role</Link>
+                </Typography>
+                <Box sx={{ mt: 1, mb: 1 }}>
+                  <Divider />
+                </Box>
+                <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                  <Link href='#' onClick={() => setOpenDropzone(true)}>
+                    Bulk Upload
+                  </Link>
+                </Typography>
+              </Popover>
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '25px' }}>
@@ -540,6 +599,22 @@ function TemporaryRoleListing() {
             header='Multiple Users Assigned'
             columnsRolCode={columnsUserAssign}
             rowsRoleCode={rowsUserAssign}
+          />
+        )}
+        {openDropzone && (
+          <DropZoneDialog
+            title='Bulk Upload Data'
+            subTitle='Upload your data through csv or xls. file'
+            openModal={openDropzone}
+            closeModal={handleCloseDropzone}
+            handleSubmitClose={handleSubmitDropzone}
+          />
+        )}
+        {openDropzoneSuccess && (
+          <SuccessDialog
+            openDialog={openDropzoneSuccess}
+            title='File Uploaded Successfully'
+            handleClose={handleSuccessClose}
           />
         )}
       </Box>

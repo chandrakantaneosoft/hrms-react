@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
-import { Button, Fab, IconButton, InputAdornment, TextField, Tooltip } from '@mui/material'
+import {
+  Button,
+  Divider,
+  Fab,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -22,6 +32,8 @@ import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutl
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
 import DeleteDialog from '../CommonDialogBox/DeleteDialog'
 import SuccessDialog from '../ManageRequest/Dialog/SuccessDialog'
+import Link from 'next/link'
+import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 
 // table for Lob Assigned Modal
 const columnsLobAssign: GridColDef[] = [
@@ -269,6 +281,9 @@ function AdditionalDutyRoleListing() {
   const { setPagePaths } = useGlobalContext()
   const [deleteDialog, setDeleteDialog] = useState<boolean>(false)
   const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
+  const [openDropzone, setOpenDropzone] = useState<boolean>(false)
+  const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   //Delete dialog funactionality
   //enable delete dialog
@@ -292,9 +307,10 @@ function AdditionalDutyRoleListing() {
     setDeleteRoleDialog(false)
   }
 
-  const handleChange = () => {
+  const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
-    router.push('/additional-duty-role-listing/create-new-additional-duty-role')
+    // router.push('/additional-duty-role-listing/create-new-additional-duty-role')
+    setAnchorEl(event?.currentTarget)
   }
 
   //Hanlder for dialog box in mui datagrid
@@ -311,6 +327,30 @@ function AdditionalDutyRoleListing() {
       }
     ])
   }, [])
+
+  //handler for Menu Collapse create role button
+  const open = Boolean(anchorEl)
+
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget)
+  // }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  //Handler for dropxzone
+  const handleCloseDropzone = () => {
+    setOpenDropzone(false)
+  }
+
+  const handleSubmitDropzone = () => {
+    setOpenDropzone(false)
+    setOpenDropzoneSuccess(true)
+  }
+
+  const handleSuccessClose = () => {
+    setOpenDropzoneSuccess(false)
+  }
 
   return (
     <>
@@ -382,13 +422,34 @@ function AdditionalDutyRoleListing() {
               <Button
                 variant='contained'
                 color='secondary'
-                onClick={() => handleChange()}
+                onClick={e => handleChange(e)}
                 disableFocusRipple
                 disableTouchRipple
                 startIcon={<AddIcon />}
               >
                 Create
               </Button>
+              <Popover
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left'
+                }}
+              >
+                <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                  <Link href='/additional-duty-role-listing/create-new-additional-duty-role'>Create Role</Link>
+                </Typography>
+                <Box sx={{ mt: 1, mb: 1 }}>
+                  <Divider />
+                </Box>
+                <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                  <Link href='#' onClick={() => setOpenDropzone(true)}>
+                    Bulk Upload
+                  </Link>
+                </Typography>
+              </Popover>
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ marginTop: '25px' }}>
@@ -429,6 +490,22 @@ function AdditionalDutyRoleListing() {
             openDialog={deleteRoleDialog}
             title='Deleted Successfully'
             handleClose={handleDeleteRoleDialog}
+          />
+        )}
+        {openDropzone && (
+          <DropZoneDialog
+            title='Bulk Upload Data'
+            subTitle='Upload your data through csv or xls. file'
+            openModal={openDropzone}
+            closeModal={handleCloseDropzone}
+            handleSubmitClose={handleSubmitDropzone}
+          />
+        )}
+        {openDropzoneSuccess && (
+          <SuccessDialog
+            openDialog={openDropzoneSuccess}
+            title='File Uploaded Successfully'
+            handleClose={handleSuccessClose}
           />
         )}
       </Box>
