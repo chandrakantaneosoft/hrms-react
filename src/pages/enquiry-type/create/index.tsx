@@ -30,6 +30,7 @@ interface FormData {
   enquiryOrder: string
   enquiryForm: any
   status: boolean
+  enquiry_sources: any
   sourceType: string
   sourceForm: any
   sourceUrl: string
