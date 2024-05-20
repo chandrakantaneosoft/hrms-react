@@ -1,10 +1,12 @@
 import { postRequest } from 'src/services/apiService'
 import { AutoLogoutUser } from 'src/services/authService'
 import { getSession } from 'next-auth/react'
+import { toast } from 'react-hot-toast'
 
 const Home = (props: any) => {
   const { session } = props
   if (!session) {
+    toast.error('There Is An Internal Error.')
     AutoLogoutUser()
   }
 
