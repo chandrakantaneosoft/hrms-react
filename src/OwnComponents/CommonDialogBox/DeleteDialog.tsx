@@ -26,7 +26,7 @@ function DeleteDialog({ openModal, closeModal, handleSubmitClose }: customModal)
     <>
       <Dialog open={openModal} onClose={closeModal} aria-labelledby='customized-dialog-title'>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <DialogTitle sx={{ color: '#313030', lineHeight: '16px' }} id='customized-dialog-title'>
+          <DialogTitle sx={{ lineHeight: '16px' }} id='customized-dialog-title'>
             Delete Role
           </DialogTitle>
           {/* <IconButton disableFocusRipple disableRipple onClick={closeModal}>
@@ -35,9 +35,7 @@ function DeleteDialog({ openModal, closeModal, handleSubmitClose }: customModal)
           </IconButton> */}
         </Box>
         <DialogContent>
-          <Typography sx={{ color: '#313030', lineHeight: '20px' }} variant='body2'>
-            Are You Sure You Want To Delete This Role?
-          </Typography>
+          <Typography variant='body2'>Are You Sure You Want To Delete This Role?</Typography>
         </DialogContent>
         <DialogActions className='dialog-actions-dense' sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
           <Button variant='outlined' color='primary' onClick={closeModal}>

@@ -103,7 +103,7 @@ const UserDropdown = (props: Props) => {
             <Typography variant='subtitle1' sx={{ fontWeight: 500, color: '#151D48', lineHeight: '24px' }}>
               Hi, Senafu Sen
             </Typography>
-            <Typography variant='body2' sx={{ lineHeight: '20px', color: '#737791' }}>
+            <Typography variant='body2' sx={{ color: '#737791' }}>
               CEO | Founder
             </Typography>
           </Box>

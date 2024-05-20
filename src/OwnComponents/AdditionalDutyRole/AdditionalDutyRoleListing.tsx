@@ -438,13 +438,13 @@ function AdditionalDutyRoleListing() {
                   horizontal: 'left'
                 }}
               >
-                <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                <Typography variant='body2'>
                   <Link href='/additional-duty-role-listing/create-new-additional-duty-role'>Create Role</Link>
                 </Typography>
                 <Box sx={{ mt: 1, mb: 1 }}>
                   <Divider />
                 </Box>
-                <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                <Typography variant='body2'>
                   <Link href='#' onClick={() => setOpenDropzone(true)}>
                     Bulk Upload
                   </Link>

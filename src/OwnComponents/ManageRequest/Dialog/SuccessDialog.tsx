@@ -11,7 +11,7 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import SuccessLogo from '../../../../public/images/success.gif'
 import Image from 'next/image'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 type DialogBox = {
   openDialog: boolean
@@ -31,7 +31,12 @@ function SuccessDialog({ openDialog, handleClose, title }: DialogBox) {
           <Box sx={{ textAlign: 'center' }}>
             <Image src={SuccessLogo} width={100} height={100} alt='success' />
           </Box>
-          <DialogContentText>{title}</DialogContentText>
+          <DialogContentText>
+            {' '}
+            <Typography sx={{ color: 'primary.main', fontWeight: '600', letterSpacing: '0.25px' }} variant='body2'>
+              {title}
+            </Typography>
+          </DialogContentText>
         </DialogContent>
         <DialogActions className='dialog-actions-dense' sx={{ display: 'flex', justifyContent: 'center' }}>
           <Button variant='contained' color='primary' onClick={handleClose}>

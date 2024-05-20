@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
@@ -51,7 +51,9 @@ const HeadingTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
 const FileUploaderMultiple = () => {
   // ** State
   const [files, setFiles] = useState<File[]>([])
+  const [error, setError] = useState<string>('')
   const maxSize = 10 * 1024 * 1024 // 10 MB in bytes
+
   // ** Hooks
   const { getRootProps, getInputProps, fileRejections } = useDropzone({
     accept: {
@@ -75,7 +77,19 @@ const FileUploaderMultiple = () => {
     }
   }
 
-  const fileRejectionItems = fileRejections.map(({ file, errors }) => console.log(file, errors))
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => errors[0].code)
+  console.log(fileRejectionItems[0])
+
+  //useEffect
+  useEffect(() => {
+    if (fileRejectionItems[0] === 'too-many-files') {
+      setError('You are trying to upload more than 3 files')
+    } else if (fileRejectionItems[0] === 'file-too-large') {
+      setError('You are trying to upload more than 10 mb file')
+    } else {
+      setError('')
+    }
+  }, [fileRejectionItems])
 
   const handleRemoveFile = (file: FileProp) => {
     const uploadedFiles = files
@@ -145,7 +159,6 @@ const FileUploaderMultiple = () => {
               variant='body2'
               sx={{
                 '& a': { color: 'primary.main', textDecoration: 'none' },
-                lineHeight: '20px',
                 letterSpacing: '0.25px',
                 textAlign: 'center'
               }}
@@ -167,6 +180,13 @@ const FileUploaderMultiple = () => {
             </Typography>
           </Box>
         </Box>
+      </div>
+      <div className='errorText'>
+        {error && (
+          <Typography variant='caption' sx={{ color: 'secondary.main' }}>
+            {error}
+          </Typography>
+        )}
       </div>
       {files.length ? (
         <Fragment>

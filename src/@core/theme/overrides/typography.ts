@@ -85,6 +85,7 @@ const typography = {
         props: { variant: 'body2' },
         style: ({ theme }: OwnerStateThemeType) => ({
           color: theme.palette.text.primary,
+          lineHeight: '20px !important',
           fontWeight: 400,
           fontSize: '14px !important'
         })
