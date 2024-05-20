@@ -53,7 +53,7 @@ const FileUploaderMultiple = () => {
   const [files, setFiles] = useState<File[]>([])
   const maxSize = 10 * 1024 * 1024 // 10 MB in bytes
   // ** Hooks
-  const { getRootProps, getInputProps } = useDropzone({
+  const { getRootProps, getInputProps, fileRejections } = useDropzone({
     accept: {
       'application/pdf': ['.pdf'],
       'application/msword': ['.doc'],
@@ -61,7 +61,7 @@ const FileUploaderMultiple = () => {
       'image/png': ['.png']
     },
     maxSize,
-
+    maxFiles: 2,
     onDrop: (acceptedFiles: File[]) => {
       setFiles(acceptedFiles.map((file: File) => Object.assign(file)))
     }
@@ -74,6 +74,8 @@ const FileUploaderMultiple = () => {
       return <Icon icon='mdi:file-document-outline' />
     }
   }
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => console.log(file, errors))
 
   const handleRemoveFile = (file: FileProp) => {
     const uploadedFiles = files
@@ -88,7 +90,7 @@ const FileUploaderMultiple = () => {
         <div>
           <Typography
             variant='body2'
-            sx={{ lineHeight: '20px', letterSpacing: '0.25px', color: 'customcolors.mainText' }}
+            sx={{ letterSpacing: '0.25px', color: 'customcolors.mainText' }}
             className='file-name'
           >
             {file.name}
