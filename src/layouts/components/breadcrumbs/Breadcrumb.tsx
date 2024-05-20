@@ -1,7 +1,6 @@
 import { Breadcrumbs, Link, Typography } from '@mui/material'
 import * as React from 'react'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
-import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 type Bread = {
   currentPath?: string
@@ -9,7 +8,7 @@ type Bread = {
 
 function Breadcrumb({ currentPath }: Bread) {
   const { pagePaths } = useGlobalContext()
-  const { pagePaths } = useGlobalContext()
+
   let moduleName
   switch (currentPath) {
     case '/permanent-role/':
@@ -44,9 +43,6 @@ function Breadcrumb({ currentPath }: Bread) {
   //const title = sample && sample.length > 0 ? sample[sample.length - 1].toString() : ''
 
   const title = pagePaths && pagePaths.length > 0 ? pagePaths[pagePaths.length - 1] : ''
-  //const title = sample && sample.length > 0 ? sample[sample.length - 1].toString() : ''
-
-  const title = pagePaths && pagePaths.length > 0 ? pagePaths[pagePaths.length - 1] : ''
 
   // const title = capitalizeWords(CurrentPaths)
   // console.log(currentPath, 'current path')
@@ -59,18 +55,12 @@ function Breadcrumb({ currentPath }: Bread) {
 
   return (
     <div role='presentation'>
-      <Breadcrumbs aria-label='breadcrumb'>
-        <Link underline='hover' color='inherit' href='/'>
       <Breadcrumbs maxItems={2} aria-label='breadcrumb'>
         <Link underline='hover' color='inherit' href='/'>
           {moduleName}
         </Link>
         {pagePaths?.map((curr: any, index: any) => (
-        {pagePaths?.map((curr: any, index: any) => (
           <>
-            <Link underline={'hover'} color='inherit' href={curr.path}>
-              {/* {sample && sample.length > 0 && sample[index]} */}
-              {curr.title}
             <Link underline={'hover'} color='inherit' href={curr.path}>
               {/* {sample && sample.length > 0 && sample[index]} */}
               {curr.title}
@@ -85,8 +75,6 @@ function Breadcrumb({ currentPath }: Bread) {
           color: '#1B1B1B'
         }}
       >
-        {title.title}
-      <Typography variant='h6' sx={{ color: '#111111', lineHeight: '30px' }}>
         {title.title}
       </Typography>
     </div>
