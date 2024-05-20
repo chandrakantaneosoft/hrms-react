@@ -39,13 +39,7 @@ export async function getServerSideProps(context: any) {
       props: { session }
     }
   } else {
-    const logoutPath = logoutUserData(session)
-
     return {
-      redirect: {
-        destination: logoutPath?.url,
-        permanent: false
-      },
       props: { session: null }
     }
   }
