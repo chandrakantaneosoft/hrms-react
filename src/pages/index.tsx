@@ -1,6 +1,3 @@
-// pages/index.tsx
-import { getServerSession } from 'next-auth/next'
-import { authOptions } from './api/auth/[...nextauth]'
 import { postRequest } from 'src/services/apiService'
 import { logoutUserData } from 'src/services/authService'
 import { getSession } from 'next-auth/react'
@@ -17,50 +14,6 @@ const Home = (props: any) => {
   )
 }
 
-// export const getServerSideProps = async (context: any) => {
-//   const session: any = await getServerSession(context.req, context.res, authOptions)
-
-//   if (!session) {
-//     return {
-//       props: {
-//         session: null
-//       }
-//     }
-//   }
-
-//   if (session) {
-//     const params = {
-//       url: 'marketing/auth/validate/key-cloak',
-//       headers: {
-//         Authorization: `Bearer ${session.accessToken}`
-//       }
-//     }
-//     const response = await postRequest(params)
-//     Object.keys(session).forEach(key => session[key] === undefined && delete session[key])
-//     Object.keys(session.user).forEach(key => session.user[key] === undefined && delete session.user[key])
-//     console.log('session-response', session, response)
-
-//     if (response.status && response.data.status) {
-//       return {
-//         props: {
-//           session: session || null
-//         }
-//       }
-//     } else {
-//       const logoutPath = logoutUserData(session)
-
-//       return {
-//         redirect: {
-//           destination: logoutPath?.url,
-//           permanent: false
-//         },
-//         props: {
-//           session: null
-//         }
-//       }
-//     }
-//   }
-// }
 export async function getServerSideProps(context: any) {
   const session: any = await getSession(context)
 
@@ -81,13 +34,18 @@ export async function getServerSideProps(context: any) {
     serviceURL: 'marketing'
   }
   const response = await postRequest(params)
-  console.log('response>>>>', session, response)
   if (response.status && response.data.status) {
     return {
       props: { session }
     }
   } else {
+    const logoutPath = logoutUserData(session)
+
     return {
+      redirect: {
+        destination: logoutPath?.url,
+        permanent: false
+      },
       props: { session: null }
     }
   }
