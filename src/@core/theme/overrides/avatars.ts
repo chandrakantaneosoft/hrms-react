@@ -1,12 +1,30 @@
 // ** Type Import
+import { borderRadius, letterSpacing } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const Avatar = () => {
   return {
     MuiAvatar: {
       styleOverrides: {
+        root: ({ theme }: OwnerStateThemeType) => ({
+          width: '40px',
+          height: '40px',
+          borderRadius: '100px',
+          fontSize: '16px',
+          fontWeight: 500,
+          letterSpacing: '0.15px',
+          lineHeight: '24px',
+          '&.MuiAvatar-colorDefault.primary': {
+            color: theme.palette.common.white,
+            backgroundColor: theme.palette.primary.main
+          },
+          '&.MuiAvatar-colorDefault.secondary': {
+            color: theme.palette.secondary.dark,
+            backgroundColor: theme.palette.secondary.main
+          }
+        }),
         colorDefault: ({ theme }: OwnerStateThemeType) => ({
-          color: theme.palette.text.secondary,
+          color: theme.palette.customColors.mainText,
           backgroundColor: theme.palette.customColors.avatarBg
         }),
         rounded: {

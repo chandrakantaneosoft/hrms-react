@@ -164,9 +164,9 @@ const NotificationDropdown = (props: Props) => {
   return (
     <Fragment>
       <IconButton
-        color='inherit'
+        className='contained'
         aria-haspopup='true'
-        sx={{ width: '56px', height: '56px', borderRadius: '16px', backgroundColor: '#F4F0EF' }}
+        sx={{ borderRadius: '16px' }}
         onClick={handleDropdownOpen}
         disableRipple
         disableFocusRipple
@@ -177,10 +177,10 @@ const NotificationDropdown = (props: Props) => {
           invisible={!notifications.length}
           badgeContent={3}
           sx={{
-            '& .MuiBadge-badge': { top: 4, right: 4, boxShadow: theme => `0 0 0 2px ${theme.palette.background.paper}` }
+            '& .MuiBadge-badge': { top: 4, right: 4 }
           }}
         >
-          <NotificationsNoneIcon />
+          <NotificationsNoneIcon sx={{ color: '#929090' }} />
         </Badge>
       </IconButton>
       <Menu

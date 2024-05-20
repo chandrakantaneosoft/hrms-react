@@ -73,21 +73,19 @@ function TableDialog({ openModal, closeModal, header, columnsRolCode, rowsRoleCo
           </IconButton>
         </Box>
         <DialogContent>
-          <Card sx={{ borderRadius: '0px' }} elevation={0}>
-            <Box sx={{ height: '300px' }}>
-              <DataGrid
-                columns={columnsRolCode}
-                rows={rowsRoleCode}
-                pagination={true}
-                checkboxSelection={false}
-                pageSizeOptions={[7, 10, 25, 50]}
-                paginationModel={paginationModel}
-                slots={{ pagination: CustomPagination }}
-                onPaginationModelChange={setPaginationModel}
-                className='dataTable'
-              />
-            </Box>
-          </Card>
+          <Box sx={{ height: '300px' }}>
+            <DataGrid
+              columns={columnsRolCode}
+              rows={rowsRoleCode}
+              pagination={true}
+              checkboxSelection={false}
+              pageSizeOptions={[7, 10, 25, 50]}
+              paginationModel={paginationModel}
+              slots={{ pagination: CustomPagination }}
+              onPaginationModelChange={setPaginationModel}
+              className='dataTable'
+            />
+          </Box>
         </DialogContent>
       </Dialog>
     </>

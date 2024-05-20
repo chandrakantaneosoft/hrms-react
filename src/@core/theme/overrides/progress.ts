@@ -9,29 +9,31 @@ const Progress = () => {
     MuiLinearProgress: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          height: 6,
-          borderRadius: theme.shape.borderRadius,
+          height: 8,
+          borderRadius: '64px',
+
           '&.MuiLinearProgress-colorPrimary': {
-            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.12)
+            backgroundColor: theme.palette.primary.main
           },
           '&.MuiLinearProgress-colorSecondary': {
-            backgroundColor: hexToRGBA(theme.palette.secondary.main, 0.12)
+            backgroundColor: theme.palette.secondary.main
           },
           '&.MuiLinearProgress-colorSuccess': {
-            backgroundColor: hexToRGBA(theme.palette.success.main, 0.12)
+            backgroundColor: theme.palette.success.main
           },
           '&.MuiLinearProgress-colorError': {
-            backgroundColor: hexToRGBA(theme.palette.error.main, 0.12)
+            backgroundColor: theme.palette.secondary.main
           },
           '&.MuiLinearProgress-colorWarning': {
-            backgroundColor: hexToRGBA(theme.palette.warning.main, 0.12)
+            backgroundColor: theme.palette.warning.main
           },
           '&.MuiLinearProgress-colorInfo': {
-            backgroundColor: hexToRGBA(theme.palette.info.main, 0.12)
+            backgroundColor: theme.palette.info.main
           }
         }),
         bar: ({ theme }: OwnerStateThemeType) => ({
-          borderRadius: theme.shape.borderRadius
+          borderRadius: '64px',
+          backgroundColor: theme.palette.customColors.disable
         })
       }
     }

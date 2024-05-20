@@ -10,9 +10,15 @@ const Chip = () => {
       styleOverrides: {
         root: {
           padding: '6px 0px',
-          fontSize: '14px',
+          fontSize: '14px ',
           fontWeight: 500,
+          height: '30px',
           textAlign: 'center',
+          '& .MuiChip-label': {
+            fontSize: '14px ',
+            fontWeight: 500,
+            lineHeight: '21px'
+          },
           '&.MuiChip-rounded': {
             borderRadius: '8px'
           },

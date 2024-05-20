@@ -103,20 +103,18 @@ const ShortcutsDropdown = (props: Props) => {
     <Fragment>
       <IconButton
         sx={{
-          width: '56px',
-          height: '56px',
           borderRadius: '16px',
-          backgroundColor: '#F4F0EF',
+
           marginLeft: '10px'
         }}
-        color='inherit'
+        className='contained'
         aria-haspopup='true'
         onClick={handleDropdownOpen}
         aria-controls='customized-menu'
         disableFocusRipple
         disableRipple
       >
-        <AppsIcon />
+        <AppsIcon sx={{ color: '#929090' }} />
       </IconButton>
       <Menu
         anchorEl={anchorEl}

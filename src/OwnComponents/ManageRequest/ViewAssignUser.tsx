@@ -1,5 +1,5 @@
 'use Client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Card, Grid, InputAdornment, Switch, TextField } from '@mui/material'
 import { GridColDef, DataGrid } from '@mui/x-data-grid'
 
@@ -9,39 +9,7 @@ import { TablePaginationProps } from '@mui/material/TablePagination'
 import UserIcon from 'src/layouts/components/UserIcon'
 import { styled } from '@mui/material/styles'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
-
-const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
-  marginLeft: 0,
-  '& .MuiSwitch-root': {
-    width: 42,
-    height: 26,
-    padding: 0,
-    marginRight: theme.spacing(3),
-    '& .MuiSwitch-switchBase': {
-      padding: 1,
-      '&.Mui-checked': {
-        transform: 'translateX(16px)',
-        color: theme.palette.common.white,
-        '& + .MuiSwitch-track': {
-          opacity: 1,
-          border: 'none',
-          backgroundColor: '#3635C9'
-        }
-      }
-    },
-    '& .MuiSwitch-thumb': {
-      width: 24,
-      height: 24
-    },
-    '& .MuiSwitch-track': {
-      opacity: 1,
-      borderRadius: 13,
-      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.action.selected : theme.palette.grey[50],
-      border: `1px solid ${theme.palette.grey[400]}`,
-      transition: theme.transitions.create(['background-color', 'border'])
-    }
-  }
-}))
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 function Pagination({
   page,
@@ -73,6 +41,7 @@ export default function ViewAssignUser() {
   const [isSwitch, setIsSwitch] = useState(false)
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [searhRole, setSearchRole] = useState<string>('')
+  const { setPagePaths } = useGlobalContext()
 
   //Column for Data Grid
   const columns: GridColDef[] = [
@@ -131,7 +100,7 @@ export default function ViewAssignUser() {
       align: 'left',
       headerAlign: 'left',
       width: 80,
-      renderCell: () => <FormControlLabel label='' control={<Switch defaultChecked />} />
+      renderCell: () => <Switch defaultChecked />
     }
   ]
 
@@ -193,6 +162,20 @@ export default function ViewAssignUser() {
     }
   ]
 
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Permanant Role',
+        path: '/permanent-role'
+      },
+      {
+        title: 'User Assigned - Role Teaching Faculty',
+        path: '/permanent-role/view-assign-user'
+      }
+    ])
+  }, [])
+
   return (
     <>
       <Box sx={{ background: '#fff', borderRadius: '10px', padding: '20px 0px' }}>
@@ -224,21 +207,20 @@ export default function ViewAssignUser() {
             </Box>
           </Grid>
         </Grid>
-        <Card sx={{ borderRadius: '0px' }} elevation={0}>
-          <Box sx={{ height: '450px' }}>
-            <DataGrid
-              columns={columns}
-              rows={rows}
-              pagination={true}
-              checkboxSelection={false}
-              pageSizeOptions={[7, 10, 25, 50]}
-              paginationModel={paginationModel}
-              slots={{ pagination: CustomPagination }}
-              onPaginationModelChange={setPaginationModel}
-              className='dataTable'
-            />
-          </Box>
-        </Card>
+
+        <Box sx={{ height: '450px' }}>
+          <DataGrid
+            columns={columns}
+            rows={rows}
+            pagination={true}
+            checkboxSelection={false}
+            pageSizeOptions={[7, 10, 25, 50]}
+            paginationModel={paginationModel}
+            slots={{ pagination: CustomPagination }}
+            onPaginationModelChange={setPaginationModel}
+            className='dataTable'
+          />
+        </Box>
       </Box>
     </>
   )

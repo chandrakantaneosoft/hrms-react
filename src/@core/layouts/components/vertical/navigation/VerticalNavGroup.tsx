@@ -1,5 +1,5 @@
 // ** React Imports
-import { useEffect, Fragment } from 'react'
+import { useEffect, Fragment, ElementType } from 'react'
 
 // ** Next Import
 import { useRouter } from 'next/router'
@@ -12,7 +12,7 @@ import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import Box, { BoxProps } from '@mui/material/Box'
 import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemButton from '@mui/material/ListItemButton'
+import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton'
 
 // ** Third Party Imports
 import clsx from 'clsx'
@@ -61,6 +61,98 @@ const MenuItemTextWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   justifyContent: 'space-between',
   transition: 'opacity .25s ease-in-out',
   ...(themeConfig.menuTextTruncate && { overflow: 'hidden' })
+}))
+
+//styles for nav group
+// ** Styled Components
+const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: ElementType }>(({ theme }) => ({
+  width: '100%',
+  borderRadius: 8,
+  transition: 'padding-left .25s ease-in-out',
+  backgroundColor: theme.palette.common.white,
+
+  '&.Mui-selected': {
+    backgroundColor: 'transparent !important',
+    '& .MuiListItemIcon-root': {
+      width: '56px',
+      height: '32px',
+      borderRadius: '100px',
+      backgroundColor: 'blue',
+      display: 'flex',
+      justifyContent: 'center',
+      paddingTop: '2px',
+      marginLeft: '5px',
+      color: `${theme.palette.common.white} !important`,
+      '& .MuiTypography-root': {
+        fontSize: '14px !important',
+        fontWeight: 500,
+        lineHeight: '21px',
+        textAlign: 'center',
+
+        color: theme.palette.primary.dark
+      },
+      '&.Mui-focusVisible': {
+        backgroundColor: theme.palette.primary.dark
+      }
+    },
+    '&:hover': {
+      '& .MuiListItemIcon-root': {
+        width: '56px',
+        height: '32px',
+        borderRadius: '100px',
+        backgroundColor: 'blue',
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: '2px',
+        marginLeft: '5px',
+        color: `${theme.palette.common.white} !important`,
+        '& .MuiTypography-root': {
+          fontSize: '14px !important',
+          fontWeight: 500,
+          lineHeight: '21px',
+          textAlign: 'center',
+
+          color: theme.palette.primary.main
+        },
+        '&.Mui-focusVisible': {
+          backgroundColor: theme.palette.primary.main
+        }
+      }
+    }
+  },
+
+  '&:hover': {
+    backgroundColor: theme.palette.common.white,
+    '& .MuiListItemIcon-root': {
+      backgroundColor: theme.palette.grey[50],
+
+      color: theme.palette.customColors.mainText
+    },
+    '& .MuiTypography-root': {
+      fontSize: '14px !important',
+      fontWeight: 500,
+      lineHeight: '21px',
+      textAlign: 'center',
+      color: `${theme.palette.customColors.mainText} !important`
+    }
+  },
+  '& .MuiTypography-root': {
+    fontSize: '14px !important',
+    fontWeight: 500,
+    lineHeight: '21px',
+    textAlign: 'center',
+    color: `${theme.palette.customColors.mainText} `
+  },
+  '& .MuiListItemIcon-root': {
+    color: `${theme.palette.customColors.mainText} !important`,
+    width: '56px',
+    height: '32px',
+    borderRadius: '100px',
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: '2px',
+    marginLeft: '5px'
+  }
 }))
 
 const VerticalNavGroup = (props: Props) => {
@@ -195,7 +287,7 @@ const VerticalNavGroup = (props: Props) => {
           <ListItem
             disablePadding
             className='nav-group'
-            onClick={handleGroupClick}
+            onMouseEnter={handleGroupClick}
             sx={{
               mt: 1.5,
               flexDirection: 'column',
@@ -206,9 +298,9 @@ const VerticalNavGroup = (props: Props) => {
                   : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
             }}
           >
-            <ListItemButton
+            <MenuNavLink
               style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
-              onClick={() => handleDialog()}
+              onMouseEnter={() => handleDialog()}
               className={clsx({
                 'Mui-selected': groupActive.includes(item.title) || currentActiveGroup.includes(item.title)
               })}
@@ -283,7 +375,7 @@ const VerticalNavGroup = (props: Props) => {
                 </Box>
                 {/* <Icon icon={direction === 'ltr' ? 'mdi:chevron-right' : 'mdi:chevron-left'} /> */}
               </MenuItemTextWrapper>
-            </ListItemButton>
+            </MenuNavLink>
             {/* <Collapse
             component='ul'
             onClick={e => e.stopPropagation()}

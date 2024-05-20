@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import { Box } from '@mui/system'
 
-import { Button, IconButton, InputAdornment, TextField } from '@mui/material'
+import {
+  Button,
+  Divider,
+  Fab,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Card from '@mui/material/Card'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
@@ -19,6 +29,14 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import FilterAltIcon from '@mui/icons-material/FilterAlt'
+import SimCardDownloadOutlinedIcon from '@mui/icons-material/SimCardDownloadOutlined'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
+import DeleteDialog from '../CommonDialogBox/DeleteDialog'
+import SuccessDialog from './Dialog/SuccessDialog'
+import Link from 'next/link'
+import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -217,9 +235,6 @@ function ManageRequest() {
     console.log(params, 'edit')
     router.push('/permanent-role/create-role/')
   }
-  const handleDelete = (params: GridRenderCellParams) => {
-    console.log(params, 'delete')
-  }
 
   const columns: GridColDef[] = [
     {
@@ -230,12 +245,12 @@ function ManageRequest() {
     },
     {
       flex: 0.275,
-      minWidth: 150,
+      minWidth: 190,
       field: 'uniqueRole',
       headerName: 'HRIS Unique Role',
       renderCell: params => {
         return (
-          <div style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }} onClick={handleClickOpen}>
+          <div style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleClickOpen}>
             {params.value}
           </div>
         )
@@ -243,7 +258,7 @@ function ManageRequest() {
     },
     {
       flex: 0.275,
-      minWidth: 150,
+      minWidth: 200,
       field: 'schoolCategories',
       headerName: 'School Categories'
     },
@@ -254,7 +269,7 @@ function ManageRequest() {
       headerName: 'LOB Assigned',
       renderCell: params => {
         return (
-          <div style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }} onClick={handleOpenLob}>
+          <div style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleOpenLob}>
             {params.value}
           </div>
         )
@@ -274,7 +289,7 @@ function ManageRequest() {
       renderCell: params => {
         return (
           <div
-            style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }}
+            style={{ textDecoration: 'underline', cursor: 'pointer' }}
             onClick={() => router.push('/permanent-role/view-assign-user/')}
           >
             {params.value}
@@ -320,7 +335,7 @@ function ManageRequest() {
     // },
     {
       flex: 0.2,
-      minWidth: 100,
+      minWidth: 110,
       field: 'status',
       headerName: 'Status',
       renderCell: (params: GridRenderCellParams) => {
@@ -447,10 +462,41 @@ function ManageRequest() {
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [openPSCodeModal, setOpenPSCodeModal] = useState(false)
   const [openLobModal, setOpenLobModal] = useState(false)
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const { setPagePaths } = useGlobalContext()
+  const [deleteDialog, setDeleteDialog] = useState<boolean>(false)
+  const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
+  const [openDropzone, setOpenDropzone] = useState<boolean>(false)
+  const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
 
-  const handleChange = () => {
+  //Delete dialog funactionality
+  //enable delete dialog
+  const handleDelete = (params: GridRenderCellParams) => {
+    setDeleteDialog(true)
+  }
+
+  //disable Delet Dialog
+  const handleDeleteDialog = () => {
+    setDeleteDialog(false)
+  }
+
+  //close delete and enable succes dialog
+  const handleDeleteCloseDialog = () => {
+    setDeleteDialog(false)
+    setDeleteRoleDialog(true)
+  }
+
+  //close success dialog
+  const handleDeleteRoleDialog = () => {
+    setDeleteRoleDialog(false)
+  }
+
+  const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
-    router.push('/permanent-role/create-role')
+    // router.push('/permanent-role/create-role')
+    // setAnchorElPop(event.currentTarget)
+
+    setAnchorEl(event?.currentTarget)
   }
 
   //Hanlder for dialog box in mui datagrid
@@ -458,6 +504,40 @@ function ManageRequest() {
   const handleClickClose = () => setOpenPSCodeModal(false)
   const handleOpenLob = () => setOpenLobModal(true)
   const handleCloseLob = () => setOpenLobModal(false)
+
+  //handler for Menu Collapse create role button
+  const open = Boolean(anchorEl)
+
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget)
+  // }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Permanant Role',
+        path: '/permanent-role'
+      }
+    ])
+  }, [])
+
+  //Handler for dropxzone
+  const handleCloseDropzone = () => {
+    setOpenDropzone(false)
+  }
+
+  const handleSubmitDropzone = () => {
+    setOpenDropzone(false)
+    setOpenDropzoneSuccess(true)
+  }
+
+  const handleSuccessClose = () => {
+    setOpenDropzoneSuccess(false)
+  }
 
   return (
     <>
@@ -471,7 +551,7 @@ function ManageRequest() {
                   ml: 3,
                   padding: '0px 10px',
                   display: 'flex',
-                  justifyContent: 'flex-end',
+                  justifyContent: { sm: 'flex-start', lg: 'flex-end' },
                   alignItems: 'center'
                 }}
               >
@@ -488,40 +568,82 @@ function ManageRequest() {
                     )
                   }}
                 />
-
-                <Button variant='contained' color='inherit' sx={{ mr: 3 }} startIcon={<FilterAltIcon />}>
+                <Tooltip title='Download Role List'>
+                  <Fab
+                    size='small'
+                    sx={{
+                      zIndex: 1,
+                      mr: 3,
+                      '@media (max-width: 910px)': {
+                        ml: 3
+                      }
+                    }}
+                  >
+                    <SimCardDownloadOutlinedIcon />
+                  </Fab>
+                </Tooltip>
+                <Button
+                  variant='contained'
+                  color='inherit'
+                  sx={{
+                    mr: 3,
+                    '@media (max-width: 910px)': {
+                      ml: 3
+                    }
+                  }}
+                  startIcon={<FilterAltIcon />}
+                >
                   filter
                 </Button>
 
                 <Button
                   variant='contained'
                   color='secondary'
-                  onClick={() => handleChange()}
+                  onClick={e => handleChange(e)}
                   disableFocusRipple
                   disableTouchRipple
                   startIcon={<AddIcon />}
                 >
-                  Create Role
+                  Create
                 </Button>
+                <Popover
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left'
+                  }}
+                >
+                  <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                    <Link href='/permanent-role/create-role'>Create Role</Link>
+                  </Typography>
+                  <Box sx={{ mt: 1, mb: 1 }}>
+                    <Divider />
+                  </Box>
+                  <Typography variant='body2' sx={{ lineHeight: '20px' }}>
+                    <Link href='#' onClick={() => setOpenDropzone(true)}>
+                      Bulk Upload
+                    </Link>
+                  </Typography>
+                </Popover>
               </Box>
             </Grid>
             <Grid item xs={12} sx={{ marginTop: '25px' }}>
               {/* <TableFilter /> */}
-              <Card sx={{ borderRadius: '0px' }}>
-                {/* <CardHeader title='Quick Filter' /> */}
+              {/* <CardHeader title='Quick Filter' /> */}
 
-                <DataGrid
-                  autoHeight
-                  columns={columns}
-                  pagination
-                  pageSizeOptions={[7, 10, 25, 50]}
-                  paginationModel={paginationModel}
-                  slots={{ pagination: CustomPagination }}
-                  onPaginationModelChange={setPaginationModel}
-                  rows={data}
-                  className='dataTable'
-                />
-              </Card>
+              <DataGrid
+                autoHeight
+                columns={columns}
+                pagination
+                pageSizeOptions={[7, 10, 25, 50]}
+                paginationModel={paginationModel}
+                slots={{ pagination: CustomPagination }}
+                onPaginationModelChange={setPaginationModel}
+                rows={data}
+                className='dataTable'
+              />
             </Grid>
           </>
         </Grid>
@@ -542,6 +664,38 @@ function ManageRequest() {
             header='LOBs Assigned'
             columnsRolCode={columnsLobAssign}
             rowsRoleCode={rowsLobAssign}
+          />
+        )}
+
+        {deleteDialog && (
+          <DeleteDialog
+            openModal={deleteDialog}
+            handleSubmitClose={handleDeleteCloseDialog}
+            closeModal={handleDeleteDialog}
+          />
+        )}
+        {deleteRoleDialog && (
+          <SuccessDialog
+            openDialog={deleteRoleDialog}
+            title='Deleted Successfully'
+            handleClose={handleDeleteRoleDialog}
+          />
+        )}
+
+        {openDropzone && (
+          <DropZoneDialog
+            title='Bulk Upload Data'
+            subTitle='Upload your data through csv or xls. file'
+            openModal={openDropzone}
+            closeModal={handleCloseDropzone}
+            handleSubmitClose={handleSubmitDropzone}
+          />
+        )}
+        {openDropzoneSuccess && (
+          <SuccessDialog
+            openDialog={openDropzoneSuccess}
+            title='File Uploaded Successfully'
+            handleClose={handleSuccessClose}
           />
         )}
       </Box>

@@ -1,4 +1,5 @@
 // ** Type Import
+import { fontSize, fontWeight, lineHeight } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const Breadcrumbs = () => {
@@ -6,24 +7,15 @@ const Breadcrumbs = () => {
     MuiBreadcrumbs: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          fontSize: '12px',
-          fontWeight: '400',
-          lineHeight: '18px',
-          '& a': {
-            textDecoration: 'none',
-            color: theme.palette.customColors.inactive
-          }
-        }),
-        li: ({ theme }: OwnerStateThemeType) => ({
-          color: theme.palette.customColors.inactive,
-          '& a': {
-            color: theme.palette.customColors.inactive
-          },
-          '& > .MuiLink-root': {
-            textDecoration: 'none'
-          },
-          '& .MuiTypography-root': {
-            color: theme.palette.customColors.mainText
+          '& .MuiBreadcrumbs-ol': {
+            '& .MuiBreadcrumbs-li': {
+              '& .MuiTypography-root.MuiLink-root': {
+                fontSize: '12px',
+                fontWeight: 400,
+                lineHeight: '18px',
+                color: theme.palette.customColors.mainText
+              }
+            }
           }
         })
       }

@@ -27,11 +27,11 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       light: lightColor,
       darkBg: '#282A42',
       lightBg: '#F0f2f4',
-      bodyBg: mode === 'light' ? '#F7F7F9' : '#282A42', // Same as palette.background.default but doesn't consider bordered skin
+      bodyBg: mode === 'light' ? '#F5F5F7' : '#F5F5F7', // Same as palette.background.default but doesn't consider bordered skin
       trackBg: mode === 'light' ? '#F2F2F4' : '#41435C',
       avatarBg: mode === 'light' ? '#F1F1F3' : '#3F425C',
       tooltipBg: mode === 'light' ? '#262732' : '#464A65',
-      tableHeaderBg: mode === 'light' ? '#F5F5F7' : '#3A3E5B',
+      tableHeaderBg: '#eaeaf1',
       primaryLighter: '#CFD5F1',
       primaryLightest: '#EBEBFA',
       secondaryLighter: '#EBDEE5',
@@ -56,7 +56,14 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       chipHoverBackground: '#FCF8FF',
       chipTonalBackground: '#F4F0EF',
       dividerColor: '#C7C4D7',
-      badgeColorDefault: '#B3234B'
+      badgeColorDefault: '#B3234B',
+      sliderMainColor: '#3635C9',
+      sliderSecColor: '#5D5FEF',
+      sliderLabelColor: '#302F39',
+      sliderLabelTextColor: '#F2EFFB',
+      datepickerText: '#464555',
+      primarySuperLight: '#3F41D114',
+      menuItemTextColor: '#434343'
     },
     mode: mode,
     common: {
@@ -103,9 +110,9 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       200: '#EEEEEE',
       300: '#E0E0E0',
       400: '#BDBDBD',
-      500: '#9E9E9E',
+      500: '#1D1B201F',
       600: '#757575',
-      700: '#616161',
+      700: '#1D1B20',
       800: '#424242',
       900: '#212121',
       A100: '#F5F5F5',
@@ -118,7 +125,7 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       secondary: `rgba(${mainColor}, 0.6)`,
       disabled: `rgba(${mainColor}, 0.38)`
     },
-    divider: `rgba(${mainColor}, 0.12)`,
+    divider: '#C7C4D7',
     background: {
       paper: mode === 'light' ? whiteColor : '#30334E',
       default: defaultBgColor()

@@ -50,6 +50,7 @@ const MenuNavLink = styled(ListItemButton)<
   borderRadius: 8,
   transition: 'padding-left .25s ease-in-out',
   backgroundColor: theme.palette.common.white,
+
   '&.active': {
     '& .MuiListItemIcon-root': {
       width: '56px',
@@ -62,37 +63,73 @@ const MenuNavLink = styled(ListItemButton)<
       color: `${theme.palette.common.white} !important`
     },
     '& .MuiTypography-root': {
+      fontSize: '14px !important',
       fontWeight: 500,
-      color: 'blue !important'
+      lineHeight: '21px',
+      textAlign: 'center',
+
+      color: theme.palette.primary.main
     },
     '&.Mui-focusVisible': {
       backgroundColor: theme.palette.primary.main
+    },
+    '&:hover': {
+      '& .MuiListItemIcon-root': {
+        width: '56px',
+        height: '32px',
+        borderRadius: '100px',
+        backgroundColor: 'blue',
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: '2px',
+        color: `${theme.palette.common.white} !important`
+      },
+      '& .MuiTypography-root': {
+        fontSize: '14px !important',
+        fontWeight: 500,
+        lineHeight: '21px',
+        textAlign: 'center',
+
+        color: theme.palette.primary.main
+      },
+      '&.Mui-focusVisible': {
+        backgroundColor: theme.palette.primary.main
+      }
     }
   },
+
   '&:hover': {
     backgroundColor: theme.palette.common.white,
     '& .MuiListItemIcon-root': {
       backgroundColor: theme.palette.grey[500],
 
-      color: theme.palette.common.white
+      color: theme.palette.customColors.datepickerText
     },
     '& .MuiTypography-root': {
+      fontSize: '14px !important',
       fontWeight: 500,
-      color: `${theme.palette.grey[500]} !important`
+      lineHeight: '21px',
+      textAlign: 'center',
+      color: `${theme.palette.customColors.datepickerText} !important`
     }
   },
   '& .MuiTypography-root': {
+    fontSize: '14px !important',
     fontWeight: 500,
-    color: `${theme.palette.grey[600]} `
+    lineHeight: '21px',
+    textAlign: 'center',
+    color: `${theme.palette.customColors.datepickerText} `
   },
+
   '& .MuiListItemIcon-root': {
-    color: `${theme.palette.grey[600]} !important`,
+    color: `${theme.palette.customColors.datepickerText} !important`,
     width: '56px',
     height: '32px',
     borderRadius: '100px',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: '2px'
+    paddingTop: '2px',
+    marginLeft: '5px'
   }
 }))
 
@@ -140,7 +177,7 @@ const VerticalNavLink = ({
         <Divider
           style={{
             width: '70%',
-            marginTop: 'calc(100vh - 400px)',
+            marginTop: 'calc(100% + 100px)',
             marginLeft: '20px',
             borderWidth: '1px',
             borderColor: '#C6C8D2',

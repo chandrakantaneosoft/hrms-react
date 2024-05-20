@@ -56,49 +56,18 @@ code[class*='language-'] {
 .layout-page-content {
   min-width: 100%;
 }
-.dataTable .MuiTablePagination-displayedRows {
-  display: none;
+.layout-footer {
+  background-color: #f5f5f7;
+  padding: '16px 0px';
+  border-top: 0px;
+  outline: 0px;
 }
-.dataTable .MuiTablePagination-root:last-child {
-  width: 100% !important;
-}
-.dataTable .MuiDataGrid-footerContainer .MuiTablePagination-toolbar {
-  display: flex !important;
-  justify-content: space-between !important;
-}
-.dataTable .MuiTablePagination-spacer {
-  display: none;
-}
-.dataTable .css-8ygak9-MuiInputBase-root-MuiTablePagination-select {
+
+/* .dataTable .MuiInputBase-root-MuiTablePagination-select {
   margin-right: 62% !important;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {
-  background-color: transparent !important;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected .MuiListItemIcon-root {
-  width: 56px;
-  height: 32px;
-  border-radius: 100px;
-  background-color: blue;
-  display: flex;
-  justify-content: center;
-  padding-top: 2px;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected .MuiListItemIcon-root svg {
-  color: #fff;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected .MuiTypography-root {
-  color: blue !important;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected:hover .MuiListItemIcon-root {
-  background-color: #e1e1e1;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected:hover .MuiListItemIcon-root svg {
-  color: inherit;
-}
-.css-1wv0kt2-MuiButtonBase-root-MuiListItemButton-root.Mui-selected:hover .MuiTypography-root {
-  color: inherit !important;
-}
+} */
+
+/*Custom Textfield*/
 .custom-textfield .MuiInputBase-root {
   background-color: transparent;
   width: 500px;
@@ -107,38 +76,75 @@ code[class*='language-'] {
   padding: 0px 12px;
   border-radius: 45px;
 }
+@media screen and (max-width: 910px) {
+  .custom-textfield .MuiInputBase-root {
+    width: 100% !important;
+  }
+}
 
 /*css for sidebar*/
 .sideBar-Link {
   padding: 10px 10px !important;
 }
 .sideBar-Link .sidebarHeading {
-  width: '80%';
-  padding: 18px 16px;
+  width: '80% ' !important;
+  padding: 10px 16px;
   border-radius: 45px;
-  background-color: #4849da14;
-  color: #3635c9;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.15;
+  background-color: #ebebfa !important;
+  color: #3f41d1 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  letter-spacing: 0.15 !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root {
   background-color: transparent !important;
-  padding: 18px 16px;
+  padding: 10px 16px;
   transition: all 0.5s;
+  align-items: flex-start;
 }
-.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiListItemIcon-root {
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiBox-root {
+  justify-content: flex-start !important;
+}
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiTypography-root {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  letter-spacing: 0.1 !important;
+  color: #535252 !important;
+  text-align: left !important;
+}
+
+.sideBar-Link .MuiButtonBase-root-MuiListItemButton-root::before {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 100px !important;
+  background-color: #3f41d1 !important;
+}
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiListItemIcon-root,
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active:hover .MuiListItemIcon-root {
   display: none;
   height: 0px !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root:hover {
-  background-color: #e1e1e1 !important;
-  padding: 18px 16px;
+  background-color: #ebebfa !important;
+  padding: 10px 16px;
   border-radius: 45px;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active {
   background-color: transparent !important;
 }
+.sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active:hover {
+  background-color: #ebebfa !important;
+  padding: 10px 16px;
+  border-radius: 45px;
+}
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active .MuiTypography-root {
-  color: blue !important;
+  color: #3f41d1 !important;
+}
+
+/*Bredcrumb button*/
+.MuiBreadcrumbs-ol li .MuiButtonBase-root {
+  background-color: transparent !important;
+  color: '#929090' !important;
 }

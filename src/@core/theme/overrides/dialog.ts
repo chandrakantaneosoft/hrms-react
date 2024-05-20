@@ -1,5 +1,15 @@
 // ** Type Imports
-import { borderRadius, color, fontSize, fontWeight, letterSpacing, lineHeight } from '@mui/system'
+import {
+  borderRadius,
+  color,
+  display,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  padding,
+  textAlign
+} from '@mui/system'
 import { OwnerStateThemeType } from './'
 import { Skin } from 'src/@core/layouts/types'
 
@@ -21,6 +31,17 @@ const Dialog = (skin: Skin) => {
           '& > .MuiList-root': {
             paddingLeft: theme.spacing(1),
             paddingRight: theme.spacing(1)
+          },
+          '& .dialogIcon.MuiBox-root': {
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+            paddingTop: '25px',
+            '& .MuiSvgIcon-root': {
+              color: theme.palette.customColors.title,
+              fontSize: '24px'
+            }
           }
         })
       }
@@ -29,28 +50,40 @@ const Dialog = (skin: Skin) => {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
           fontSize: '24px !important',
-          fontWeight: 400,
+          fontWeight: 500,
           lineHeight: '36px',
           color: theme.palette.customColors.text7,
-          padding: theme.spacing(5)
+          padding: theme.spacing(5),
+          '& span': {
+            fontSize: '14px !important',
+            fontWeight: 400,
+            lineHeight: '20px',
+            color: theme.palette.customColors.inactive
+          }
         })
       }
     },
     MuiDialogContent: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          '&.MuiDialogContentText-root': {
-            // fontSize: '14px',
-            // fontWeight: 400,
-            // lineHeight: '20px',
-            // letterSpacing: '0.25px',
-            // color: theme.palette.customColors.mainText
-            backgroundColor: theme.palette.secondary.dark
-          },
-
           padding: theme.spacing(5),
+          '& .MuiDialogContentText-root': {
+            fontSize: '14px',
+            fontWeight: 400,
+            lineHeight: '20px',
+            letterSpacing: '0.25px',
+            color: theme.palette.customColors.mainText
+          },
           '& + .MuiDialogContent-root': {
-            paddingTop: 0
+            paddingTop: 0,
+            '&.MuiDialogContentText-root .MuiTypography-root': {
+              // fontSize: '14px',
+              // fontWeight: 400,
+              // lineHeight: '20px',
+              // letterSpacing: '0.25px',
+              // color: theme.palette.customColors.mainText
+              backgroundColor: theme.palette.secondary.dark
+            }
           },
 
           '& + .MuiDialogActions-root': {
@@ -62,7 +95,11 @@ const Dialog = (skin: Skin) => {
     MuiDialogActions: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          padding: theme.spacing(5),
+          fontSize: '14px',
+          fontWeight: 500,
+          lineHeight: '21px',
+          textAlign: 'center',
+          padding: '10px 12px',
           '&.dialog-actions-dense': {
             padding: theme.spacing(2.5),
             paddingTop: 0

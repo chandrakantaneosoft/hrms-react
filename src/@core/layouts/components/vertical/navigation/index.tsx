@@ -27,6 +27,7 @@ import themeOptions from 'src/@core/theme/ThemeOptions'
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 import VerticalNavLink from './VerticalNavLink'
 import { Typography } from '@mui/material'
+import { usePathname } from 'next/navigation'
 
 interface Props {
   navWidth: number
@@ -80,6 +81,11 @@ const Navigation = (props: Props) => {
   const [groupActive, setGroupActive] = useState<string[]>([])
   const [currentActiveGroup, setCurrentActiveGroup] = useState<string[]>([])
   const [navigationChildItems, setnavigationChildItems] = useState<[]>([])
+  const pathName = usePathname()
+
+  useEffect(() => {
+    setIsOpen(!open)
+  }, [pathName])
 
   useEffect(() => {
     // if (props.verticalNavItems) {

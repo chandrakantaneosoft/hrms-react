@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -12,7 +12,7 @@ import StepLabel from '@mui/material/StepLabel'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 
-import { FormControl, InputLabel, Select, MenuItem, Divider } from '@mui/material'
+import { FormControl, InputLabel, Select, MenuItem, Divider, Tooltip, IconButton } from '@mui/material'
 import InfoIcon from '@mui/icons-material/Info'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
 
@@ -26,6 +26,7 @@ import TreeViewCheckbox from './TreeViewCheckbox'
 import SuccessDialog from './Dialog/SuccessDialog'
 import { useRouter } from 'next/navigation'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
   marginLeft: 0,
@@ -75,23 +76,6 @@ export const Auto1: Autocomplete[] = [
 ]
 
 // Define a styled FormControl component
-const StyledFormControl = styled(FormControl)<any>(({ theme, hasValue }) => ({
-  '& .MuiOutlinedInput-root': {
-    borderColor: hasValue ? 'black' : 'default', // Change border color when value is added
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C6C8D2' // Border color when hovering
-    },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C6C8D2' // Border color when focused
-    }
-  },
-  '& .MuiInputLabel-root': {
-    color: hasValue ? 'black' : 'default', // Change label color when value is added
-    '&.Mui-focused': {
-      color: 'black' // Label color when focused
-    }
-  }
-}))
 
 const steps = ['Create Role', 'Assign Role']
 
@@ -223,7 +207,9 @@ const CreateNewRole = () => {
   const [selectedItems2, setSelectedItems2] = useState([])
   const [selectedItems3, setSelectedItems3] = useState([])
   const [openDialog, setOpenDialog] = useState(false)
+  const [infoDialog, setInfoDialog] = useState(false)
   const router = useRouter()
+  const { setPagePaths } = useGlobalContext()
 
   //Handler for multi select option
   const handleChange1 = (e: any) => {
@@ -266,6 +252,20 @@ const CreateNewRole = () => {
     }
   }
 
+  //Passing Breadcrumbs
+  useEffect(() => {
+    setPagePaths([
+      {
+        title: 'Permanant Role',
+        path: '/permanent-role'
+      },
+      {
+        title: 'Create New Permanant Role',
+        path: '/permanent-role/create-role'
+      }
+    ])
+  }, [])
+
   return (
     <Fragment>
       {/* <Card sx={{ mt: 4, width: '100%' }}> */}
@@ -284,28 +284,72 @@ const CreateNewRole = () => {
               })}
             </Stepper>
           </Box>
-          <Box sx={{ width: '5%' }}>
-            <InfoIcon style={{ color: '#FA5A7D' }} />
+          <Box sx={{ width: '5%', mt: 1 }}>
+            <IconButton
+              disableFocusRipple
+              disableTouchRipple
+              color='secondary'
+              onClick={() => setInfoDialog(prev => !prev)}
+            >
+              <InfoIcon style={{ color: '#FA5A7D' }} />
+            </IconButton>
           </Box>
         </Box>
         <Box sx={{ mt: 5 }}>
           {activeStep === 0 && (
             <Grid container spacing={5}>
               <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                  <InputLabel id='demo-simple-select-outlined-label'>
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Applications
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Applications'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
+                  </InputLabel>
+                  <Select
+                    label='Applications'
+                    defaultValue=''
+                    id='demo-simple-select-outlined'
+                    labelId='demo-simple-select-outlined-label'
+                  >
+                    <MenuItem value=''>
+                      <em>Select</em>
+                    </MenuItem>
+                    <MenuItem value='School ERP'>School ERP</MenuItem>
+                    <MenuItem value='Oracle'>Oracle</MenuItem>
+                    <MenuItem value='LMS'>LMS</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   fullWidth
-                  label='ERP Role Name'
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      ERP Role Name{' '}
+                      {infoDialog && (
+                        <span>
+                          <Tooltip title='ERP Role Name'>
+                            <InfoIcon sx={{ ml: 3 }} />
+                          </Tooltip>
+                        </span>
+                      )}
+                    </Box>
+                  }
                   value={erpRoleName}
                   placeholder='ERP Role Name'
                   onChange={e => setErpRoleName(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <div className='toggle-select'>
-                  <span className='toggle-status'>Active</span>
-                  <FormControlLabel label='' control={<Switch defaultChecked />} />
-                </div>
-              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <Autocomplete
                   multiple
@@ -313,7 +357,22 @@ const CreateNewRole = () => {
                   defaultValue={[Auto1[1].title]}
                   options={Auto1.map(option => option.title)}
                   renderInput={params => (
-                    <TextField {...params} label='Select HRIS Unique Role' placeholder='Select HRIS Unique Role' />
+                    <TextField
+                      {...params}
+                      label={
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select HRIS Unique Role
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select HRIS Unique Role'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                      placeholder='Select HRIS Unique Role'
+                    />
                   )}
                   renderTags={(value: string[], getTagProps) =>
                     value.map((option: string, index: number) => (
@@ -330,7 +389,7 @@ const CreateNewRole = () => {
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -343,7 +402,18 @@ const CreateNewRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    School Categories{' '}
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        School Categories
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='School Categories'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -379,18 +449,21 @@ const CreateNewRole = () => {
                     <MenuItem value='1000-1500'>1000-1500</MenuItem>
                     <MenuItem value='2000'>2000</MenuItem>
                   </Select>
-                </StyledFormControl>
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <Card sx={{ borderRadius: '0px' }} elevation={0}>
-                  <Box sx={{ height: '300px' }}>
-                    <DataGrid columns={columns} rows={rows} hideFooterPagination />
-                  </Box>
-                </Card>
+                </FormControl>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <div className='toggle-select'>
+                  <span className='toggle-status'>Active</span>
+                  <FormControlLabel label='' control={<Switch defaultChecked />} />
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <Box sx={{ height: '300px' }}>
+                  <DataGrid columns={columns} rows={rows} hideFooterPagination />
+                </Box>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -403,7 +476,18 @@ const CreateNewRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    Business Vertical (LOB segment2 parent 2)
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Business Vertical (LOB segment2 parent 2)
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Business Vertical (LOB segment2 parent 2)'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -440,10 +524,10 @@ const CreateNewRole = () => {
                     <MenuItem value='9903'>9903</MenuItem>
                     <MenuItem value='>9904'>9904</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <StyledFormControl
+                <FormControl
                   fullWidth
 
                   // hasValue={selectedItems.length > 0} // Pass whether there is a value to the styled FormControl
@@ -456,7 +540,18 @@ const CreateNewRole = () => {
                     }}
                     id='demo-mutiple-chip-label'
                   >
-                    Business Sub Vertical (LOB Segment2 Parent1)
+                    {
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        Business Sub Vertical (LOB Segment2 Parent1)
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='Business Sub Vertical (LOB Segment2 Parent1)'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                   </InputLabel>
                   <Select
                     labelId='demo-mutiple-chip-label'
@@ -493,7 +588,7 @@ const CreateNewRole = () => {
                     <MenuItem value='2302'>2302</MenuItem>
                     <MenuItem value='2303'>2303</MenuItem>
                   </Select>
-                </StyledFormControl>
+                </FormControl>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Autocomplete
@@ -502,7 +597,22 @@ const CreateNewRole = () => {
                   defaultValue={[Auto1[1].title]}
                   options={Auto1.map(option => option.title)}
                   renderInput={params => (
-                    <TextField {...params} label='Select HRIS Unique Role' placeholder='Select HRIS Unique Role' />
+                    <TextField
+                      {...params}
+                      label={
+                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          Select HRIS Unique Role
+                          {infoDialog && (
+                            <span>
+                              <Tooltip title='Select HRIS Unique Role'>
+                                <InfoIcon sx={{ ml: 3 }} />
+                              </Tooltip>
+                            </span>
+                          )}
+                        </Box>
+                      }
+                      placeholder='Select HRIS Unique Role'
+                    />
                   )}
                   renderTags={(value: string[], getTagProps) =>
                     value.map((option: string, index: number) => (
@@ -521,7 +631,7 @@ const CreateNewRole = () => {
                 <Divider />
               </Grid>
               <Grid item xs={12} sm={12}>
-                <Typography variant='body1'>
+                <Typography variant='body2' sx={{ lineHeight: '20px', color: '#5D5FEF' }}>
                   LOBs will appear based on the selected school category
                   <br />
                   If School Category is marked as NA then LOB selection will be allowed and
@@ -537,7 +647,18 @@ const CreateNewRole = () => {
                 <Grid item xs={12} md={6}>
                   <TextField
                     fullWidth
-                    label='ERP Role Name'
+                    label={
+                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        ERP Role Name
+                        {infoDialog && (
+                          <span>
+                            <Tooltip title='ERP Role Name'>
+                              <InfoIcon sx={{ ml: 3 }} />
+                            </Tooltip>
+                          </span>
+                        )}
+                      </Box>
+                    }
                     value={erpRoleName}
                     placeholder='ERP Role Name'
                     onChange={e => setErpRoleName(e.target.value)}
@@ -557,9 +678,8 @@ const CreateNewRole = () => {
                 <Typography
                   variant='h6'
                   sx={{
-                    flexGrow: 1,
-                    color: '#1D2939',
-                    fontWeight: 'bold'
+                    fontWeight: 500,
+                    lineHeight: '27px'
                   }}
                 >
                   Set Rights
@@ -569,18 +689,22 @@ const CreateNewRole = () => {
             </>
           )}
         </Box>
-        <SuccessDialog openDialog={openDialog} handleClose={handleCloseDialog} />
+        <SuccessDialog
+          title='Role & Rights Created Successfully'
+          openDialog={openDialog}
+          handleClose={handleCloseDialog}
+        />
         <Box sx={{ mt: 5, mb: 5 }}>
           <Divider />
         </Box>
         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button
-            variant='contained'
+            variant='outlined'
             color='inherit'
             sx={{ mr: 2 }}
             onClick={() => (activeStep === 0 ? handleClose() : handleBack())}
           >
-            Cancel
+            {activeStep === 0 ? 'Cancel' : 'Go Back'}
           </Button>
           <Button variant='contained' color='inherit' sx={{ mr: 2 }} onClick={handleBack}>
             Save As Draft

@@ -8,6 +8,7 @@ type Bread = {
 
 function Breadcrumb({ currentPath }: Bread) {
   const { pagePaths } = useGlobalContext()
+
   let moduleName
   switch (currentPath) {
     case '/permanent-role/':
@@ -23,6 +24,7 @@ function Breadcrumb({ currentPath }: Bread) {
       moduleName = 'CRM'
       break
     default:
+      moduleName = 'Home'
       moduleName = 'Home'
   }
 
@@ -53,7 +55,7 @@ function Breadcrumb({ currentPath }: Bread) {
 
   return (
     <div role='presentation'>
-      <Breadcrumbs aria-label='breadcrumb'>
+      <Breadcrumbs maxItems={2} aria-label='breadcrumb'>
         <Link underline='hover' color='inherit' href='/'>
           {moduleName}
         </Link>
