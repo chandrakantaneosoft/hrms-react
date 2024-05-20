@@ -145,7 +145,6 @@ const VerticalNavGroup = (props: Props) => {
   const handleDialog = () => {
     if (setIsOpen !== undefined) {
       setIsOpen((prev: boolean | undefined) => !prev)
-      console.log(isOpen, 'click')
     }
   }
   useEffect(() => {

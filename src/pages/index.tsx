@@ -1,10 +1,12 @@
 import { postRequest } from 'src/services/apiService'
-import { logoutUserData } from 'src/services/authService'
+import { AutoLogoutUser } from 'src/services/authService'
 import { getSession } from 'next-auth/react'
 
 const Home = (props: any) => {
-  console.log('props', props)
   const { session } = props
+  if (!session) {
+    AutoLogoutUser()
+  }
 
   return (
     <div>

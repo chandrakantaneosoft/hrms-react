@@ -121,7 +121,6 @@ const App = (props: ExtendedAppProps) => {
   const aclAbilities = Component.acl ?? defaultACLObj
 
   useEffect(() => {
-    console.log('effect')
     if (props.pageProps.session?.accessToken) {
       localStorage.setItem('token', props.pageProps.session?.accessToken)
       localStorage.setItem('refreshToken', props.pageProps.session?.refreshToken)

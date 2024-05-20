@@ -37,7 +37,6 @@ const handleResponseError = (error: any) => {
   // } else {
   //   console.error('Request error:', error.message)
   // }
-  // console.log('error.response.data', error.response)
 
   if (error?.response?.status === 401) {
     // If status code is 401 (Unauthorized), redirect to login page
@@ -84,7 +83,6 @@ async function httpRequest(
 
   try {
     const url = serviceURL ? serviceURLList[serviceURL] + endpoint : axiosInstance.defaults.baseURL + endpoint
-    console.log('url' + '>>>>' + url)
     const config: AxiosRequestConfig = {
       method: method,
       url: url,
@@ -104,9 +102,6 @@ async function httpRequest(
 }
 
 export const postRequest = async (params: any) => {
-  console.log('post intita')
-  console.log(params)
-
   return httpRequest('POST', `${params.url}`, params?.data, params.headers, null, params?.serviceURL)
 }
 

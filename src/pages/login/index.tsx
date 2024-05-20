@@ -59,8 +59,6 @@ const LoginPage = () => {
 
   // ** Vars
   const { skin } = settings
-  console.log('login')
-  console.log(process.env.NODE_ENV)
 
   const logintoDashboard = () => {
     if (process.env.NODE_ENV === 'development') {
