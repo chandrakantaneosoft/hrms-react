@@ -24,9 +24,6 @@ const Popover = (skin: Skin) => {
                 textDecoration: 'none',
                 color: theme.palette.primary.main
               }
-            },
-            '& .MuiDivider-root ': {
-              borderWidth: '0px'
             }
           }
         })

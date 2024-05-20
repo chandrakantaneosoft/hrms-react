@@ -173,21 +173,27 @@ const VerticalNavLink = ({
 
   return (
     <CanViewNavLink navLink={item}>
-      {item.title == 'Setting' ? (
+      {/* {item.title == 'Setting' ? (
         <Divider
+          className='nav-setting footer-link'
           style={{
             width: '70%',
-            marginTop: 'calc(100% + 100px)',
             marginLeft: '20px',
             borderWidth: '1px',
             borderColor: '#C6C8D2',
             borderRadius: '10px'
           }}
         />
-      ) : null}
+      ) : null} */}
       <ListItem
         disablePadding
-        className='nav-link'
+        className={
+          item.title == 'Setting'
+            ? 'nav-setting footer-link'
+            : item.title == 'Logout'
+            ? 'nav-logout footer-link'
+            : 'nav-link'
+        }
         disabled={item.disabled || false}
         sx={{
           mt: 1.5,

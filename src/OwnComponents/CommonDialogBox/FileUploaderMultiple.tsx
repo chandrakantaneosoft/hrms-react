@@ -51,7 +51,7 @@ const HeadingTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
 const FileUploaderMultiple = () => {
   // ** State
   const [files, setFiles] = useState<File[]>([])
-  const maxSize = 5 * 1024 * 1024 // 5 MB in bytes
+  const maxSize = 10 * 1024 * 1024 // 10 MB in bytes
   // ** Hooks
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -141,24 +141,27 @@ const FileUploaderMultiple = () => {
           >
             <HeadingTypography
               variant='body2'
-              sx={{ lineHeight: '20px', letterSpacing: '0.25px', textAlign: 'center' }}
+              sx={{
+                '& a': { color: 'primary.main', textDecoration: 'none' },
+                lineHeight: '20px',
+                letterSpacing: '0.25px',
+                textAlign: 'center'
+              }}
             >
-              Drop files here or click to upload.
+              Drag Your File Here Or {''}
+              <Link href='/' onClick={e => e.preventDefault()}>
+                Browse File
+              </Link>{' '}
             </HeadingTypography>
             <Typography
               variant='caption'
               color='textSecondary'
               sx={{
-                '& a': { color: 'primary.main', textDecoration: 'none' },
                 lineHeight: '16px',
                 letterSpacing: '0.4px'
               }}
             >
-              Drop files here or click{' '}
-              <Link href='/' onClick={e => e.preventDefault()}>
-                browse
-              </Link>{' '}
-              thorough your machine
+              Maximum File Size Is 10MB
             </Typography>
           </Box>
         </Box>

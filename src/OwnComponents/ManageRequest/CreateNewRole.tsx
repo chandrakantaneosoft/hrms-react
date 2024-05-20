@@ -631,7 +631,7 @@ const CreateNewRole = () => {
                 <Divider />
               </Grid>
               <Grid item xs={12} sm={12}>
-                <Typography variant='body2' sx={{ lineHeight: '20px', color: '#5D5FEF' }}>
+                <Typography variant='body2' sx={{ lineHeight: '20px', color: 'primary.main' }}>
                   LOBs will appear based on the selected school category
                   <br />
                   If School Category is marked as NA then LOB selection will be allowed and
@@ -674,7 +674,7 @@ const CreateNewRole = () => {
 
               <Divider sx={{ mt: 6 }} />
 
-              <Box sx={{ mt: 2, mb: 2 }}>
+              <Box sx={{ mt: 4, mb: 2 }}>
                 <Typography
                   variant='h6'
                   sx={{

@@ -7,7 +7,7 @@ const Divider = () => {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
           borderColor: theme.palette.customColors.dividerColor,
-          borderWidth: '0.5px',
+
           '.MuiStack-root &:not(.MuiDivider-vertical)': {
             marginTop: theme.spacing(2),
             marginBottom: theme.spacing(2)

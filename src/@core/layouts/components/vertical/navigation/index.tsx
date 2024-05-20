@@ -233,7 +233,7 @@ const Navigation = (props: Props) => {
         <div
           className='sideBar-Link'
           style={{
-            position: 'absolute',
+            position: 'fixed',
             top: 0,
             zIndex: 12345,
             left: '125px',

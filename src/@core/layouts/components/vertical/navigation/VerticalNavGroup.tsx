@@ -287,7 +287,7 @@ const VerticalNavGroup = (props: Props) => {
           <ListItem
             disablePadding
             className='nav-group'
-            onMouseEnter={handleGroupClick}
+            onMouseOver={handleGroupClick}
             sx={{
               mt: 1.5,
               flexDirection: 'column',
