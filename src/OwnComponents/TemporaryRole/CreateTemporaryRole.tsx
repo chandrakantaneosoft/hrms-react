@@ -182,20 +182,14 @@ const CreateTemporaryRole = () => {
 
   //Handle Button action
   const handleNext = () => {
-    if (value !== '3' && activeStep == 0) {
-      console.log()
-      setValue((Number(value) + 1).toString())
-    } else if (value === '3' && !isLastStep()) {
-      console.log('click ')
+    if (activeStep == 0) {
       setActiveStep(prev => prev + 1)
     } else {
       setOpenDialog(true)
     }
   }
   const handleBack = () => {
-    if (value !== '1' && activeStep == 0) {
-      setValue((Number(value) - 1).toString())
-    } else if (value === '3' && isLastStep()) {
+    if (value === '3' && isLastStep()) {
       setActiveStep(activeStep - 1)
     } else {
       router.push('/temporary-role-listing')
@@ -1786,10 +1780,10 @@ const CreateTemporaryRole = () => {
               size='large'
               variant='contained'
               color='secondary'
-              startIcon={<SkipNextIcon />}
+              startIcon={activeStep === 0 && value == '3' ? <SkipNextIcon /> : null}
               onClick={handleNext}
             >
-              Next
+              {activeStep === 0 && value == '3' ? ' Next' : 'Submit'}
             </Button>
           </Grid>
         </Grid>
