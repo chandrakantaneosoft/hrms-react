@@ -37,6 +37,7 @@ import DeleteDialog from '../CommonDialogBox/DeleteDialog'
 import SuccessDialog from './Dialog/SuccessDialog'
 import Link from 'next/link'
 import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
+import SearchBox from '../SharedUIComponent/SearchBox'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -472,6 +473,16 @@ function ManageRequest() {
   const [deleteRoleDialog, setDeleteRoleDialog] = useState<boolean>(false)
   const [openDropzone, setOpenDropzone] = useState<boolean>(false)
   const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
+  const [searchText, setSearchText] = useState('')
+
+  //Handling Search Functionality
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value)
+  }
+
+  const handleClearSearch = () => {
+    setSearchText('')
+  }
 
   //Delete dialog funactionality
   //enable delete dialog
@@ -555,11 +566,11 @@ function ManageRequest() {
                   ml: 3,
                   padding: '0px 10px',
                   display: 'flex',
-                  justifyContent: { sm: 'flex-start', lg: 'flex-end' },
+                  justifyContent: { lg: 'flex-end' },
                   alignItems: 'center'
                 }}
               >
-                <TextField
+                {/* <TextField
                   className='custom-textfield'
                   value={searhRole}
                   placeholder='Search Invoice'
@@ -571,7 +582,15 @@ function ManageRequest() {
                       </InputAdornment>
                     )
                   }}
-                />
+                /> */}
+                <Box sx={{ mr: 2 }}>
+                  <SearchBox
+                    placeHolderTitle='Search Role'
+                    searchText={searchText}
+                    handleClearSearch={handleClearSearch}
+                    handleInputChange={handleInputChange}
+                  />
+                </Box>
                 <Tooltip title='Download Role List'>
                   <Fab
                     size='small'

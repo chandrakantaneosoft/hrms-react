@@ -32,6 +32,7 @@ import { useGlobalContext } from 'src/@core/global/GlobalContext'
 import Link from 'next/link'
 import SuccessDialog from '../ManageRequest/Dialog/SuccessDialog'
 import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
+import SearchBox from '../SharedUIComponent/SearchBox'
 
 // table for Lob Assigned Modal
 // table for Lob Assigned Modal
@@ -432,6 +433,16 @@ function TemporaryRoleListing() {
   const [openDropzone, setOpenDropzone] = useState<boolean>(false)
   const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [searchText, setSearchText] = useState('')
+
+  //Handling Search Functionality
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value)
+  }
+
+  const handleClearSearch = () => {
+    setSearchText('')
+  }
 
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     // handleRoleDialog(true)
@@ -502,7 +513,7 @@ function TemporaryRoleListing() {
                 alignItems: 'center'
               }}
             >
-              <TextField
+              {/* <TextField
                 className='custom-textfield'
                 value={searhRole}
                 placeholder='Search Role'
@@ -514,7 +525,15 @@ function TemporaryRoleListing() {
                     </InputAdornment>
                   )
                 }}
-              />
+              /> */}
+              <Box sx={{ mr: 2 }}>
+                <SearchBox
+                  placeHolderTitle='Search Role'
+                  searchText={searchText}
+                  handleClearSearch={handleClearSearch}
+                  handleInputChange={handleInputChange}
+                />
+              </Box>
               <Tooltip title='Download Role List'>
                 <Fab
                   size='small'

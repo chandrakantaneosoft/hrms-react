@@ -10,6 +10,7 @@ import UserIcon from 'src/layouts/components/UserIcon'
 import { styled } from '@mui/material/styles'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
+import SearchBox from '../SharedUIComponent/SearchBox'
 
 function Pagination({
   page,
@@ -42,6 +43,16 @@ export default function ViewAssignUser() {
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 7 })
   const [searhRole, setSearchRole] = useState<string>('')
   const { setPagePaths } = useGlobalContext()
+  const [searchText, setSearchText] = useState('')
+
+  //Handling Search Functionality
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value)
+  }
+
+  const handleClearSearch = () => {
+    setSearchText('')
+  }
 
   //Column for Data Grid
   const columns: GridColDef[] = [
@@ -184,7 +195,7 @@ export default function ViewAssignUser() {
 
   return (
     <>
-      <Box sx={{ background: '#fff', borderRadius: '10px', padding: '20px 0px' }}>
+      <Box sx={{ background: '#fff', borderRadius: '10px', paddingTop: '20px' }}>
         <Grid container spacing={2} alignItems='center'>
           <Grid item xs={12}>
             <Box
@@ -197,7 +208,7 @@ export default function ViewAssignUser() {
                 alignItems: 'center'
               }}
             >
-              <TextField
+              {/* <TextField
                 className='custom-textfield'
                 value={searhRole}
                 placeholder='Search Role'
@@ -209,7 +220,15 @@ export default function ViewAssignUser() {
                     </InputAdornment>
                   )
                 }}
-              />
+              /> */}
+              <Box sx={{ mr: 2 }}>
+                <SearchBox
+                  placeHolderTitle='Search EMP Name'
+                  searchText={searchText}
+                  handleClearSearch={handleClearSearch}
+                  handleInputChange={handleInputChange}
+                />
+              </Box>
             </Box>
           </Grid>
         </Grid>

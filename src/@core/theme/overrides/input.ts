@@ -134,7 +134,7 @@ const input = () => {
           '&.custom-search': {
             '& .MuiOutlinedInput-root': {
               maxWidth: '360px',
-              height: '56px',
+              height: '45px',
               borderRadius: '28px',
               color: theme.palette.customColors.inactive,
               border: `1px solid ${theme.palette.customColors.inactive}`,

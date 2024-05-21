@@ -17,32 +17,36 @@ const DataGrid = () => {
           },
           '& .MuiDataGrid-columnHeader': {
             backgroundColor: '#F5F5F7',
-            '& .MuiDataGrid-columnHeaderTitleContainer': {
-              '& .MuiDataGrid-columnHeaderTitleContainerContent': {
-                '& .MuiDataGrid-columnHeaderTitle': {
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  lineHeight: '20px',
-                  letterSpacing: '0.25px',
-                  color: theme.palette.customColors.mainText,
-                  textTransform: 'capitalize'
-                },
-                '& .MuiCheckbox-root': {
-                  borderRadius: '2px',
-                  color: theme.palette.customColors.chipBorder,
-                  '&:hover': {
-                    backgroundColor: theme.palette.customColors.disabled,
-                    borderRadius: '100%'
+            '& .MuiDataGrid-columnHeaderDraggableContainer': {
+              borderRadius: '0px',
+              '& .MuiDataGrid-columnHeaderTitleContainer': {
+                '& .MuiDataGrid-columnHeaderTitleContainerContent': {
+                  '& .MuiDataGrid-columnHeaderTitle': {
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    lineHeight: '20px',
+                    letterSpacing: '0.25px',
+                    color: theme.palette.customColors.mainText,
+                    textTransform: 'capitalize'
                   },
-                  '&.Mui-disabled': {
-                    color: theme.palette.customColors.chipBorder
-                  },
-                  '&.Mui-disabled.Mui-checked': {
-                    color: theme.palette.customColors.chipBorder
+                  '& .MuiCheckbox-root': {
+                    borderRadius: '2px',
+                    color: theme.palette.customColors.chipBorder,
+                    '&:hover': {
+                      backgroundColor: theme.palette.customColors.disabled,
+                      borderRadius: '100%'
+                    },
+                    '&.Mui-disabled': {
+                      color: theme.palette.customColors.chipBorder
+                    },
+                    '&.Mui-disabled.Mui-checked': {
+                      color: theme.palette.customColors.chipBorder
+                    }
                   }
                 }
               }
             },
+
             '& .MuiDataGrid-iconButtonContainer': {
               '& .MuiIconButton-root': {
                 color: theme.palette.customColors.inactive,
