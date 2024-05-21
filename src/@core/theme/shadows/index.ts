@@ -7,7 +7,7 @@ const Shadows = (mode: PaletteMode): ThemeOptions['shadows'] => {
       'none',
       '0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004D',
 
-      'rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px',
+      '0px 2px 10px 0px #4C4E6438',
       '0px 4px 8px -4px rgba(76, 78, 100, 0.42)',
       '0px 6px 18px -8px rgba(76, 78, 100, 0.56)',
       '0px 3px 5px -1px rgba(76, 78, 100, 0.2), 0px 5px 8px 0px rgba(76, 78, 100, 0.14), 0px 1px 14px 0px rgba(76, 78, 100, 0.12)',

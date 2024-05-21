@@ -10,7 +10,7 @@ const DataGrid = () => {
         root: ({ theme }: OwnerStateThemeType) => ({
           border: 0,
           color: theme.palette.text.primary,
-          boxShadow: '0px 2px 10px 0px #4C4E6438',
+          boxShadow: theme.shadows[2],
 
           '& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within': {
             outline: 'none'
