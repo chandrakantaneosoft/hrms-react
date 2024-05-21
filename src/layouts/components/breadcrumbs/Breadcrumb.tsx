@@ -69,10 +69,11 @@ function Breadcrumb({ currentPath }: Bread) {
         ))}
       </Breadcrumbs>
       <Typography
-        variant='h5'
+        variant='h6'
         sx={{
           flexGrow: 1,
-          color: '#1B1B1B'
+          lineHeight: '30px',
+          color: '#111111'
         }}
       >
         {title.title}
