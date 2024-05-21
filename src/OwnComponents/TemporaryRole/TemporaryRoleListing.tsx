@@ -33,6 +33,7 @@ import Link from 'next/link'
 import SuccessDialog from '../ManageRequest/Dialog/SuccessDialog'
 import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 import SearchBox from '../SharedUIComponent/SearchBox'
+import FilterComponent from '../SharedUIComponent/FilterComponent'
 
 // table for Lob Assigned Modal
 // table for Lob Assigned Modal
@@ -434,6 +435,7 @@ function TemporaryRoleListing() {
   const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [searchText, setSearchText] = useState('')
+  const [filterOpen, setFilterOpen] = React.useState<any>(null)
 
   //Handling Search Functionality
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -484,6 +486,11 @@ function TemporaryRoleListing() {
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  //Handler For Filer Popover
+  const handleFilterClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setFilterOpen(event.currentTarget)
   }
 
   return (
@@ -557,10 +564,11 @@ function TemporaryRoleListing() {
                   }
                 }}
                 startIcon={<FilterAltIcon />}
+                onClick={handleFilterClick}
               >
                 filter
               </Button>
-
+              <FilterComponent filterOpen={filterOpen} setFilterOpen={setFilterOpen} />
               <Button
                 variant='contained'
                 color='secondary'

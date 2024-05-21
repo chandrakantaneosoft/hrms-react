@@ -38,6 +38,7 @@ import SuccessDialog from './Dialog/SuccessDialog'
 import Link from 'next/link'
 import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 import SearchBox from '../SharedUIComponent/SearchBox'
+import FilterComponent from '../SharedUIComponent/FilterComponent'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -474,6 +475,7 @@ function ManageRequest() {
   const [openDropzone, setOpenDropzone] = useState<boolean>(false)
   const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
   const [searchText, setSearchText] = useState('')
+  const [filterOpen, setFilterOpen] = React.useState<any>(null)
 
   //Handling Search Functionality
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -554,6 +556,11 @@ function ManageRequest() {
     setOpenDropzoneSuccess(false)
   }
 
+  //Handler For Filer Popover
+  const handleFilterClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setFilterOpen(event.currentTarget)
+  }
+
   return (
     <>
       <Box sx={{ background: '#fff', borderRadius: '10px' }}>
@@ -615,10 +622,11 @@ function ManageRequest() {
                     }
                   }}
                   startIcon={<FilterAltIcon />}
+                  onClick={handleFilterClick}
                 >
                   filter
                 </Button>
-
+                <FilterComponent filterOpen={filterOpen} setFilterOpen={setFilterOpen} />
                 <Button
                   variant='contained'
                   color='secondary'

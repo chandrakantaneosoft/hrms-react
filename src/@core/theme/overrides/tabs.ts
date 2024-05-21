@@ -1,5 +1,4 @@
 // ** Type Import
-
 import { OwnerStateThemeType } from './'
 
 const Tabs = () => {
@@ -74,6 +73,7 @@ const Tabs = () => {
 
           '&.fullwidth.primary': {
             '& .MuiTabs-scroller': {
+              marginBottom: '-7px !important',
               '& .MuiTabs-flexContainer': {
                 justifyContent: 'space-around'
               },
@@ -93,6 +93,7 @@ const Tabs = () => {
           },
           '&.fullwidth.secondary': {
             '& .MuiTabs-scroller': {
+              marginBottom: '-7px !important',
               '& .MuiTabs-flexContainer': {
                 justifyContent: 'space-around'
               },
@@ -112,6 +113,7 @@ const Tabs = () => {
           },
           '&.fullwidth.inherit': {
             '& .MuiTabs-scroller': {
+              marginBottom: '-7px !important',
               '& .MuiTabs-flexContainer': {
                 justifyContent: 'space-around'
               },
@@ -131,6 +133,7 @@ const Tabs = () => {
           },
           '&.scrollable.primary': {
             '& .MuiTabs-scroller': {
+              marginBottom: '-7px !important',
               '& .MuiTabs-flexContainer': {},
               '& .MuiTabs-indicator': {
                 display: 'flex',
@@ -148,6 +151,7 @@ const Tabs = () => {
           },
           '&.scrollable.secondary': {
             '& .MuiTabs-scroller': {
+              marginBottom: '-7px !important',
               '& .MuiTabs-flexContainer': {},
               '& .MuiTabs-indicator': {
                 display: 'flex',
@@ -165,6 +169,7 @@ const Tabs = () => {
           },
           '&.scrollable.inherit': {
             '& .MuiTabs-scroller': {
+              marginBottom: '-7px !important',
               '& .MuiTabs-flexContainer': {},
               '& .MuiTabs-indicator': {
                 display: 'flex',
@@ -183,9 +188,12 @@ const Tabs = () => {
         }),
         vertical: ({ theme }: OwnerStateThemeType) => ({
           minWidth: '360px',
+          width: '360px',
           minHeight: '46px',
           marginRight: theme.spacing(4),
-          borderRight: `1px solid ${theme.palette.divider}`,
+
+          // borderRight: `1px solid ${theme.palette.divider}`,
+          borderRight: '0px',
           '& .MuiTab-root': {
             minWidth: '360px'
           }
