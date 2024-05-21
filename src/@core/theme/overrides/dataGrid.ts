@@ -26,6 +26,20 @@ const DataGrid = () => {
                   letterSpacing: '0.25px',
                   color: theme.palette.customColors.mainText,
                   textTransform: 'capitalize'
+                },
+                '& .MuiCheckbox-root': {
+                  borderRadius: '2px',
+                  color: theme.palette.customColors.chipBorder,
+                  '&:hover': {
+                    backgroundColor: theme.palette.customColors.disabled,
+                    borderRadius: '100%'
+                  },
+                  '&.Mui-disabled': {
+                    color: theme.palette.customColors.chipBorder
+                  },
+                  '&.Mui-disabled.Mui-checked': {
+                    color: theme.palette.customColors.chipBorder
+                  }
                 }
               }
             },
@@ -61,6 +75,20 @@ const DataGrid = () => {
               lineHeight: '21px',
               color: theme.palette.customColors.mainText,
               textTransform: 'capitalize'
+            },
+            '& .MuiCheckbox-root': {
+              borderRadius: '2px',
+              color: `${theme.palette.customColors.chipBorder} !important`,
+              '&:hover': {
+                backgroundColor: theme.palette.customColors.disabled,
+                borderRadius: '100%'
+              },
+              '&.Mui-disabled': {
+                color: theme.palette.customColors.chipBorder
+              },
+              '&.Mui-disabled.Mui-checked': {
+                color: theme.palette.customColors.chipBorder
+              }
             }
           }
 

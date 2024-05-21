@@ -146,7 +146,7 @@ function AdditionalDutyRoleListing() {
       flex: 0.275,
       minWidth: 150,
       field: 'dutyRolename',
-      headerName: 'Additional duty role name'
+      headerName: 'Additional duty name'
     },
     {
       flex: 0.275,

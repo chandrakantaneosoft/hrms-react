@@ -1248,13 +1248,14 @@ const CreateTemporaryRole = () => {
                   value={tempRoleName}
                   placeholder='Temporary Role Name'
                   onChange={e => setTempRoleName(e.target.value)}
-                  InputProps={{
-                    endAdornment: (
-                      <Link onClick={handleSetRights} underline='none' sx={{ width: '130px' }}>
-                        ++ Set Rights
-                      </Link>
-                    )
-                  }}
+
+                  // InputProps={{
+                  //   endAdornment: (
+                  //     <Link onClick={handleSetRights} underline='none' sx={{ width: '130px' }}>
+                  //       ++ Set Rights
+                  //     </Link>
+                  //   )
+                  // }}
                 />
               </Grid>
 
@@ -1263,10 +1264,10 @@ const CreateTemporaryRole = () => {
                   <InputLabel id='demo-simple-select-outlined-label'>
                     {
                       <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
-                        Assign Temporary Role To
+                        Assign Role To
                         {infoDialog && (
                           <span>
-                            <Tooltip title='Assign Temporary Role To'>
+                            <Tooltip title='Assign Role To'>
                               <InfoIcon sx={{ ml: 3 }} />
                             </Tooltip>
                           </span>
@@ -1275,7 +1276,7 @@ const CreateTemporaryRole = () => {
                     }
                   </InputLabel>
                   <Select
-                    label='Assign Temporary Role To'
+                    label='Assign Role To'
                     defaultValue=''
                     id='demo-simple-select-outlined'
                     labelId='demo-simple-select-outlined-label'

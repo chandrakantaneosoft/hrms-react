@@ -45,14 +45,14 @@ export default function ViewAssignUser() {
 
   //Column for Data Grid
   const columns: GridColDef[] = [
-    {
-      field: 'serialNumber',
-      headerName: 'Sr No',
-      flex: 1,
-      align: 'left',
-      headerAlign: 'left',
-      minWidth: 80
-    },
+    // {
+    //   field: 'serialNumber',
+    //   headerName: 'Sr No',
+    //   flex: 1,
+    //   align: 'left',
+    //   headerAlign: 'left',
+    //   minWidth: 80
+    // },
     {
       field: 'empName',
       headerName: 'EMP Name',
@@ -108,7 +108,8 @@ export default function ViewAssignUser() {
   const rows = [
     {
       id: 1,
-      serialNumber: '01',
+
+      // serialNumber: '01',
       empName: 'Nittal',
       empId: 'EMP 123',
       lob: 'LOB 123',
@@ -117,7 +118,8 @@ export default function ViewAssignUser() {
     },
     {
       id: 2,
-      serialNumber: '02',
+
+      // serialNumber: '02',
       empName: 'Suman',
       empId: 'EMP 124',
       lob: 'LOB 124',
@@ -126,7 +128,8 @@ export default function ViewAssignUser() {
     },
     {
       id: 3,
-      serialNumber: '03',
+
+      // serialNumber: '03',
       empName: 'Imad',
       empId: 'EMP 125',
       lob: 'LOB 125',
@@ -135,7 +138,8 @@ export default function ViewAssignUser() {
     },
     {
       id: 4,
-      serialNumber: '04',
+
+      // serialNumber: '04',
       empName: 'Divanshu',
       empId: 'EMP 126',
       lob: 'LOB 126',
@@ -144,7 +148,8 @@ export default function ViewAssignUser() {
     },
     {
       id: 5,
-      serialNumber: '05',
+
+      // serialNumber: '05',
       empName: 'Ankita',
       empId: 'EMP 127',
       lob: 'LOB 127',
@@ -153,7 +158,8 @@ export default function ViewAssignUser() {
     },
     {
       id: 6,
-      serialNumber: '06',
+
+      // serialNumber: '06',
       empName: 'Chirag',
       empId: 'EMP 128',
       lob: 'LOB 128',
@@ -213,7 +219,7 @@ export default function ViewAssignUser() {
             columns={columns}
             rows={rows}
             pagination={true}
-            checkboxSelection={false}
+            checkboxSelection={true}
             pageSizeOptions={[7, 10, 25, 50]}
             paginationModel={paginationModel}
             slots={{ pagination: CustomPagination }}
