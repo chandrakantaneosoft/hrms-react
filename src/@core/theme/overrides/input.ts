@@ -1,4 +1,6 @@
 // ** Type Import
+
+import { borderColor, color, fontSize, fontWeight, height, letterSpacing, lineHeight, maxWidth } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const input = () => {
@@ -122,6 +124,39 @@ const input = () => {
           },
           '&.Mui-focused': {
             color: theme.palette.primary.dark
+          }
+        })
+      }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: ({ theme }: OwnerStateThemeType) => ({
+          '&.custom-search': {
+            '& .MuiOutlinedInput-root': {
+              maxWidth: '360px',
+              height: '56px',
+              borderRadius: '28px',
+              color: theme.palette.customColors.inactive,
+              border: `1px solid ${theme.palette.customColors.inactive}`,
+              fontSize: '16px',
+              fontWeight: 400,
+              lineHeight: '24px',
+              letterSpacing: '0.5px',
+              '&.Mui-focused': {
+                fontWeight: 500,
+                color: theme.palette.customColors.inactive,
+                borderColor: `${theme.palette.customColors.inactive}`
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                border: `1px solid ${theme.palette.customColors.inactive}`
+              },
+              '& .MuiInputAdornment-positionStart': {
+                color: theme.palette.customColors.textLabel
+              },
+              '& .MuiInputAdornment-positionEnd': {
+                color: theme.palette.customColors.inactive
+              }
+            }
           }
         })
       }
