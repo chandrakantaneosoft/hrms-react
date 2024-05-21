@@ -261,9 +261,11 @@ function TemporaryRoleListing() {
       renderCell: (params: GridRenderCellParams) => {
         return (
           <>
-            <IconButton disableFocusRipple disableRipple onClick={() => handleEdit(params)}>
-              <EditIcon />
-            </IconButton>
+            <Tooltip title='Edit'>
+              <IconButton disableFocusRipple disableRipple onClick={() => handleEdit(params)}>
+                <EditIcon />
+              </IconButton>
+            </Tooltip>
             {/* <IconButton disableFocusRipple disableRipple onClick={() => handleDelete(params)}>
               <DeleteIcon />
             </IconButton> */}
@@ -562,7 +564,7 @@ function TemporaryRoleListing() {
                 <Typography variant='body2'>
                   <Link href='/temporary-role-listing/create-new-temporary-role'>Create Role</Link>
                 </Typography>
-                <Box sx={{ mt: 1, mb: 1 }}>
+                <Box sx={{ mt: 2, mb: 2 }}>
                   <Divider />
                 </Box>
                 <Typography variant='body2'>

@@ -30,6 +30,7 @@ import CustomAvatar from 'src/@core/components/mui/avatar'
 
 // ** Util Import
 import { getInitials } from 'src/@core/utils/get-initials'
+import { Tooltip } from '@mui/material'
 
 export type NotificationsType = {
   meta: string
@@ -163,26 +164,28 @@ const NotificationDropdown = (props: Props) => {
 
   return (
     <Fragment>
-      <IconButton
-        className='contained'
-        aria-haspopup='true'
-        sx={{ borderRadius: '16px' }}
-        onClick={handleDropdownOpen}
-        disableRipple
-        disableFocusRipple
-        aria-controls='customized-menu'
-      >
-        <Badge
-          color='error'
-          invisible={!notifications.length}
-          badgeContent={3}
-          sx={{
-            '& .MuiBadge-badge': { top: 4, right: 4 }
-          }}
+      <Tooltip title='Notification'>
+        <IconButton
+          className='contained'
+          aria-haspopup='true'
+          sx={{ borderRadius: '16px' }}
+          onClick={handleDropdownOpen}
+          disableRipple
+          disableFocusRipple
+          aria-controls='customized-menu'
         >
-          <NotificationsNoneIcon sx={{ color: '#929090' }} />
-        </Badge>
-      </IconButton>
+          <Badge
+            color='error'
+            invisible={!notifications.length}
+            badgeContent={3}
+            sx={{
+              '& .MuiBadge-badge': { top: 4, right: 4 }
+            }}
+          >
+            <NotificationsNoneIcon sx={{ color: '#929090' }} />
+          </Badge>
+        </IconButton>
+      </Tooltip>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}

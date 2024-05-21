@@ -11,7 +11,7 @@ const Popover = (skin: Skin) => {
         root: ({ theme }: OwnerStateThemeType) => ({
           '& .MuiPopover-paper': {
             borderRadius: '8px',
-            padding: '8px 16px',
+            padding: '16px',
             textDecoration: 'none',
             boxShadow: theme.shadows[skin === 'bordered' ? 0 : 6],
             ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` }),

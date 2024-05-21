@@ -194,12 +194,16 @@ function AdditionalDutyRoleListing() {
       renderCell: (params: GridRenderCellParams) => {
         return (
           <>
-            <IconButton disableFocusRipple disableRipple onClick={() => handleEdit(params)}>
-              <EditIcon />
-            </IconButton>
-            <IconButton disableFocusRipple disableRipple onClick={() => handleDelete(params)}>
-              <DeleteIcon />
-            </IconButton>
+            <Tooltip title='Edit'>
+              <IconButton disableFocusRipple disableRipple onClick={() => handleEdit(params)}>
+                <EditIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title='Delete'>
+              <IconButton disableFocusRipple disableRipple onClick={() => handleDelete(params)}>
+                <DeleteIcon />
+              </IconButton>
+            </Tooltip>
           </>
         )
       }
@@ -441,7 +445,7 @@ function AdditionalDutyRoleListing() {
                 <Typography variant='body2'>
                   <Link href='/additional-duty-role-listing/create-new-additional-duty-role'>Create Role</Link>
                 </Typography>
-                <Box sx={{ mt: 1, mb: 1 }}>
+                <Box sx={{ mt: 2, mb: 2 }}>
                   <Divider />
                 </Box>
                 <Typography variant='body2'>
