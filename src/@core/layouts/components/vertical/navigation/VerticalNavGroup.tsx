@@ -77,30 +77,30 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       width: '56px',
       height: '32px',
       borderRadius: '100px',
-      backgroundColor: 'blue',
+      backgroundColor: theme.palette.primary.dark,
       display: 'flex',
       justifyContent: 'center',
       paddingTop: '2px',
       marginLeft: '5px',
       color: `${theme.palette.common.white} !important`,
-      '& .MuiTypography-root': {
-        fontSize: '14px !important',
-        fontWeight: 500,
-        lineHeight: '21px',
-        textAlign: 'center',
 
-        color: theme.palette.primary.dark
-      },
       '&.Mui-focusVisible': {
         backgroundColor: theme.palette.primary.dark
       }
+    },
+    '& .MuiTypography-root': {
+      fontSize: '14px !important',
+      fontWeight: 500,
+      lineHeight: '21px',
+      textAlign: 'center',
+      color: theme.palette.primary.dark
     },
     '&:hover': {
       '& .MuiListItemIcon-root': {
         width: '56px',
         height: '32px',
         borderRadius: '100px',
-        backgroundColor: 'blue',
+        backgroundColor: theme.palette.primary.dark,
         display: 'flex',
         justifyContent: 'center',
         paddingTop: '2px',
