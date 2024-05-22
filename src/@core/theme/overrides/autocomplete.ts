@@ -12,6 +12,13 @@ const Autocomplete = (skin: Skin) => {
           color: theme.palette.customColors.mainText,
           fontSize: '16px',
           fontWeight: 500
+        }),
+        root: ({ theme }: OwnerStateThemeType) => ({
+          '& .MuiInputBase-root.MuiOutlinedInput-root': {
+            '& .MuiAutocomplete-endAdornment': {
+              top: '5px'
+            }
+          }
         })
       }
     }
