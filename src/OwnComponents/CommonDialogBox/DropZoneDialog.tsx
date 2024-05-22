@@ -35,7 +35,7 @@ function DropZoneDialog({ title, subTitle, openModal, closeModal, handleSubmitCl
             <span>{subTitle}</span>
           </DialogTitle>
           <IconButton disableFocusRipple disableRipple onClick={closeModal}>
-            <HighlightOffIcon />
+            <HighlightOffIcon sx={{ marginTop: '-25px' }} />
           </IconButton>
         </Box>
         <DialogContent>
