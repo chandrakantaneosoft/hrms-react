@@ -18,7 +18,7 @@ import {
 import { useEffect, useState } from 'react'
 import { getOrderCount, validateSlug } from '../../../utils/helper'
 import { AutoCompleteSearch, ListObject } from '../../../components/AutoCompleteSearch'
-import { Controller, useForm } from 'react-hook-form'
+import { Controller, useForm, useFieldArray } from 'react-hook-form'
 import { Can } from 'src/components/Can'
 import { getRequest, postRequest } from 'src/services/apiService'
 import { useGlobalContext } from '../../../@core/global/GlobalContext'
@@ -28,8 +28,12 @@ interface FormData {
   slug: string
   description: string
   enquiryOrder: string
-  enquiryForm: string
+  enquiryForm: any
   status: boolean
+  enquiry_sources: any
+  sourceType: string
+  sourceForm: any
+  sourceUrl: string
 }
 type GlobalState = {
   isLoading: boolean
@@ -51,6 +55,7 @@ export default function CreateEnquiry() {
     reset,
     setValue
   } = useForm<FormData>()
+
   const formDataVal = watch()
   const [inputFields, setInputFields] = useState<any>([
     {
@@ -328,7 +333,7 @@ export default function CreateEnquiry() {
                       setValue('enquiryForm', newVal.value)
                     }}
                     options={enquiryForm}
-                    selectedValue={input as ListObject}
+                    selectedValue={formDataVal.enquiryForm as ListObject}
                     TextFieldLabel='Enquiry Form'
                     TextFieldName='enquiryForm'
                   />
@@ -379,66 +384,96 @@ export default function CreateEnquiry() {
             </div>
           </div>
           <Grid container spacing={2}>
-            {inputFields.map((val: any, index: number) => {
+            {inputFields?.map((val: any, index: number) => {
               return (
                 <>
                   <Grid item xs={3}>
                     <FormControl fullWidth>
-                      <InputLabel id='followupType'>Source</InputLabel>
-                      <_select
-                        labelId='followupTypel'
-                        id='status'
+                      <InputLabel id='followupType'>Follow up type</InputLabel>
+                      <Controller
                         name='sourceType'
-                        label='Follow up type'
-                        onChange={(e: any) => {
-                          handleFeildChange(e, index)
-                        }}
-                        value={val.sourceType}
-                        fullWidth
-                      >
-                        {sources.map((option: any, index: any) => (
-                          <MenuItem key={index} value={option.value} data-label={option.label}>
-                            {option.label}
-                          </MenuItem>
-                        ))}
-                      </_select>
+                        control={control}
+                        defaultValue=''
+                        rules={{ required: 'Follow up type is required' }}
+                        render={({ field }) => (
+                          <_select
+                            {...field}
+                            labelId='followupTypel'
+                            label='Follow up type'
+                            onChange={(e: any) => {
+                              handleFeildChange(e, index)
+                            }}
+                            value={val.sourceType}
+                          >
+                            {sources.map((option: any, index: any) => (
+                              <MenuItem key={index} value={option.value} data-label={option.label}>
+                                {option.label}
+                              </MenuItem>
+                            ))}
+                          </_select>
+                        )}
+                      />
+                      {errors?.enquiryOrder && (
+                        <span className={styled.errorFeild}>{errors['enquiryOrder']['message']}</span>
+                      )}
                     </FormControl>
                   </Grid>
                   <Grid item xs={3}>
-                    <AutoCompleteSearch
-                      options={enquiryForm}
-                      selectedValue={val.sourceForm as ListObject}
-                      TextFieldLabel='Enquiry Form'
-                      TextFieldName='sourceForm'
-                      onChange={(e, v) => {
-                        handleSelectFeildChange(e, v, index)
-                      }}
+                    <Controller
+                      name='sourceForm'
+                      control={control}
+                      defaultValue=''
+                      rules={{ required: 'Enquiry Form is required' }}
+                      render={({ field }) => (
+                        <AutoCompleteSearch
+                          {...field}
+                          onChange={(e, newVal) => {
+                            setValue('sourceForm', newVal.value)
+                          }}
+                          options={enquiryForm}
+                          selectedValue={formDataVal.sourceForm as ListObject}
+                          TextFieldLabel='Enquiry Form'
+                          TextFieldName='enquiryForm'
+                        />
+                      )}
                     />
                   </Grid>
                   <Grid item xs={3}>
-                    <TextField
-                      label='Source Url'
-                      fullWidth
-                      size='medium'
-                      type='text'
-                      id='url'
+                    <Controller
                       name='sourceUrl'
-                      value={val.sourceUrl}
-                      onChange={e => {
-                        handleFeildChange(e, index)
-                      }}
+                      control={control}
+                      defaultValue=''
+                      render={({ field }) => (
+                        <TextField
+                          sx={{ mt: 0 }}
+                          {...field}
+                          label='Source Url'
+                          fullWidth
+                          variant='outlined'
+                          margin='normal'
+                        />
+                      )}
                     />
                   </Grid>
                   <Grid item xs={3}>
                     {inputFields.length > 1 && (
-                      <Button variant='contained' color='primary' onClick={() => handleDeleteInput(index)}>
+                      <Button
+                        color='primary'
+                        size='medium'
+                        startIcon={''}
+                        variant='contained'
+                        sx={{ mr: 2 }}
+                        onClick={() => handleDeleteInput(index)}
+                      >
                         Delete
                       </Button>
                     )}
                     {index === inputFields.length - 1 && (
                       <Button
-                        variant='contained'
                         color='primary'
+                        size='medium'
+                        variant='contained'
+                        sx={{ mr: 2 }}
                         onClick={() => {
                           addFields()
                         }}
@@ -454,7 +489,14 @@ export default function CreateEnquiry() {
 
           <div className={styled.flexContainer}>
             <div className={styled.col1}>
-              <Button type='submit' color='primary' size='medium' variant='contained' sx={{ mr: 2 }}>
+              <Button
+                type='submit'
+                color='primary'
+                size='medium'
+                variant='contained'
+                sx={{ mr: 2 }}
+                onClick={handleSave}
+              >
                 Save & Next
               </Button>
               <Button

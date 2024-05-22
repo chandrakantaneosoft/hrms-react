@@ -5,7 +5,9 @@ export function middleware(request: NextRequest) {
   // const { url } = request
 
   const token =
-    request.cookies.get('next-auth.session-token') || request.cookies.get('__Secure-next-auth.session-token')
+    request.cookies.get('next-auth.session-token.1') ||
+    request.cookies.get('next-auth.session-token') ||
+    request.cookies.get('__Secure-next-auth.session-token')
   const { pathname } = request.nextUrl
 
   // const stagedit = /\/stages\/edit\/([a-zA-Z0-9_-]+)/
@@ -27,7 +29,7 @@ export function middleware(request: NextRequest) {
   ) {
     if (token) {
       if (pathname === '/login/') {
-        return NextResponse.redirect(new URL('/home', request.url))
+        return NextResponse.redirect(new URL('/', request.url))
       } else {
         return NextResponse.next()
       }
@@ -37,8 +39,6 @@ export function middleware(request: NextRequest) {
   } else if (process.env.NODE_ENV === 'production') {
     if (token) {
       if (pathname === '/login/') {
-        return NextResponse.redirect(new URL('/home', request.url))
-      } else {
         return NextResponse.next()
       }
     } else {

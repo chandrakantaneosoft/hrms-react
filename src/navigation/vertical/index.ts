@@ -36,7 +36,6 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       title: 'Logout',
-      path: '/logout',
       icon: 'mdi:logout'
     }
   ]

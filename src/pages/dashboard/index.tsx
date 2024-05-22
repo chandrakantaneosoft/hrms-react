@@ -20,12 +20,10 @@ const Page: React.FC = () => {
   const handleSignout = async () => {
     if (session) {
       await logoutUser(session)
+    } else {
+      window.location.href = '/signout'
     }
   }
-
-  useEffect(() => {
-    // Add any side effects or initializations here
-  }, [])
 
   return (
     <>

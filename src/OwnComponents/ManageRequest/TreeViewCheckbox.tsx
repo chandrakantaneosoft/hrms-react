@@ -5,6 +5,10 @@ import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView'
 import { TreeItem, TreeItemProps } from '@mui/x-tree-view/TreeItem'
 import { useSpring, animated } from '@react-spring/web'
 
+interface CustomTreeItemProps extends TreeItemProps {
+  nodeId?: any
+  expanded?: any
+}
 function TransitionComponent(props: TransitionProps) {
   const style = useSpring({
     to: {
@@ -20,7 +24,7 @@ function TransitionComponent(props: TransitionProps) {
   )
 }
 
-const CustomTreeItem = forwardRef((props: TreeItemProps, ref: React.Ref<HTMLLIElement>) => (
+const CustomTreeItem = forwardRef((props: CustomTreeItemProps, ref: React.Ref<HTMLLIElement>) => (
   <TreeItem {...props} slots={{ groupTransition: TransitionComponent, ...props.slots }} ref={ref} />
 ))
 
