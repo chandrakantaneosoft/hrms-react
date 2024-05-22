@@ -459,7 +459,7 @@ const CreateNewRole = () => {
               </Grid>
               <Grid item xs={12} sm={12}>
                 <Box sx={{ height: '300px' }}>
-                  <DataGrid columns={columns} rows={rows} hideFooterPagination />
+                  <DataGrid columns={columns} rows={rows} hideFooterPagination sx={{ boxShadow: 'none' }} />
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6}>

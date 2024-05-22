@@ -84,6 +84,7 @@ function TableDialog({ openModal, closeModal, header, columnsRolCode, rowsRoleCo
               slots={{ pagination: CustomPagination }}
               onPaginationModelChange={setPaginationModel}
               className='dataTable'
+              sx={{ boxShadow: 'none' }}
             />
           </Box>
         </DialogContent>
