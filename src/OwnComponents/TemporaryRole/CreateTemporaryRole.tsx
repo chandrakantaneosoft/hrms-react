@@ -196,6 +196,10 @@ const CreateTemporaryRole = () => {
     }
   }
 
+  const handleSubmit = () => {
+    setOpenDialog(true)
+  }
+
   //Handler for dialog box
   const handleCloseDialog = () => {
     setOpenDialog(false)
@@ -222,7 +226,7 @@ const CreateTemporaryRole = () => {
   return (
     <Box sx={{ background: '#fff', borderRadius: '10px', padding: '10px 0px' }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box sx={activeStep === 1 ? { borderBottom: 0 } : { borderBottom: 1, borderColor: 'divider' }}>
           <TabList
             variant='fullWidth'
             onChange={handleChange}
@@ -1781,7 +1785,7 @@ const CreateTemporaryRole = () => {
               variant='contained'
               color='secondary'
               startIcon={activeStep === 0 && value == '3' ? <SkipNextIcon /> : null}
-              onClick={handleNext}
+              onClick={activeStep == 1 || value == '1' || value == '2' ? handleSubmit : handleNext}
             >
               {activeStep === 0 && value == '3' ? ' Next' : 'Submit'}
             </Button>

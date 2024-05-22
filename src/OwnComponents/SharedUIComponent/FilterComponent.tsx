@@ -197,9 +197,36 @@ export default function FilterComponent(props: FilterProps) {
             onChange={handleChange}
             aria-label='Vertical tabs example'
           >
-            <StyledTab icon={<FilterAltOutlinedIcon />} label='Filter' {...a11yProps(0)} />
-            <StyledTab icon={<ViewWeekOutlinedIcon />} label='Column' {...a11yProps(1)} />
-            <StyledTab icon={<StickyNote2OutlinedIcon />} label='Sticky Column' {...a11yProps(2)} />
+            <StyledTab
+              icon={<FilterAltOutlinedIcon />}
+              label={
+                <Stack direction='row' justifyContent='space-between' alignItems='center' flex='1'>
+                  <Typography>Filter</Typography>
+                  <Badge badgeContent={1} color='secondary' sx={{ marginRight: '10px' }} />
+                </Stack>
+              }
+              {...a11yProps(0)}
+            />
+            <StyledTab
+              icon={<ViewWeekOutlinedIcon />}
+              label={
+                <Stack direction='row' justifyContent='space-between' alignItems='center' flex='1'>
+                  <Typography>Column</Typography>
+                  <Badge badgeContent={1} color='secondary' sx={{ marginRight: '10px' }} />
+                </Stack>
+              }
+              {...a11yProps(1)}
+            />
+            <StyledTab
+              icon={<StickyNote2OutlinedIcon />}
+              label={
+                <Stack direction='row' justifyContent='space-between' alignItems='center' flex='1'>
+                  <Typography>Sticky Column</Typography>
+                  <Badge badgeContent={1} color='secondary' sx={{ marginRight: '10px' }} />
+                </Stack>
+              }
+              {...a11yProps(2)}
+            />
           </StyledTabs>
           <Divider sx={{ ml: 3, mr: 3 }} orientation='vertical' flexItem />
           <TabPanel value={value} index={0}>
@@ -285,7 +312,6 @@ export default function FilterComponent(props: FilterProps) {
                 <Typography>10</Typography>
                 <Divider orientation='vertical' flexItem />
                 <IconButton aria-label='delete' color='primary' sx={{ width: '20px', height: '20px' }}>
-                  {/* <Button sx={{ color: '#929090' }}> */}
                   <HighlightOffRoundedIcon />
                 </IconButton>
               </Card>
