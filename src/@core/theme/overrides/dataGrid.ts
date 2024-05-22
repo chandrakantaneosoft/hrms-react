@@ -239,7 +239,7 @@ const DataGrid = () => {
                 display: 'none'
               },
               '& .MuiPagination-root': {
-                width: 'calc(100% - 25%)',
+                width: 'calc(100% - 28%)',
                 display: 'flex',
                 justifyContent: 'end',
                 '& .MuiPaginationItem-root': {
