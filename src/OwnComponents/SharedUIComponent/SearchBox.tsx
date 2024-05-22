@@ -18,6 +18,7 @@ const SearchBox = ({ placeHolderTitle, searchText, handleClearSearch, handleInpu
         value={searchText}
         onChange={handleInputChange}
         placeholder={placeHolderTitle}
+        autoComplete='off'
         className='custom-search'
         InputProps={{
           startAdornment: (
