@@ -237,6 +237,7 @@ const VerticalNavLink = ({
                 }
               }}
             >
+              {/* {parent ? null : <UserIcon icon={icon as string} />} */}
               {parent ? null : <UserIcon icon={icon as string} />}
             </ListItemIcon>
           )}

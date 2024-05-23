@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, minWidth } from '@mui/system'
+import { Box, borderRadius, fontWeight, minWidth } from '@mui/system'
 import {
   Button,
   Tabs,
@@ -114,9 +114,26 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }))
 
 // column chips
-interface StyledChipProps {
-  selected: boolean
-}
+// interface StyledChipProps {
+//   selected: boolean
+// }
+
+const StyledChipProps = styled(Chip)(({ theme }) => ({
+  '&.MuiChip-colorPrimary': {
+    border: '1px solid #4849DA24 !important',
+    borderRadius: '8px',
+    padding: '9px 24px',
+    background: '#4849DA14 !important',
+    color: '#4849DA !important'
+  },
+  '&.MuiChip-colorDefault': {
+    border: '1px solid #E0E0E0 !important',
+    borderRadius: '8px',
+    padding: '9px 24px',
+    background: '#EBEBEB !important',
+    color: '#666666 !important'
+  }
+}))
 
 interface FilterProps {
   filterOpen?: null
@@ -187,9 +204,7 @@ export default function FilterComponent(props: FilterProps) {
           <Typography sx={{ p: 2 }} variant='h6'>
             Filters
           </Typography>
-          <Button sx={{ '&:hover': { background: '#fff' } }} disableFocusRipple disableRipple>
-            Clear Filter
-          </Button>
+          <Button>Clear Filter</Button>
         </Stack>
         <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex' }}>
           <StyledTabs
@@ -253,7 +268,13 @@ export default function FilterComponent(props: FilterProps) {
                   <AccordionDetails sx={{ margin: '0 4px', padding: 0 }}>
                     <div style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
                       {options.map((status, index) => (
-                        <Chip key={index} label={status} variant='filled' color='default' sx={{ margin: '4px' }} />
+                        <StyledChipProps
+                          key={index}
+                          label={status}
+                          variant='filled'
+                          color='default'
+                          sx={{ margin: '4px' }}
+                        />
                       ))}
                     </div>
                   </AccordionDetails>
@@ -277,7 +298,13 @@ export default function FilterComponent(props: FilterProps) {
                   <AccordionDetails sx={{ margin: '0 4px', padding: 0 }}>
                     <div style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
                       {options.map((status, index) => (
-                        <Chip key={index} label={status} variant='filled' color='default' sx={{ margin: '4px' }} />
+                        <StyledChipProps
+                          key={index}
+                          label={status}
+                          variant='filled'
+                          color='default'
+                          sx={{ margin: '4px' }}
+                        />
                       ))}
                     </div>
                   </AccordionDetails>
@@ -342,7 +369,7 @@ export default function FilterComponent(props: FilterProps) {
               />
               <div style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
                 {optionColumns.map((option, index) => (
-                  <Chip
+                  <StyledChipProps
                     key={index}
                     label={option}
                     clickable
@@ -378,7 +405,7 @@ export default function FilterComponent(props: FilterProps) {
               />
               <div style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
                 {optionColumns.map((option, index) => (
-                  <Chip
+                  <StyledChipProps
                     key={index}
                     label={option}
                     clickable

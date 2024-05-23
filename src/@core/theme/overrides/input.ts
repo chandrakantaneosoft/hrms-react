@@ -1,5 +1,4 @@
 // ** Type Import
-import { display, margin } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const input = () => {
@@ -9,6 +8,7 @@ const input = () => {
         root: ({ theme }: OwnerStateThemeType) => ({
           '&.MuiFormLabel-root': {
             color: theme.palette.customColors.datepickerText,
+            transformOrigin: 'top left',
             fontSize: '16px',
             lineHeight: '24px',
             letterSpacing: '0.5px',

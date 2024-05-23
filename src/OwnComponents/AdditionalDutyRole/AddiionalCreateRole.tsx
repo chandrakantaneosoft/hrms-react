@@ -200,7 +200,7 @@ const AddiionalCreateRole = () => {
                 <TextField
                   fullWidth
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Additional Duty Name
                       {infoDialog && (
                         <span>
@@ -224,14 +224,12 @@ const AddiionalCreateRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         School Categories{' '}
                         {infoDialog && (
                           <span>
@@ -246,6 +244,7 @@ const AddiionalCreateRole = () => {
                   <Select
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
+                    label='School Categories'
                     multiple
                     value={selectedItems1}
                     onChange={handleChange1}
@@ -288,14 +287,12 @@ const AddiionalCreateRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Business Vertical (LOB segment2 parent 2)
                         {infoDialog && (
                           <span>
@@ -308,6 +305,7 @@ const AddiionalCreateRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='Business Vertical (LOB segment2 parent 2)'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -352,14 +350,12 @@ const AddiionalCreateRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Business Sub Vertical (LOB Segment2 Parent1)
                         {infoDialog && (
                           <span>
@@ -372,6 +368,7 @@ const AddiionalCreateRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='Business Sub Vertical (LOB Segment2 Parent1)'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -416,14 +413,12 @@ const AddiionalCreateRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Business Sub Sub Vertical(LOB Segment2 Child)
                         {infoDialog && (
                           <span>
@@ -436,6 +431,7 @@ const AddiionalCreateRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='Business Sub Sub Vertical(LOB Segment2 Child)'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -499,7 +495,7 @@ const AddiionalCreateRole = () => {
                   <TextField
                     fullWidth
                     label={
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Additional Duty Name
                         {infoDialog && (
                           <span>
@@ -527,7 +523,7 @@ const AddiionalCreateRole = () => {
 
               <Box sx={{ mt: 4, mb: 2 }}>
                 <Typography
-                  variant='h6'
+                  variant='body1'
                   sx={{
                     fontWeight: 500,
                     lineHeight: '27px'

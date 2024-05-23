@@ -1,5 +1,5 @@
 // ** Type Import
-import { display, fontSize, fontWeight, lineHeight } from '@mui/system'
+import { display, fontSize, fontWeight, lineHeight, textTransform } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 export default {
@@ -23,6 +23,7 @@ export default {
         color: theme.palette.customColors.mainText,
         borderRadius: '40px',
         border: '1px solid #49454F1F',
+        textTransform: 'capitalize',
         '&.Mui-selected': {
           border: `1px solid ${theme.palette.primary.dark}`,
           backgroundColor: theme.palette.customColors.primaryLightest,

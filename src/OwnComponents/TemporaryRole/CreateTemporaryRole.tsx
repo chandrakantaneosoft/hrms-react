@@ -232,7 +232,7 @@ const CreateTemporaryRole = () => {
 
   return (
     <Box sx={{ background: '#fff', borderRadius: '10px', padding: '10px 10px' }}>
-      <Box sx={{ my: 3 }}>
+      <Box sx={{ my: 3, display: 'flex', justifyContent: 'center' }}>
         <ToggleButtonGroup
           sx={activeStep === 1 ? { display: 'none' } : { display: 'block' }}
           value={view}
@@ -1807,7 +1807,7 @@ const CreateTemporaryRole = () => {
               <FormControl fullWidth>
                 <InputLabel id='demo-simple-select-outlined-label'>
                   {
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Applications
                       {infoDialog && (
                         <span>
@@ -1844,7 +1844,7 @@ const CreateTemporaryRole = () => {
                   <TextField
                     {...params}
                     label={
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Select HRIS Unique Role
                         {infoDialog && (
                           <span>
@@ -1875,7 +1875,7 @@ const CreateTemporaryRole = () => {
               <TextField
                 fullWidth
                 label={
-                  <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                     ERP Role
                     {infoDialog && (
                       <span>
@@ -1895,7 +1895,7 @@ const CreateTemporaryRole = () => {
               <FormControl fullWidth>
                 <InputLabel id='demo-simple-select-outlined-label'>
                   {
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Assign Temporary Role To
                       {infoDialog && (
                         <span>
@@ -1928,7 +1928,7 @@ const CreateTemporaryRole = () => {
                 <FormControl fullWidth>
                   <InputLabel id='demo-simple-select-outlined-label'>
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Select User
                         {infoDialog && (
                           <span>
@@ -1965,14 +1965,12 @@ const CreateTemporaryRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Select Group Users
                         {infoDialog && (
                           <span>
@@ -1985,6 +1983,7 @@ const CreateTemporaryRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='Select Group Users'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -2027,7 +2026,7 @@ const CreateTemporaryRole = () => {
                   <FormControl fullWidth>
                     <InputLabel id='demo-simple-select-outlined-label'>
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Select Role
                           {infoDialog && (
                             <span>
@@ -2062,14 +2061,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Business Vertical (LOB Segment 2 Parent 2 )
                           {infoDialog && (
                             <span>
@@ -2126,14 +2123,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Business Sub Vertical (LOB Segment 2 Parent 1 )
                           {infoDialog && (
                             <span>
@@ -2148,6 +2143,7 @@ const CreateTemporaryRole = () => {
                     <Select
                       labelId='demo-mutiple-chip-label'
                       id='demo-mutiple-chip'
+                      label='Business Sub Vertical (LOB Segment 2 Parent 1 )'
                       multiple
                       value={selectedItems3}
                       onChange={handleChange3}
@@ -2190,14 +2186,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Business Sub Sub Vertical(LOB segment 2 Child )
                           {infoDialog && (
                             <span>
@@ -2212,6 +2206,7 @@ const CreateTemporaryRole = () => {
                     <Select
                       labelId='demo-mutiple-chip-label'
                       id='demo-mutiple-chip'
+                      label='Business Sub Sub Vertical(LOB segment 2 Child )'
                       multiple
                       value={selectedItems2}
                       onChange={handleChange2}
@@ -2273,7 +2268,7 @@ const CreateTemporaryRole = () => {
                 <DatePicker
                   sx={{ width: '100%' }}
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Start Date
                       {infoDialog && (
                         <span>
@@ -2292,7 +2287,7 @@ const CreateTemporaryRole = () => {
                 <DatePicker
                   sx={{ width: '100%' }}
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       End Date
                       {infoDialog && (
                         <span>
@@ -2316,7 +2311,7 @@ const CreateTemporaryRole = () => {
               <FormControl fullWidth>
                 <InputLabel id='demo-simple-select-outlined-label'>
                   {
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Select Predefined Temporary Role To
                       {infoDialog && (
                         <span>
@@ -2348,7 +2343,7 @@ const CreateTemporaryRole = () => {
               <FormControl fullWidth>
                 <InputLabel id='demo-simple-select-outlined-label'>
                   {
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Assign Temporary Role To
                       {infoDialog && (
                         <span>
@@ -2381,7 +2376,7 @@ const CreateTemporaryRole = () => {
                 <FormControl fullWidth>
                   <InputLabel id='demo-simple-select-outlined-label'>
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Select User
                         {infoDialog && (
                           <span>
@@ -2418,14 +2413,12 @@ const CreateTemporaryRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Select Group Users
                         {infoDialog && (
                           <span>
@@ -2440,6 +2433,7 @@ const CreateTemporaryRole = () => {
                   <Select
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
+                    label='Select Group Users'
                     multiple
                     value={selectedItems1}
                     onChange={handleChange1}
@@ -2480,7 +2474,7 @@ const CreateTemporaryRole = () => {
                   <FormControl fullWidth>
                     <InputLabel id='demo-simple-select-outlined-label'>
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Select Role
                           {infoDialog && (
                             <span>
@@ -2515,14 +2509,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Business Vertical (LOB Segment 2 Parent 2 )
                           {infoDialog && (
                             <span>
@@ -2536,6 +2528,7 @@ const CreateTemporaryRole = () => {
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
+                      label='Business Vertical (LOB Segment 2 Parent 2 )'
                       id='demo-mutiple-chip'
                       multiple
                       value={selectedItems2}
@@ -2579,14 +2572,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Business Sub Vertical (LOB Segment 2 Parent 1 )
                           {infoDialog && (
                             <span>
@@ -2601,6 +2592,7 @@ const CreateTemporaryRole = () => {
                     <Select
                       labelId='demo-mutiple-chip-label'
                       id='demo-mutiple-chip'
+                      label='Business Sub Vertical (LOB Segment 2 Parent 1 )'
                       multiple
                       value={selectedItems3}
                       onChange={handleChange3}
@@ -2643,14 +2635,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Business Sub Sub Vertical(LOB segment 2 Child )
                           {infoDialog && (
                             <span>
@@ -2665,6 +2655,7 @@ const CreateTemporaryRole = () => {
                     <Select
                       labelId='demo-mutiple-chip-label'
                       id='demo-mutiple-chip'
+                      label='Business Sub Sub Vertical(LOB segment 2 Child )'
                       multiple
                       value={selectedItems2}
                       onChange={handleChange2}
@@ -2713,7 +2704,7 @@ const CreateTemporaryRole = () => {
             </Grid>
             <Grid item xs={12}>
               <Typography
-                variant='h6'
+                variant='body1'
                 sx={{
                   fontWeight: 500,
                   lineHeight: '27px'
@@ -2727,7 +2718,7 @@ const CreateTemporaryRole = () => {
                 <DatePicker
                   sx={{ width: '100%' }}
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Start Date
                       {infoDialog && (
                         <span>
@@ -2746,7 +2737,7 @@ const CreateTemporaryRole = () => {
                 <DatePicker
                   sx={{ width: '100%' }}
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       End Date
                       {infoDialog && (
                         <span>
@@ -2796,7 +2787,7 @@ const CreateTemporaryRole = () => {
                 <TextField
                   fullWidth
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Temporary Role Name
                       {infoDialog && (
                         <span>
@@ -2825,7 +2816,7 @@ const CreateTemporaryRole = () => {
                 <FormControl fullWidth>
                   <InputLabel id='demo-simple-select-outlined-label'>
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Assign Role To
                         {infoDialog && (
                           <span>
@@ -2858,7 +2849,7 @@ const CreateTemporaryRole = () => {
                   <FormControl fullWidth>
                     <InputLabel id='demo-simple-select-outlined-label'>
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Select User
                           {infoDialog && (
                             <span>
@@ -2895,14 +2886,12 @@ const CreateTemporaryRole = () => {
                   >
                     <InputLabel
                       style={{
-                        marginTop: '0px',
-                        background: 'white',
-                        padding: '0 4px'
+                        marginTop: '0px'
                       }}
                       id='demo-mutiple-chip-label'
                     >
                       {
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Select Group Users
                           {infoDialog && (
                             <span>
@@ -2916,6 +2905,7 @@ const CreateTemporaryRole = () => {
                     </InputLabel>
                     <Select
                       labelId='demo-mutiple-chip-label'
+                      label='Select Group Users'
                       id='demo-mutiple-chip'
                       multiple
                       value={selectedItems1}
@@ -2957,7 +2947,7 @@ const CreateTemporaryRole = () => {
                     <FormControl fullWidth>
                       <InputLabel id='demo-simple-select-outlined-label'>
                         {
-                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             Select Role
                             {infoDialog && (
                               <span>
@@ -2992,14 +2982,12 @@ const CreateTemporaryRole = () => {
                     >
                       <InputLabel
                         style={{
-                          marginTop: '0px',
-                          background: 'white',
-                          padding: '0 4px'
+                          marginTop: '0px'
                         }}
                         id='demo-mutiple-chip-label'
                       >
                         {
-                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             Business Vertical (LOB Segment 2 Parent 2 )
                             {infoDialog && (
                               <span>
@@ -3013,6 +3001,7 @@ const CreateTemporaryRole = () => {
                       </InputLabel>
                       <Select
                         labelId='demo-mutiple-chip-label'
+                        label='Business Vertical (LOB Segment 2 Parent 2 )'
                         id='demo-mutiple-chip'
                         multiple
                         value={selectedItems2}
@@ -3056,14 +3045,12 @@ const CreateTemporaryRole = () => {
                     >
                       <InputLabel
                         style={{
-                          marginTop: '0px',
-                          background: 'white',
-                          padding: '0 4px'
+                          marginTop: '0px'
                         }}
                         id='demo-mutiple-chip-label'
                       >
                         {
-                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             Business Sub Vertical (LOB Segment 2 Parent 1 )
                             {infoDialog && (
                               <span>
@@ -3077,6 +3064,7 @@ const CreateTemporaryRole = () => {
                       </InputLabel>
                       <Select
                         labelId='demo-mutiple-chip-label'
+                        label='Business Sub Vertical (LOB Segment 2 Parent 1 )'
                         id='demo-mutiple-chip'
                         multiple
                         value={selectedItems3}
@@ -3120,14 +3108,12 @@ const CreateTemporaryRole = () => {
                     >
                       <InputLabel
                         style={{
-                          marginTop: '0px',
-                          background: 'white',
-                          padding: '0 4px'
+                          marginTop: '0px'
                         }}
                         id='demo-mutiple-chip-label'
                       >
                         {
-                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             Business Sub Sub Vertical(LOB segment 2 Child )
                             {infoDialog && (
                               <span>
@@ -3141,6 +3127,7 @@ const CreateTemporaryRole = () => {
                       </InputLabel>
                       <Select
                         labelId='demo-mutiple-chip-label'
+                        label='Business Sub Sub Vertical(LOB segment 2 Child )'
                         id='demo-mutiple-chip'
                         multiple
                         value={selectedItems2}
@@ -3188,14 +3175,16 @@ const CreateTemporaryRole = () => {
                 <Divider />
               </Grid>
               <Grid item xs={12} sm={12}>
-                <Typography variant='h6'>Set Expiry Date Of Role</Typography>
+                <Typography variant='body1' sx={{ lineHeight: '27px', fontWeight: 500 }}>
+                  Set Expiry Date Of Role
+                </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     sx={{ width: '100%' }}
                     label={
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Start Date
                         {infoDialog && (
                           <span>
@@ -3214,7 +3203,7 @@ const CreateTemporaryRole = () => {
                   <DatePicker
                     sx={{ width: '100%' }}
                     label={
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         End Date
                         {infoDialog && (
                           <span>
@@ -3238,7 +3227,7 @@ const CreateTemporaryRole = () => {
                     <TextField
                       fullWidth
                       label={
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Role Name
                           {infoDialog && (
                             <span>
@@ -3268,7 +3257,7 @@ const CreateTemporaryRole = () => {
                 <Grid container spacing={5}>
                   <Grid item xs={12}>
                     <Typography
-                      variant='h6'
+                      variant='body1'
                       sx={{
                         fontWeight: 500,
                         lineHeight: '27px'
@@ -3282,7 +3271,7 @@ const CreateTemporaryRole = () => {
                       <DatePicker
                         sx={{ width: '100%' }}
                         label={
-                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             Start Date
                             {infoDialog && (
                               <span>
@@ -3301,7 +3290,7 @@ const CreateTemporaryRole = () => {
                       <DatePicker
                         sx={{ width: '100%' }}
                         label={
-                          <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             End Date
                             {infoDialog && (
                               <span>
@@ -3320,7 +3309,7 @@ const CreateTemporaryRole = () => {
 
               <Box sx={{ mt: 4, mb: 2 }}>
                 <Typography
-                  variant='h6'
+                  variant='body1'
                   sx={{
                     fontWeight: 500,
                     lineHeight: '27px'

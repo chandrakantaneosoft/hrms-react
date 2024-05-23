@@ -10,7 +10,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 
 const LinkStyled = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
-  color: theme.palette.primary.main,
+  color: theme.palette.primary.dark,
   fontSize: '16px',
   fontWeight: 400,
   lineHeight: '24px',

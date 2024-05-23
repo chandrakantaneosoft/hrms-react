@@ -58,6 +58,7 @@ import 'src/iconify-bundle/icons-bundle-react'
 
 // ** Global css styles
 import '../../styles/globals.css'
+import '../../styles/style.css'
 import { SessionProvider } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 import { GlobalContextProvider } from 'src/context/store'

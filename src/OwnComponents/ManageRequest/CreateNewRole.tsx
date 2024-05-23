@@ -97,7 +97,9 @@ const CreateNewRole = () => {
       flex: 1,
       minWidth: 230,
       field: 'uniqueRoleCode',
-      headerName: 'HRIS Unique Role Code'
+      headerName: 'HRIS Unique Role Code',
+      headerAlign: 'center',
+      align: 'center'
     },
     {
       flex: 0.15,
@@ -108,31 +110,31 @@ const CreateNewRole = () => {
     {
       flex: 1,
       field: 'section',
-      minWidth: 80,
+      minWidth: 150,
       headerName: 'Section'
     },
     {
       flex: 1,
       field: 'department',
-      minWidth: 80,
+      minWidth: 150,
       headerName: 'Department'
     },
     {
       flex: 1,
       field: 'subDepartment',
-      minWidth: 80,
+      minWidth: 150,
       headerName: 'Sub Department'
     },
     {
       flex: 1,
       field: 'subSubDepartment',
-      minWidth: 80,
+      minWidth: 150,
       headerName: 'Sub Sub Department'
     },
     {
       flex: 0.1,
       field: 'hrRole',
-      minWidth: 80,
+      minWidth: 150,
       headerName: 'HR Role'
     }
   ]
@@ -302,7 +304,7 @@ const CreateNewRole = () => {
                 <FormControl fullWidth>
                   <InputLabel id='demo-simple-select-outlined-label'>
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Applications
                         {infoDialog && (
                           <span>
@@ -333,7 +335,7 @@ const CreateNewRole = () => {
                 <TextField
                   fullWidth
                   label={
-                    <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       ERP Role Name{' '}
                       {infoDialog && (
                         <span>
@@ -360,7 +362,7 @@ const CreateNewRole = () => {
                     <TextField
                       {...params}
                       label={
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Select HRIS Unique Role
                           {infoDialog && (
                             <span>
@@ -396,14 +398,12 @@ const CreateNewRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         School Categories
                         {infoDialog && (
                           <span>
@@ -416,6 +416,7 @@ const CreateNewRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='School Categories'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -470,14 +471,12 @@ const CreateNewRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Business Vertical (LOB segment2 parent 2)
                         {infoDialog && (
                           <span>
@@ -490,6 +489,7 @@ const CreateNewRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='Business Vertical (LOB segment2 parent 2)'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -534,14 +534,12 @@ const CreateNewRole = () => {
                 >
                   <InputLabel
                     style={{
-                      marginTop: '0px',
-                      background: 'white',
-                      padding: '0 4px'
+                      marginTop: '0px'
                     }}
                     id='demo-mutiple-chip-label'
                   >
                     {
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Business Sub Vertical (LOB Segment2 Parent1)
                         {infoDialog && (
                           <span>
@@ -554,6 +552,7 @@ const CreateNewRole = () => {
                     }
                   </InputLabel>
                   <Select
+                    label='Business Sub Vertical (LOB Segment2 Parent1)'
                     labelId='demo-mutiple-chip-label'
                     id='demo-mutiple-chip'
                     multiple
@@ -600,7 +599,7 @@ const CreateNewRole = () => {
                     <TextField
                       {...params}
                       label={
-                        <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                           Select HRIS Unique Role
                           {infoDialog && (
                             <span>
@@ -648,7 +647,7 @@ const CreateNewRole = () => {
                   <TextField
                     fullWidth
                     label={
-                      <Box sx={{ display: 'flex', alignItems: 'normal', ml: 3 }}>
+                      <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         ERP Role Name
                         {infoDialog && (
                           <span>
@@ -676,7 +675,7 @@ const CreateNewRole = () => {
 
               <Box sx={{ mt: 4, mb: 2 }}>
                 <Typography
-                  variant='h6'
+                  variant='body1'
                   sx={{
                     fontWeight: 500,
                     lineHeight: '27px'
