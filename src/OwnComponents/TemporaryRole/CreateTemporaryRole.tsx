@@ -477,7 +477,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -575,7 +575,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -639,7 +639,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -703,7 +703,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -928,7 +928,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -1026,7 +1026,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1090,7 +1090,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1154,7 +1154,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1403,7 +1403,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1501,7 +1501,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<span className='icon-close-circle'></span>}
+                                deleteIcon={<span className='icon-trailing-icon'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -1565,7 +1565,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<span className='icon-close-circle'></span>}
+                                deleteIcon={<span className='icon-trailing-icon'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -1629,7 +1629,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<span className='icon-close-circle'></span>}
+                                deleteIcon={<span className='icon-trailing-icon'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -1866,7 +1866,7 @@ const CreateTemporaryRole = () => {
                       color='default'
                       variant='filled'
                       label={option}
-                      deleteIcon={<span className='icon-close-circle'></span>}
+                      deleteIcon={<span className='icon-trailing-icon'></span>}
                       {...(getTagProps({ index }) as {})}
                       key={index}
                     />
@@ -2008,7 +2008,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -2104,7 +2104,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2167,7 +2167,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2230,7 +2230,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2462,7 +2462,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -2559,7 +2559,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2622,7 +2622,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2685,7 +2685,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2941,7 +2941,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<span className='icon-close-circle'></span>}
+                              deleteIcon={<span className='icon-trailing-icon'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -3038,7 +3038,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<span className='icon-close-circle'></span>}
+                                deleteIcon={<span className='icon-trailing-icon'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -3101,7 +3101,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<span className='icon-close-circle'></span>}
+                                deleteIcon={<span className='icon-trailing-icon'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -3164,7 +3164,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<span className='icon-close-circle'></span>}
+                                deleteIcon={<span className='icon-trailing-icon'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -3339,7 +3339,8 @@ const CreateTemporaryRole = () => {
                   variant='body1'
                   sx={{
                     fontWeight: 500,
-                    lineHeight: '27px'
+                    lineHeight: '27px',
+                    mb: 3
                   }}
                 >
                   Set Rights

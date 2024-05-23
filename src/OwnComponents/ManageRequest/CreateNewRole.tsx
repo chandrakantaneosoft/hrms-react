@@ -381,7 +381,7 @@ const CreateNewRole = () => {
                       <Chip
                         color='default'
                         className='chip'
-                        deleteIcon={<span className='icon-close-circle'></span>}
+                        deleteIcon={<span className='icon-trailing-icon'></span>}
                         variant='filled'
                         label={option}
                         {...(getTagProps({ index }) as {})}
@@ -439,7 +439,7 @@ const CreateNewRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -513,7 +513,7 @@ const CreateNewRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -576,7 +576,7 @@ const CreateNewRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -619,7 +619,7 @@ const CreateNewRole = () => {
                       <Chip
                         color='default'
                         variant='filled'
-                        deleteIcon={<span className='icon-close-circle'></span>}
+                        deleteIcon={<span className='icon-trailing-icon'></span>}
                         label={option}
                         {...(getTagProps({ index }) as {})}
                         key={index}
@@ -680,7 +680,8 @@ const CreateNewRole = () => {
                   variant='body1'
                   sx={{
                     fontWeight: 500,
-                    lineHeight: '27px'
+                    lineHeight: '27px',
+                    mb: 3
                   }}
                 >
                   Set Rights

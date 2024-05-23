@@ -114,7 +114,7 @@ const ShortcutsDropdown = (props: Props) => {
         disableFocusRipple
         disableRipple
       >
-        <AppsIcon sx={{ color: '#929090' }} />
+        <span className='icon-Drag' style={{ color: '#929090' }}></span>
       </IconButton>
       <Menu
         anchorEl={anchorEl}

@@ -1,5 +1,16 @@
 // ** Type Import
-import { color, display, fontSize, fontWeight, letterSpacing, lineHeight, margin, padding } from '@mui/system'
+import {
+  borderRadius,
+  color,
+  display,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  margin,
+  minHeight,
+  padding
+} from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 // ** Hook Import
@@ -19,6 +30,25 @@ const Accordion = () => {
           borderBottom: `1px solid ${theme.palette.customColors.dividerColor}`,
           boxShadow: theme.shadows[0],
 
+          '&.tree-vcard': {
+            padding: '0px 0px',
+            border: '1px solid #e0e0e0',
+            '&:first-of-type': {
+              borderTopLeftRadius: 8,
+              borderTopRightRadius: 8
+            },
+
+            '&:last-of-type': {
+              borderBottomLeftRadius: 8,
+              borderBottomRightRadius: 8
+            },
+            '& .MuiCollapse-root': {
+              '& .MuiCollapse-wrapper': {
+                padding: '0px 0px'
+              }
+            }
+          },
+
           '&:first-of-type': {
             borderTopLeftRadius: 0,
             borderTopRightRadius: 0
@@ -31,6 +61,12 @@ const Accordion = () => {
           '& .MuiCollapse-root': {
             '& .MuiCollapse-wrapper': {
               padding: '16px 0px'
+            }
+          },
+          '& .MuiButtonBase-root ': {
+            '&.MuiAccordionSummary-root.Mui-expanded': {
+              marginTop: '-10px',
+              marginBottom: '-10px'
             }
           }
 
@@ -83,6 +119,18 @@ const Accordion = () => {
               fontWeight: 400,
               lineHeight: '18px',
               color: theme.palette.customColors.mainText
+            },
+            '& .MuiSimpleTreeView-root': {
+              '& .MuiTreeItem-root ': {
+                '& .MuiTreeItem-content': {
+                  '&.Mui-selected': {
+                    backgroundColor: theme.palette.common.white
+                  },
+                  '&:hover': {
+                    backgroundColor: theme.palette.common.white
+                  }
+                }
+              }
             }
           },
           '& .MuiAccordionSummary-expandIconWrapper': {

@@ -264,7 +264,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -328,7 +328,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -391,7 +391,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -454,7 +454,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<span className='icon-close-circle'></span>}
+                            deleteIcon={<span className='icon-trailing-icon'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -526,7 +526,8 @@ const AddiionalCreateRole = () => {
                   variant='body1'
                   sx={{
                     fontWeight: 500,
-                    lineHeight: '27px'
+                    lineHeight: '27px',
+                    mb: 3
                   }}
                 >
                   Set Rights
