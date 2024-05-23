@@ -3364,7 +3364,7 @@ const CreateTemporaryRole = () => {
               size='large'
               variant='contained'
               color='secondary'
-              startIcon={activeStep === 0 && view == 'tab3' ? <SkipNextIcon /> : null}
+              startIcon={activeStep === 0 && view == 'tab3' ? <span className='icon-next'></span> : null}
               onClick={activeStep == 1 || view == 'tab1' || view == 'tab2' ? handleSubmit : handleNext}
             >
               {activeStep === 0 && view == 'tab3' ? ' Next' : 'Submit'}

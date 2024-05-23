@@ -562,7 +562,7 @@ const AddiionalCreateRole = () => {
             variant='contained'
             color='secondary'
             onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
-            startIcon={activeStep === 0 ? <SkipNextIcon /> : null}
+            startIcon={activeStep === 0 ? <span className='icon-next'></span> : null}
           >
             {activeStep === 0 ? ' Next' : 'Submit'}
           </Button>
