@@ -92,10 +92,16 @@ if (themeConfig.routingLoader) {
 }
 
 const Guard = ({ children, authGuard, guestGuard }: GuardProps) => {
+  // if (guestGuard) {
+  //   return <GuestGuard fallback={<Spinner />}>{children}</GuestGuard>
+  // } else if (!guestGuard && !authGuard) {
+  //   return <>{children}</>
+  // } else {
+  //   return <AuthGuard fallback={<Spinner />}>{children}</AuthGuard>
+  // }
+
   if (guestGuard) {
     return <GuestGuard fallback={<Spinner />}>{children}</GuestGuard>
-  } else if (!guestGuard && !authGuard) {
-    return <>{children}</>
   } else {
     return <AuthGuard fallback={<Spinner />}>{children}</AuthGuard>
   }
@@ -106,7 +112,7 @@ const App = (props: ExtendedAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
   const [authGuard, setAuthGuard] = useState<boolean>(false)
-  const [guestGuard, setguestGuard] = useState<boolean>(false)
+  const [guestGuard, setguestGuard] = useState<boolean>(true)
 
   // Variables
   const contentHeightFixed = Component.contentHeightFixed ?? false
@@ -122,7 +128,6 @@ const App = (props: ExtendedAppProps) => {
   const aclAbilities = Component.acl ?? defaultACLObj
 
   useEffect(() => {
-    console.log('effect')
     if (props.pageProps.session?.accessToken) {
       localStorage.setItem('token', props.pageProps.session?.accessToken)
       localStorage.setItem('refreshToken', props.pageProps.session?.refreshToken)
@@ -142,6 +147,7 @@ const App = (props: ExtendedAppProps) => {
       setAuthGuard(true)
       setguestGuard(false)
     }
+    console.log('authGuard', authGuard, guestGuard)
   }, [props.pageProps.session?.user])
 
   return (
@@ -161,11 +167,11 @@ const App = (props: ExtendedAppProps) => {
                   return (
                     <SessionProvider session={pageProps.session}>
                       <ThemeComponent settings={settings}>
-                        {/* <Guard authGuard={authGuard} guestGuard={guestGuard}> */}
-                        {/* <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard} authGuard={authGuard}> */}
-                        {getLayout(<Component {...pageProps} />)}
-                        {/* </AclGuard> */}
-                        {/* // </Guard> */}
+                        <Guard authGuard={authGuard} guestGuard={guestGuard}>
+                          {/* <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard} authGuard={authGuard}> */}
+                          {guestGuard ? <Component {...pageProps} /> : getLayout(<Component {...pageProps} />)}
+                          {/* </AclGuard> */}
+                        </Guard>
                         <ReactHotToast>
                           <Toaster position={settings.toastPosition} toastOptions={{ className: 'react-hot-toast' }} />
                         </ReactHotToast>
