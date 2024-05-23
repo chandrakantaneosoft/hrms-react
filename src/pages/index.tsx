@@ -5,10 +5,11 @@ import { toast } from 'react-hot-toast'
 
 const Home = (props: any) => {
   const { session } = props
-  if (!session) {
-    toast.error('There Is An Internal Error.')
-    AutoLogoutUser()
-  }
+
+  // if (!session) {
+  //   toast.error('There Is An Internal Error.')
+  //   AutoLogoutUser()
+  // }
 
   return (
     <div>
@@ -19,32 +20,48 @@ const Home = (props: any) => {
 }
 
 export async function getServerSideProps(context: any) {
-  const session: any = await getSession(context)
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/signIn',
-        permanent: false
+  if (process.env.NODE_ENV != 'development') {
+    const session: any = await getSession(context)
+
+    if (!session) {
+      return {
+        redirect: {
+          destination: '/signIn',
+          permanent: false
+        }
+      }
+    }
+
+    const params = {
+      url: 'marketing/auth/validate/key-cloak',
+      headers: {
+        Authorization: `Bearer ${session?.accessToken}`
+      },
+      serviceURL: 'marketing'
+    }
+    const response = await postRequest(params)
+    if (response.status && response.data.status) {
+      return {
+        props: { session }
+      }
+    } else {
+
+      return {
+        redirect: {
+          destination: '/signIn',
+          permanent: false
+        }
       }
     }
   }
+  else {
 
-  const params = {
-    url: 'marketing/auth/validate/key-cloak',
-    headers: {
-      Authorization: `Bearer ${session?.accessToken}`
-    },
-    serviceURL: 'marketing'
-  }
-  const response = await postRequest(params)
-  if (response.status && response.data.status) {
+    // In development mode, you can return a dummy session or handle accordingly
+    const dummySession = { user: { name: 'Developer' }, accessToken: 'dummyToken' }
+
     return {
-      props: { session }
-    }
-  } else {
-    return {
-      props: { session: null }
+      props: { session: dummySession }
     }
   }
 }
