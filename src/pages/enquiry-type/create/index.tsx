@@ -137,7 +137,6 @@ export default function CreateEnquiry() {
 
   const handleSave = async () => {
     try {
-      console.log('DFDF', formDataVal)
       const dynamicRequestBody = inputFields.map((obj: any) => {
         return {
           source_type: obj.sourceType,
@@ -204,7 +203,6 @@ export default function CreateEnquiry() {
 
   const handleFeildChange = (e: any, index: number) => {
     const { value, name } = e.target
-    console.log('value', value)
     const feilds = [...inputFields]
     feilds[index][name] = value
     setInputFields(feilds)
@@ -212,7 +210,6 @@ export default function CreateEnquiry() {
 
   const handleSelectFeildChange = (e: any, val: any, index: number) => {
     const { value, name } = e.target
-    console.log('>>>>>>>>', val)
     const feilds = [...inputFields]
     feilds[index]['sourceForm'] = val
     setInputFields(feilds)
