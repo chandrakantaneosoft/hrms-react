@@ -40,8 +40,8 @@ const stepper = () => {
                 '& .MuiStepLabel-label.Mui-active': {
                   fontSize: '14px',
                   fontWeight: 500,
-                  lineHeight: '21px !important',
-                  color: `${theme.palette.primary.dark} !important`
+                  lineHeight: '21px',
+                  color: `${theme.palette.primary.dark} `
                 },
                 '& .MuiStepLabel-label.Mui-completed': {
                   fontSize: '14px',
@@ -53,7 +53,7 @@ const stepper = () => {
                   fontSize: '14px',
                   fontWeight: 500,
                   lineHeight: '21px',
-                  color: theme.palette.customColors.inactive
+                  color: theme.palette.customColors.text3
                 }
               }
             }

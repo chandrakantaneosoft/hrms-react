@@ -42,24 +42,24 @@ const columnsLobAssign: GridColDef[] = [
   {
     field: 'parent2',
     headerName: 'Parent 2',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 250,
     flex: 1
   },
   {
     field: 'parent1',
     headerName: 'Parent 1',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 290,
     flex: 1
   },
   {
     field: 'childLOB',
     headerName: 'Child LOBs',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 290,
     flex: 1
   }
@@ -152,15 +152,19 @@ function AdditionalDutyRoleListing() {
     },
     {
       flex: 0.275,
-      minWidth: 150,
+      minWidth: 80,
       field: 'schoolCategories',
-      headerName: 'School Categories'
+      headerName: 'School Categories',
+      headerAlign: 'center',
+      align: 'center'
     },
     {
       flex: 0.275,
-      minWidth: 150,
+      minWidth: 80,
       field: 'lobAssigned',
       headerName: 'LOB Assigned',
+      headerAlign: 'center',
+      align: 'center',
       renderCell: params => {
         return (
           <div style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }} onClick={handleOpenLob}>
@@ -173,6 +177,8 @@ function AdditionalDutyRoleListing() {
       flex: 0.2,
       minWidth: 100,
       field: 'status',
+      headerAlign: 'center',
+      align: 'center',
       headerName: 'Status',
       renderCell: (params: GridRenderCellParams) => {
         const status = statusObj[params.row.status]
@@ -190,8 +196,10 @@ function AdditionalDutyRoleListing() {
     },
     {
       flex: 0.2,
-      minWidth: 140,
+      minWidth: 80,
       field: 'action',
+      headerAlign: 'center',
+      align: 'center',
       headerName: 'Action',
       renderCell: (params: GridRenderCellParams) => {
         return (

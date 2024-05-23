@@ -62,7 +62,7 @@ const typography = {
         style: ({ theme }: OwnerStateThemeType) => ({
           color: theme.palette.text.primary,
           fontWeight: 400,
-          fontSize: '16px !important'
+          fontSize: '16px '
         })
       },
       {
@@ -78,7 +78,7 @@ const typography = {
         style: ({ theme }: OwnerStateThemeType) => ({
           color: theme.palette.text.primary,
           fontWeight: 400,
-          fontSize: '16px !important'
+          fontSize: '16px '
         })
       },
       {

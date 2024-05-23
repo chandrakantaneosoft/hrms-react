@@ -55,9 +55,9 @@ const Dialog = (skin: Skin) => {
           color: theme.palette.customColors.text7,
           padding: theme.spacing(5),
           '& span': {
-            fontSize: '14px !important',
+            fontSize: '12px ',
             fontWeight: 400,
-            lineHeight: '20px',
+            lineHeight: '16px',
             color: theme.palette.customColors.inactive
           }
         })

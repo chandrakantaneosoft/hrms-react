@@ -107,7 +107,8 @@ const Reminder = (props: Props) => {
         sx={{
           borderRadius: '16px',
 
-          marginLeft: '10px'
+          marginLeft: '20px',
+          marginRight: '20px'
         }}
         aria-haspopup='true'
         onClick={handleDropdownOpen}

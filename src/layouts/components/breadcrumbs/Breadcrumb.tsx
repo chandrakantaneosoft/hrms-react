@@ -55,7 +55,7 @@ function Breadcrumb({ currentPath }: Bread) {
 
   return (
     <div role='presentation'>
-      <Breadcrumbs maxItems={2} aria-label='breadcrumb'>
+      <Breadcrumbs maxItems={2} aria-label='breadcrumb' separator='>'>
         <Link underline='hover' color='inherit' href='/'>
           {moduleName}
         </Link>

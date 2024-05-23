@@ -9,10 +9,10 @@ const Chip = () => {
     MuiChip: {
       styleOverrides: {
         root: {
-          padding: '6px 0px',
+          padding: '6px 24px',
           fontSize: '14px ',
           fontWeight: 500,
-          height: '30px',
+          height: '36px',
           textAlign: 'center',
           '& .MuiChip-label': {
             fontSize: '14px ',
@@ -60,12 +60,17 @@ const Chip = () => {
               border: `1px solid ${theme.palette.customColors.disableBorder}`,
               color: theme.palette.customColors.mainText
             },
+            '& .MuiChip-deleteIcon': {
+              color: theme.palette.customColors.mainText,
+              marginLeft: '10px'
+            },
             '&:hover': {
               backgroundColor: theme.palette.customColors.chipHoverBackground,
               border: `1px solid ${theme.palette.customColors.chipBorder}`,
               color: theme.palette.customColors.mainText,
               '& .MuiChip-deleteIcon': {
-                color: theme.palette.customColors.mainText
+                color: theme.palette.customColors.mainText,
+                marginLeft: '10px'
               }
             }
           },
@@ -86,8 +91,13 @@ const Chip = () => {
               border: `1px solid ${theme.palette.customColors.chipBorder}`,
               color: theme.palette.customColors.mainText,
               '& .MuiChip-deleteIcon': {
-                color: theme.palette.customColors.mainText
+                color: theme.palette.customColors.mainText,
+                marginLeft: '10px'
               }
+            },
+            '& .MuiChip-deleteIcon': {
+              color: theme.palette.customColors.mainText,
+              marginLeft: '10px'
             }
           },
           '&.MuiChip-filledSecondary.MuiChip-colorSecondary': {
@@ -107,8 +117,13 @@ const Chip = () => {
               border: `1px solid ${theme.palette.customColors.chipBorder}`,
               color: theme.palette.customColors.mainText,
               '& .MuiChip-deleteIcon': {
-                color: theme.palette.customColors.mainText
+                color: theme.palette.customColors.mainText,
+                marginLeft: '10px'
               }
+            },
+            '& .MuiChip-deleteIcon': {
+              color: theme.palette.customColors.mainText,
+              marginLeft: '10px'
             }
           },
 
@@ -150,8 +165,13 @@ const Chip = () => {
               border: `1px solid ${theme.palette.customColors.chipBorder}`,
               color: theme.palette.customColors.mainText,
               '& .MuiChip-deleteIcon': {
-                color: theme.palette.customColors.mainText
+                color: theme.palette.customColors.mainText,
+                marginLeft: '10px'
               }
+            },
+            '& .MuiChip-deleteIcon': {
+              color: theme.palette.customColors.mainText,
+              marginLeft: '10px'
             }
           },
           '&.MuiChip-filledSuccess.MuiChip-colorSuccess': {
@@ -173,8 +193,13 @@ const Chip = () => {
               border: `1px solid ${theme.palette.customColors.chipBorder}`,
               color: theme.palette.customColors.mainText,
               '& .MuiChip-deleteIcon': {
-                color: theme.palette.customColors.mainText
+                color: theme.palette.customColors.mainText,
+                marginLeft: '10px'
               }
+            },
+            '& .MuiChip-deleteIcon': {
+              color: theme.palette.customColors.mainText,
+              marginLeft: '10px'
             }
           }
         }),
@@ -196,8 +221,13 @@ const Chip = () => {
               border: `1px solid ${theme.palette.customColors.chipBorder}`,
               color: theme.palette.customColors.mainText,
               '& .MuiChip-deleteIcon': {
-                color: theme.palette.customColors.mainText
+                color: theme.palette.customColors.mainText,
+                marginLeft: '10px'
               }
+            },
+            '& .MuiChip-deleteIcon': {
+              color: theme.palette.customColors.mainText,
+              marginLeft: '10px'
             }
           }
         }),

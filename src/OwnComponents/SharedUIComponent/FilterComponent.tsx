@@ -187,7 +187,9 @@ export default function FilterComponent(props: FilterProps) {
           <Typography sx={{ p: 2 }} variant='h6'>
             Filters
           </Typography>
-          <Button>Clear Filter</Button>
+          <Button sx={{ '&:hover': { background: '#fff' } }} disableFocusRipple disableRipple>
+            Clear Filter
+          </Button>
         </Stack>
         <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex' }}>
           <StyledTabs

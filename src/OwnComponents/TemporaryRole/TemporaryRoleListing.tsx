@@ -41,8 +41,8 @@ const columnsUserAssign: GridColDef[] = [
   {
     field: 'empCode',
     headerName: 'Employee Code',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 180,
     flex: 1
   },
@@ -204,6 +204,8 @@ function TemporaryRoleListing() {
       minWidth: 150,
       field: 'userAssigned',
       headerName: 'User Assigned',
+      headerAlign: 'center',
+      align: 'center',
       renderCell: params => {
         return (
           <div style={{ color: '#444A6D', textDecoration: 'underline', cursor: 'pointer' }} onClick={handleUserAssign}>
@@ -227,12 +229,16 @@ function TemporaryRoleListing() {
     {
       flex: 0.275,
       minWidth: 150,
+      headerAlign: 'center',
+      align: 'center',
       field: 'startDate',
       headerName: 'Start Date'
     },
     {
       flex: 0.275,
       minWidth: 150,
+      headerAlign: 'center',
+      align: 'center',
       field: 'endDate',
       headerName: 'End Date'
     },
@@ -240,6 +246,8 @@ function TemporaryRoleListing() {
       flex: 0.2,
       minWidth: 100,
       field: 'status',
+      headerAlign: 'center',
+      align: 'center',
       headerName: 'Status',
       renderCell: (params: GridRenderCellParams) => {
         const status = statusObj[params.row.status]
@@ -259,6 +267,8 @@ function TemporaryRoleListing() {
       flex: 0.2,
       minWidth: 140,
       field: 'action',
+      headerAlign: 'center',
+      align: 'center',
       headerName: 'Action',
       renderCell: (params: GridRenderCellParams) => {
         return (

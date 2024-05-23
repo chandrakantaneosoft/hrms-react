@@ -30,7 +30,7 @@ function DropZoneDialog({ title, subTitle, openModal, closeModal, handleSubmitCl
     <>
       <Dialog maxWidth={maxWidths} open={openModal} onClose={closeModal} aria-labelledby='customized-dialog-title'>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <DialogTitle sx={{ color: '#313030', lineHeight: '24px' }} id='customized-dialog-title'>
+          <DialogTitle sx={{ color: '#313030', lineHeight: '20px' }} id='customized-dialog-title'>
             {title} <br />
             <span>{subTitle}</span>
           </DialogTitle>

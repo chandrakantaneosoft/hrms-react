@@ -63,7 +63,7 @@ const MenuNavLink = styled(ListItemButton)<
       color: `${theme.palette.common.white} !important`
     },
     '& .MuiTypography-root': {
-      fontSize: '14px !important',
+      fontSize: '14px',
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
@@ -85,7 +85,7 @@ const MenuNavLink = styled(ListItemButton)<
         color: `${theme.palette.common.white} !important`
       },
       '& .MuiTypography-root': {
-        fontSize: '14px !important',
+        fontSize: '14px',
         fontWeight: 500,
         lineHeight: '21px',
         textAlign: 'center',
@@ -106,23 +106,23 @@ const MenuNavLink = styled(ListItemButton)<
       color: theme.palette.customColors.datepickerText
     },
     '& .MuiTypography-root': {
-      fontSize: '14px !important',
+      fontSize: '14px',
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
-      color: `${theme.palette.customColors.datepickerText} !important`
+      color: `${theme.palette.customColors.mainText}`
     }
   },
   '& .MuiTypography-root': {
-    fontSize: '14px !important',
-    fontWeight: 500,
+    fontSize: '14px ',
+    fontWeight: 400,
     lineHeight: '21px',
     textAlign: 'center',
-    color: `${theme.palette.customColors.datepickerText} `
+    color: `${theme.palette.customColors.mainText} `
   },
 
   '& .MuiListItemIcon-root': {
-    color: `${theme.palette.customColors.datepickerText} !important`,
+    color: `${theme.palette.customColors.datepickerText}`,
     width: '56px',
     height: '32px',
     borderRadius: '100px',

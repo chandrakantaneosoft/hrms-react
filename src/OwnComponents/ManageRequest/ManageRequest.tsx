@@ -45,8 +45,8 @@ const columnsRolCode: GridColDef[] = [
   {
     field: 'uniqueCode',
     headerName: 'Unique Code',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 100,
     flex: 1
   },
@@ -137,24 +137,24 @@ const columnsLobAssign: GridColDef[] = [
   {
     field: 'businessVertical',
     headerName: 'Business Vertical (LOB segment2 parent 2)',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 250,
     flex: 1
   },
   {
     field: 'businessSubVertical',
     headerName: 'Business Sub Vertical (LOB Segment2Parent1)',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 290,
     flex: 1
   },
   {
     field: 'businessSubSubvertical',
     headerName: 'Business sub sub vertical(LOB segment2 child)',
-    align: 'left',
-    headerAlign: 'left',
+    align: 'center',
+    headerAlign: 'center',
     minWidth: 290,
     flex: 1
   }
@@ -250,6 +250,8 @@ function ManageRequest() {
       minWidth: 190,
       field: 'uniqueRole',
       headerName: 'HRIS Unique Role',
+      align: 'center',
+      headerAlign: 'center',
       renderCell: params => {
         return (
           <div style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={handleClickOpen}>
@@ -288,6 +290,8 @@ function ManageRequest() {
       minWidth: 150,
       field: 'userAssigned',
       headerName: 'User Assigned',
+      align: 'center',
+      headerAlign: 'center',
       renderCell: params => {
         return (
           <div
@@ -340,6 +344,8 @@ function ManageRequest() {
       minWidth: 110,
       field: 'status',
       headerName: 'Status',
+      align: 'center',
+      headerAlign: 'center',
       renderCell: (params: GridRenderCellParams) => {
         const status = statusObj[params.row.status]
 
@@ -359,6 +365,8 @@ function ManageRequest() {
       minWidth: 140,
       field: 'action',
       headerName: 'Action',
+      align: 'center',
+      headerAlign: 'center',
       renderCell: (params: GridRenderCellParams) => {
         return (
           <>

@@ -33,7 +33,10 @@ function SuccessDialog({ openDialog, handleClose, title }: DialogBox) {
           </Box>
           <DialogContentText>
             {' '}
-            <Typography sx={{ color: 'primary.main', fontWeight: '600', letterSpacing: '0.25px' }} variant='body2'>
+            <Typography
+              sx={{ color: 'customColors.sliderMainColor', fontWeight: '600', letterSpacing: '0.1px' }}
+              variant='body2'
+            >
               {title}
             </Typography>
           </DialogContentText>

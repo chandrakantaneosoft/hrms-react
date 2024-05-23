@@ -307,7 +307,7 @@ const CreateNewRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='Applications'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -338,7 +338,7 @@ const CreateNewRole = () => {
                       {infoDialog && (
                         <span>
                           <Tooltip title='ERP Role Name'>
-                            <InfoIcon sx={{ ml: 3 }} />
+                            <InfoIcon />
                           </Tooltip>
                         </span>
                       )}
@@ -365,7 +365,7 @@ const CreateNewRole = () => {
                           {infoDialog && (
                             <span>
                               <Tooltip title='Select HRIS Unique Role'>
-                                <InfoIcon sx={{ ml: 3 }} />
+                                <InfoIcon />
                               </Tooltip>
                             </span>
                           )}
@@ -408,7 +408,7 @@ const CreateNewRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='School Categories'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -482,7 +482,7 @@ const CreateNewRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='Business Vertical (LOB segment2 parent 2)'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -546,7 +546,7 @@ const CreateNewRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='Business Sub Vertical (LOB Segment2 Parent1)'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -605,7 +605,7 @@ const CreateNewRole = () => {
                           {infoDialog && (
                             <span>
                               <Tooltip title='Select HRIS Unique Role'>
-                                <InfoIcon sx={{ ml: 3 }} />
+                                <InfoIcon />
                               </Tooltip>
                             </span>
                           )}
@@ -653,7 +653,7 @@ const CreateNewRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='ERP Role Name'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -713,9 +713,9 @@ const CreateNewRole = () => {
             variant='contained'
             color='secondary'
             onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
-            startIcon={<SkipNextIcon />}
+            startIcon={activeStep === 0 ? <SkipNextIcon /> : null}
           >
-            Next
+            {activeStep === 0 ? 'Next' : 'Submit'}
           </Button>
         </Grid>
       </Box>

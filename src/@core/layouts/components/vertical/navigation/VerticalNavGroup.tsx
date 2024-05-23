@@ -89,7 +89,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       }
     },
     '& .MuiTypography-root': {
-      fontSize: '14px !important',
+      fontSize: '14px',
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
@@ -107,12 +107,11 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
         marginLeft: '5px',
         color: `${theme.palette.common.white} !important`,
         '& .MuiTypography-root': {
-          fontSize: '14px !important',
+          fontSize: '14px',
           fontWeight: 500,
           lineHeight: '21px',
           textAlign: 'center',
-
-          color: theme.palette.primary.main
+          color: theme.palette.primary.dark
         },
         '&.Mui-focusVisible': {
           backgroundColor: theme.palette.primary.main
@@ -129,16 +128,16 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       color: theme.palette.customColors.mainText
     },
     '& .MuiTypography-root': {
-      fontSize: '14px !important',
+      fontSize: '14px',
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
-      color: `${theme.palette.customColors.mainText} !important`
+      color: `${theme.palette.customColors.mainText} `
     }
   },
   '& .MuiTypography-root': {
-    fontSize: '14px !important',
-    fontWeight: 500,
+    fontSize: '14px',
+    fontWeight: 400,
     lineHeight: '21px',
     textAlign: 'center',
     color: `${theme.palette.customColors.mainText} `

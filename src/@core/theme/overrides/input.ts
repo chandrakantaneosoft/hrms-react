@@ -1,6 +1,5 @@
 // ** Type Import
-
-import { borderColor, color, fontSize, fontWeight, height, letterSpacing, lineHeight, maxWidth } from '@mui/system'
+import { display, margin } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const input = () => {
@@ -8,18 +7,58 @@ const input = () => {
     MuiInputLabel: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          color: theme.palette.customColors.mainText,
-          fontSize: '16px',
-          lineHeight: '24px',
-          letterSpacing: '0.5px',
-          fontWeight: 400,
-
-          '&.MuiInputLabel-animated': {
-            fontSize: '12px',
-
-            letterSpacing: '0.4px',
+          '&.MuiFormLabel-root': {
+            color: theme.palette.customColors.datepickerText,
+            fontSize: '16px',
+            lineHeight: '24px',
+            letterSpacing: '0.5px',
             fontWeight: 400,
-            color: theme.palette.customColors.textLabel,
+            '& .MuiSvgIcon-root': {
+              width: '15.13px',
+              height: '15.13px',
+              marginTop: '2px',
+              display: 'none'
+            },
+            '& .MuiBox-root': {
+              marginLeft: '0px'
+            }
+          },
+
+          '&.Mui-focused.MuiInputLabel-animated': {
+            fontSize: '12px',
+            letterSpacing: '0.4px',
+            lineHeight: '16px',
+            fontWeight: 400,
+            color: theme.palette.customColors.mainText,
+            marginLeft: '0px',
+            '& .MuiSvgIcon-root': {
+              marginTop: '2px',
+              marginLeft: '12px',
+              display: 'block',
+              color: theme.palette.primary.dark
+
+              // display: 'flex',
+              // justifyContnt: 'flrx-end',
+              // alignItems: 'center'
+            },
+
+            '&.Mui-disabled': {
+              color: theme.palette.customColors.textLabel
+            }
+          },
+          '&.MuiInputLabel-shrink.MuiInputLabel-animated': {
+            fontSize: '12px',
+            letterSpacing: '0.4px',
+            lineHeight: '16px',
+            fontWeight: 400,
+            color: theme.palette.customColors.mainText,
+            '& .MuiSvgIcon-root': {
+              marginTop: '2px',
+              marginLeft: '12px',
+              display: 'block',
+              color: theme.palette.primary.dark
+            },
+
             '&.Mui-disabled': {
               color: theme.palette.customColors.textLabel
             }
@@ -87,6 +126,12 @@ const input = () => {
           height: '56px',
           padding: '4px 16px',
           color: theme.palette.customColors.mainText,
+          '& .MuiInputBase-input': {
+            fontSize: '16px',
+            lineHeight: '24px',
+            fontWeight: 400,
+            color: theme.palette.customColors.text7
+          },
           '&:hover:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error) .MuiOutlinedInput-notchedOutline': {
             borderColor: '#111111'
           },
@@ -137,7 +182,7 @@ const input = () => {
               height: '45px',
               borderRadius: '28px',
               color: theme.palette.customColors.inactive,
-              border: `1px solid ${theme.palette.customColors.inactive}`,
+              border: `1px solid ${theme.palette.customColors.text3}`,
               fontSize: '16px',
               fontWeight: 400,
               lineHeight: '24px',
@@ -145,15 +190,28 @@ const input = () => {
               '&.Mui-focused': {
                 fontWeight: 500,
                 color: theme.palette.customColors.inactive,
-                borderColor: `${theme.palette.customColors.inactive}`
+                borderColor: `${theme.palette.customColors.mainText}`,
+                '& .MuiInputBase-input': {
+                  fontWeight: 500
+                },
+                '& .MuiInputAdornment-positionStart': {
+                  color: theme.palette.customColors.mainText
+                }
               },
               '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                border: `1px solid ${theme.palette.customColors.inactive}`
+                border: `1px solid ${theme.palette.customColors.mainText}`
               },
               '& .MuiInputAdornment-positionStart': {
-                color: theme.palette.customColors.textLabel
+                color: theme.palette.customColors.text3
               },
               '& .MuiInputAdornment-positionEnd': {
+                color: theme.palette.customColors.text3
+              },
+              '& .MuiInputBase-input': {
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '24px',
+                letterSpacing: '0.5px',
                 color: theme.palette.customColors.inactive
               }
             }

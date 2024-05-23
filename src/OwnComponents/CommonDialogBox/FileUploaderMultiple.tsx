@@ -160,7 +160,8 @@ const FileUploaderMultiple = () => {
               sx={{
                 '& a': { color: 'primary.main', textDecoration: 'none' },
                 letterSpacing: '0.25px',
-                textAlign: 'center'
+                textAlign: 'center',
+                lineHeight: '0px !important'
               }}
             >
               Drag Your File Here Or {''}

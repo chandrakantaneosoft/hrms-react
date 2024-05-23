@@ -8,7 +8,7 @@ body {
 }
 
 code {
-  font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+  font-family: 'Popins', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
   padding: 0.1rem 0.4rem;
   font-size: 90%;
@@ -42,13 +42,16 @@ code[class*='language-'] {
   justify-content: space-between;
   align-items: center;
   padding: 0 12px;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+.toggle-select .MuiSwitch-root {
+  margin-right: 0px !important;
 }
 .toggle-status {
   font-size: 16px;
-  font-weight: 400;
   line-height: 24px;
-  color: #535352;
+  letter-spacing: 0.5px;
+  color: #1b1b23;
+  font-weight: 400;
 }
 .layout-content-wrapper {
   background: #fff !important;
@@ -89,14 +92,14 @@ code[class*='language-'] {
   border-radius: 45px;
   background-color: #ebebfa;
   color: #3f41d1;
-  font-size: 16px !important;
+  font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0.15 !important;
+  letter-spacing: 0.15;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root {
   background-color: transparent;
-  padding: 10px 16px 10px 22px;
+  padding: 10px 16px 10px 30px;
   transition: all 0.5s;
   align-items: flex-start;
   position: relative;
@@ -105,18 +108,18 @@ code[class*='language-'] {
   justify-content: flex-start !important;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root .MuiTypography-root {
-  font-size: 14px !important;
+  font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0.1px;
   color: #535252;
-  text-align: left;
+  text-align: center;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root::before {
   content: '';
   position: absolute;
   display: inline-block;
-  left: 7px;
+  left: 10px;
   top: 0px;
   bottom: 0px;
   margin: auto;
@@ -137,7 +140,7 @@ code[class*='language-'] {
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root:hover {
   background-color: #ebebfa;
   padding: 10px 16px;
-  padding-left: 22px;
+  padding-left: 30px;
   border-radius: 45px;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active {
@@ -146,7 +149,7 @@ code[class*='language-'] {
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active:hover {
   background-color: #ebebfa;
   padding: 10px 16px;
-  padding-left: 22px;
+  padding-left: 30px;
   border-radius: 45px;
 }
 .sideBar-Link .MuiButtonBase-root.MuiListItemButton-root.active .MuiTypography-root {
@@ -158,7 +161,17 @@ code[class*='language-'] {
   background-color: transparent;
   color: #929090;
 }
+.MuiBreadcrumbs-ol li a.MuiTypography-root {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #535252;
+}
+.MuiBreadcrumbs-ol .MuiBreadcrumbs-separator {
+  margin-top: 1px;
+}
 
+/*Footer Link*/
 .footer-link.MuiListItem-root {
   position: fixed;
   bottom: 0;

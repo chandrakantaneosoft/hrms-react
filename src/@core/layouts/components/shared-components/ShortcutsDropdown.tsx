@@ -105,7 +105,7 @@ const ShortcutsDropdown = (props: Props) => {
         sx={{
           borderRadius: '16px',
 
-          marginLeft: '10px'
+          marginLeft: '20px'
         }}
         className='contained'
         aria-haspopup='true'

@@ -205,7 +205,7 @@ const AddiionalCreateRole = () => {
                       {infoDialog && (
                         <span>
                           <Tooltip title='Additional Duty  Name'>
-                            <InfoIcon sx={{ ml: 3 }} />
+                            <InfoIcon />
                           </Tooltip>
                         </span>
                       )}
@@ -236,7 +236,7 @@ const AddiionalCreateRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='School Categories'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -300,7 +300,7 @@ const AddiionalCreateRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title=' Business Vertical (LOB segment2 parent 2)'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -364,7 +364,7 @@ const AddiionalCreateRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='Business Sub Vertical (LOB Segment2 Parent1)'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -428,7 +428,7 @@ const AddiionalCreateRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='Business Sub Sub Vertical(LOB Segment2 Child)'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
@@ -504,7 +504,7 @@ const AddiionalCreateRole = () => {
                         {infoDialog && (
                           <span>
                             <Tooltip title='Additional Duty Name'>
-                              <InfoIcon sx={{ ml: 3 }} />
+                              <InfoIcon />
                             </Tooltip>
                           </span>
                         )}
