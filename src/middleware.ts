@@ -47,7 +47,6 @@ export function middleware(request: NextRequest) {
   }
 
   // if (!token) {
-  //   console.log('login redirect')
 
   //   return NextResponse.redirect(new URL('/login', request.url))
   // } else if (

@@ -236,7 +236,6 @@ export default function EditEnquiry() {
 
   const handleFeildChange = (e: any, index: number) => {
     const { value, name } = e.target
-    console.log('value', value)
     const feilds = [...inputFields]
     feilds[index][name] = value
     setInputFields(feilds)
