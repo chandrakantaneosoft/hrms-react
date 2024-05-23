@@ -20,7 +20,6 @@ const Home = (props: any) => {
 }
 
 export async function getServerSideProps(context: any) {
-
   if (process.env.NODE_ENV != 'development') {
     const session: any = await getSession(context)
 
@@ -46,7 +45,6 @@ export async function getServerSideProps(context: any) {
         props: { session }
       }
     } else {
-
       return {
         redirect: {
           destination: '/signIn',
@@ -54,9 +52,7 @@ export async function getServerSideProps(context: any) {
         }
       }
     }
-  }
-  else {
-
+  } else {
     // In development mode, you can return a dummy session or handle accordingly
     const dummySession = { user: { name: 'Developer' }, accessToken: 'dummyToken' }
 

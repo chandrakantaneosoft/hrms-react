@@ -146,7 +146,7 @@ const App = (props: ExtendedAppProps) => {
       setAuthGuard(true)
       setguestGuard(false)
     }
-    console.log("authGuard", authGuard, guestGuard)
+    console.log('authGuard', authGuard, guestGuard)
   }, [props.pageProps.session?.user])
 
   return (
