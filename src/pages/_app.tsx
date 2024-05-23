@@ -112,7 +112,7 @@ const App = (props: ExtendedAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
   const [authGuard, setAuthGuard] = useState<boolean>(false)
-  const [guestGuard, setguestGuard] = useState<boolean>(true)
+  const [guestGuard, setguestGuard] = useState<boolean>(false)
 
   // Variables
   const contentHeightFixed = Component.contentHeightFixed ?? false
@@ -169,7 +169,7 @@ const App = (props: ExtendedAppProps) => {
                       <ThemeComponent settings={settings}>
                         <Guard authGuard={authGuard} guestGuard={guestGuard}>
                           {/* <AclGuard aclAbilities={aclAbilities} guestGuard={guestGuard} authGuard={authGuard}> */}
-                          {guestGuard ? <Component {...pageProps} /> : getLayout(<Component {...pageProps} />)}
+                          {getLayout(<Component {...pageProps} />)}
                           {/* </AclGuard> */}
                         </Guard>
                         <ReactHotToast>
