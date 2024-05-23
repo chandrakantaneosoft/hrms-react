@@ -230,6 +230,8 @@ const CreateTemporaryRole = () => {
     ])
   }, [])
 
+  const CalendarIcon = () => <span className='icon-calendar-1'></span>
+
   return (
     <Box sx={{ background: '#fff', borderRadius: '10px', padding: '10px 10px' }}>
       <Box sx={{ my: 3, display: 'flex', justifyContent: 'center' }}>
@@ -475,7 +477,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -573,7 +575,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -637,7 +639,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -701,7 +703,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -926,7 +928,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -1024,7 +1026,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1088,7 +1090,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1152,7 +1154,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1401,7 +1403,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -1499,7 +1501,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<UserIcon icon={'mdi:close'} />}
+                                deleteIcon={<span className='icon-close-circle'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -1563,7 +1565,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<UserIcon icon={'mdi:close'} />}
+                                deleteIcon={<span className='icon-close-circle'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -1627,7 +1629,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<UserIcon icon={'mdi:close'} />}
+                                deleteIcon={<span className='icon-close-circle'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -1864,6 +1866,7 @@ const CreateTemporaryRole = () => {
                       color='default'
                       variant='filled'
                       label={option}
+                      deleteIcon={<span className='icon-close-circle'></span>}
                       {...(getTagProps({ index }) as {})}
                       key={index}
                     />
@@ -2005,7 +2008,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -2101,7 +2104,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2164,7 +2167,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2227,7 +2230,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2267,6 +2270,9 @@ const CreateTemporaryRole = () => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   sx={{ width: '100%' }}
+                  slots={{
+                    openPickerIcon: CalendarIcon
+                  }}
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Start Date
@@ -2286,6 +2292,9 @@ const CreateTemporaryRole = () => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   sx={{ width: '100%' }}
+                  slots={{
+                    openPickerIcon: CalendarIcon
+                  }}
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       End Date
@@ -2453,7 +2462,7 @@ const CreateTemporaryRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -2550,7 +2559,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2613,7 +2622,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2676,7 +2685,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -2717,6 +2726,9 @@ const CreateTemporaryRole = () => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   sx={{ width: '100%' }}
+                  slots={{
+                    openPickerIcon: CalendarIcon
+                  }}
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       Start Date
@@ -2736,6 +2748,9 @@ const CreateTemporaryRole = () => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   sx={{ width: '100%' }}
+                  slots={{
+                    openPickerIcon: CalendarIcon
+                  }}
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                       End Date
@@ -2926,7 +2941,7 @@ const CreateTemporaryRole = () => {
                               key={value}
                               label={value}
                               onDelete={handleDelete(value)}
-                              deleteIcon={<UserIcon icon={'mdi:close'} />}
+                              deleteIcon={<span className='icon-close-circle'></span>}
                               style={{ margin: 2 }}
                             />
                           ))}
@@ -3023,7 +3038,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<UserIcon icon={'mdi:close'} />}
+                                deleteIcon={<span className='icon-close-circle'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -3086,7 +3101,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<UserIcon icon={'mdi:close'} />}
+                                deleteIcon={<span className='icon-close-circle'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -3149,7 +3164,7 @@ const CreateTemporaryRole = () => {
                                 key={value}
                                 label={value}
                                 onDelete={handleDelete(value)}
-                                deleteIcon={<UserIcon icon={'mdi:close'} />}
+                                deleteIcon={<span className='icon-close-circle'></span>}
                                 style={{ margin: 2 }}
                               />
                             ))}
@@ -3183,6 +3198,9 @@ const CreateTemporaryRole = () => {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     sx={{ width: '100%' }}
+                    slots={{
+                      openPickerIcon: CalendarIcon
+                    }}
                     label={
                       <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         Start Date
@@ -3202,6 +3220,9 @@ const CreateTemporaryRole = () => {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     sx={{ width: '100%' }}
+                    slots={{
+                      openPickerIcon: CalendarIcon
+                    }}
                     label={
                       <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                         End Date
@@ -3270,6 +3291,9 @@ const CreateTemporaryRole = () => {
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DatePicker
                         sx={{ width: '100%' }}
+                        slots={{
+                          openPickerIcon: CalendarIcon
+                        }}
                         label={
                           <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             Start Date
@@ -3289,6 +3313,9 @@ const CreateTemporaryRole = () => {
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DatePicker
                         sx={{ width: '100%' }}
+                        slots={{
+                          openPickerIcon: CalendarIcon
+                        }}
                         label={
                           <Box sx={{ display: 'flex', alignItems: 'normal' }}>
                             End Date

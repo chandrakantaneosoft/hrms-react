@@ -1,6 +1,6 @@
 // ** Type Import
 
-import { borderRadius, color, fontSize, fontWeight, lineHeight, padding, textAlign } from '@mui/system'
+import { borderRadius, color, display, fontSize, fontWeight, lineHeight, padding, textAlign } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const DataGrid = () => {
@@ -103,7 +103,7 @@ const DataGrid = () => {
               '& .MuiChip-root': {
                 height: '34px',
                 borderRadius: '100px',
-                padding: '6px 0px',
+                padding: '10px 12px',
 
                 '& .MuiChip-label': {
                   fontSize: '12px',

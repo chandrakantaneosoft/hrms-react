@@ -29,6 +29,7 @@ import CanViewNavLink from 'src/layouts/components/acl/CanViewNavLink'
 // ** Util Import
 import { handleURLQueries } from 'src/@core/layouts/utils'
 import { Divider } from '@mui/material'
+import { padding } from '@mui/system'
 
 interface Props {
   parent?: boolean
@@ -59,7 +60,7 @@ const MenuNavLink = styled(ListItemButton)<
       backgroundColor: 'blue',
       display: 'flex',
       justifyContent: 'center',
-      paddingTop: '2px',
+      paddingTop: '4px',
       color: `${theme.palette.common.white} !important`
     },
     '& .MuiTypography-root': {
@@ -67,7 +68,7 @@ const MenuNavLink = styled(ListItemButton)<
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
-
+      marginTop: '4px',
       color: theme.palette.primary.main
     },
     '&.Mui-focusVisible': {
@@ -81,7 +82,7 @@ const MenuNavLink = styled(ListItemButton)<
         backgroundColor: 'blue',
         display: 'flex',
         justifyContent: 'center',
-        paddingTop: '2px',
+        paddingTop: '4px',
         color: `${theme.palette.common.white} !important`
       },
       '& .MuiTypography-root': {
@@ -89,7 +90,7 @@ const MenuNavLink = styled(ListItemButton)<
         fontWeight: 500,
         lineHeight: '21px',
         textAlign: 'center',
-
+        marginTop: '4px',
         color: theme.palette.primary.main
       },
       '&.Mui-focusVisible': {
@@ -102,7 +103,7 @@ const MenuNavLink = styled(ListItemButton)<
     backgroundColor: theme.palette.common.white,
     '& .MuiListItemIcon-root': {
       backgroundColor: theme.palette.grey[500],
-
+      paddingTop: '4px',
       color: theme.palette.customColors.datepickerText
     },
     '& .MuiTypography-root': {
@@ -110,6 +111,7 @@ const MenuNavLink = styled(ListItemButton)<
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
+      marginTop: '4px',
       color: `${theme.palette.customColors.mainText}`
     }
   },
@@ -118,6 +120,7 @@ const MenuNavLink = styled(ListItemButton)<
     fontWeight: 400,
     lineHeight: '21px',
     textAlign: 'center',
+    marginTop: '4px',
     color: `${theme.palette.customColors.mainText} `
   },
 
@@ -128,7 +131,7 @@ const MenuNavLink = styled(ListItemButton)<
     borderRadius: '100px',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: '2px',
+    paddingTop: '4px',
     marginLeft: '5px'
   }
 }))
@@ -238,7 +241,7 @@ const VerticalNavLink = ({
               }}
             >
               {/* {parent ? null : <UserIcon icon={icon as string} />} */}
-              {parent ? null : <UserIcon icon={icon as string} />}
+              {parent ? null : <span className={item.icon}></span>}
             </ListItemIcon>
           )}
 

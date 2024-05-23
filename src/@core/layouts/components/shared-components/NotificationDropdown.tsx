@@ -182,7 +182,7 @@ const NotificationDropdown = (props: Props) => {
               '& .MuiBadge-badge': { top: 4, right: 4 }
             }}
           >
-            <NotificationsNoneIcon sx={{ color: '#929090' }} />
+            <span className='icon-notification' style={{ color: '#929090' }}></span>
           </Badge>
         </IconButton>
       </Tooltip>

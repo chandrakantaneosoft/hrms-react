@@ -23,13 +23,13 @@ const SearchBox = ({ placeHolderTitle, searchText, handleClearSearch, handleInpu
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>
-              <SearchIcon />
+              <span className='icon-search-normal-1'></span>
             </InputAdornment>
           ),
           endAdornment: searchText ? (
             <InputAdornment position='end'>
               <IconButton disableFocusRipple disableRipple disableTouchRipple onClick={handleClearSearch}>
-                <CancelOutlinedIcon />
+                <span className='icon-close-circle'></span>
               </IconButton>
             </InputAdornment>
           ) : null

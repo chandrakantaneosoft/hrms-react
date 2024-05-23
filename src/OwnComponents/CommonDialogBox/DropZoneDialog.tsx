@@ -34,9 +34,9 @@ function DropZoneDialog({ title, subTitle, openModal, closeModal, handleSubmitCl
             {title} <br />
             <span>{subTitle}</span>
           </DialogTitle>
-          <IconButton disableFocusRipple disableRipple onClick={closeModal}>
+          {/* <IconButton disableFocusRipple disableRipple onClick={closeModal}>
             <HighlightOffIcon sx={{ marginTop: '-25px' }} />
-          </IconButton>
+          </IconButton> */}
         </Box>
         <DialogContent>
           <FileUploaderMultiple />
@@ -45,8 +45,9 @@ function DropZoneDialog({ title, subTitle, openModal, closeModal, handleSubmitCl
           className='dialog-actions-dense'
           sx={{ mt: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <InsertDriveFileIcon sx={{ color: '#292D32' }} />
+          <Box sx={{ display: 'flex', alignItems: 'center', marginRight: '50px' }}>
+            {/* <InsertDriveFileIcon sx={{ color: '#292D32' }} /> */}
+            <span className='icon-document-download' style={{ color: '#292D32', marginRight: '5px' }}></span>
             <Typography sx={{ textTransform: 'capitalize' }} variant='button' color='primary.main'>
               Download Template
             </Typography>

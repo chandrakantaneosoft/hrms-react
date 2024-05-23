@@ -1,4 +1,5 @@
 // ** Type Import
+import { fontSize } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 // ** Theme Config Imports

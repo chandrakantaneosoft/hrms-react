@@ -341,7 +341,7 @@ function ManageRequest() {
     // },
     {
       flex: 0.2,
-      minWidth: 110,
+      minWidth: 200,
       field: 'status',
       headerName: 'Status',
       align: 'center',
@@ -372,12 +372,12 @@ function ManageRequest() {
           <>
             <Tooltip title='Edit'>
               <IconButton disableFocusRipple disableRipple onClick={() => handleEdit(params)}>
-                <EditIcon />
+                <span className='icon-edit-2'></span>
               </IconButton>
             </Tooltip>
             <Tooltip title='Delete'>
               <IconButton disableFocusRipple disableRipple onClick={() => handleDelete(params)}>
-                <DeleteIcon />
+                <span className='icon-trash'></span>
               </IconButton>
             </Tooltip>
           </>
@@ -617,7 +617,7 @@ function ManageRequest() {
                       }
                     }}
                   >
-                    <SimCardDownloadOutlinedIcon />
+                    <span className='icon-document-download'></span>
                   </Fab>
                 </Tooltip>
                 <Button
@@ -629,7 +629,7 @@ function ManageRequest() {
                       ml: 3
                     }
                   }}
-                  startIcon={<FilterAltIcon />}
+                  startIcon={<span className='icon-filter-search'></span>}
                   onClick={handleFilterClick}
                 >
                   filter
@@ -641,7 +641,7 @@ function ManageRequest() {
                   onClick={e => handleChange(e)}
                   disableFocusRipple
                   disableTouchRipple
-                  startIcon={<AddIcon />}
+                  startIcon={<span className='icon-add'></span>}
                 >
                   Create
                 </Button>

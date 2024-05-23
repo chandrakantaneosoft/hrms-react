@@ -264,7 +264,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -328,7 +328,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -391,7 +391,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -454,7 +454,7 @@ const AddiionalCreateRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}

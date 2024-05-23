@@ -14,8 +14,8 @@ const input = () => {
             letterSpacing: '0.5px',
             fontWeight: 400,
             '& .MuiSvgIcon-root': {
-              width: '15.13px',
-              height: '15.13px',
+              width: '20px',
+              height: '20px',
               marginTop: '2px',
               display: 'none'
             },

@@ -123,7 +123,7 @@ const Reminder = (props: Props) => {
             '& .MuiBadge-badge': { top: 4, right: 4 }
           }}
         >
-          <AccessTimeIcon sx={{ color: '#929090' }} />
+          <span className='icon-clock' style={{ color: '#929090' }}></span>
         </Badge>
       </IconButton>
       <Menu

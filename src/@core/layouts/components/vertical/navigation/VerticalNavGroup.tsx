@@ -73,6 +73,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
 
   '&.Mui-selected': {
     backgroundColor: 'transparent !important',
+
     '& .MuiListItemIcon-root': {
       width: '56px',
       height: '32px',
@@ -80,7 +81,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       backgroundColor: theme.palette.primary.dark,
       display: 'flex',
       justifyContent: 'center',
-      paddingTop: '2px',
+      paddingTop: '4px',
       marginLeft: '5px',
       color: `${theme.palette.common.white} !important`,
 
@@ -93,7 +94,8 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
-      color: theme.palette.primary.dark
+      color: theme.palette.primary.dark,
+      marginTop: '4px'
     },
     '&:hover': {
       '& .MuiListItemIcon-root': {
@@ -103,7 +105,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
         backgroundColor: theme.palette.primary.dark,
         display: 'flex',
         justifyContent: 'center',
-        paddingTop: '2px',
+        paddingTop: '4px',
         marginLeft: '5px',
         color: `${theme.palette.common.white} !important`,
         '& .MuiTypography-root': {
@@ -111,6 +113,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
           fontWeight: 500,
           lineHeight: '21px',
           textAlign: 'center',
+          marginTop: '4px',
           color: theme.palette.primary.dark
         },
         '&.Mui-focusVisible': {
@@ -124,7 +127,6 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
     backgroundColor: theme.palette.common.white,
     '& .MuiListItemIcon-root': {
       backgroundColor: theme.palette.grey[50],
-
       color: theme.palette.customColors.mainText
     },
     '& .MuiTypography-root': {
@@ -132,6 +134,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
       fontWeight: 500,
       lineHeight: '21px',
       textAlign: 'center',
+      marginTop: '4px',
       color: `${theme.palette.customColors.mainText} `
     }
   },
@@ -140,6 +143,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
     fontWeight: 400,
     lineHeight: '21px',
     textAlign: 'center',
+    marginTop: '4px',
     color: `${theme.palette.customColors.mainText} `
   },
   '& .MuiListItemIcon-root': {
@@ -149,7 +153,7 @@ const MenuNavLink = styled(ListItemButton)<ListItemButtonProps & { component?: E
     borderRadius: '100px',
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: '2px',
+    paddingTop: '4px',
     marginLeft: '5px'
   }
 }))
@@ -334,7 +338,8 @@ const VerticalNavGroup = (props: Props) => {
                     color: parent && item.children ? 'text.secondary' : 'text.primary'
                   }}
                 >
-                  <UserIcon icon={icon as string} {...(parent && { fontSize: '0.5rem' })} />
+                  {/* <UserIcon icon={icon as string} {...(parent && { fontSize: '0.5rem' })} /> */}
+                  <span className={item.icon}></span>
                 </ListItemIcon>
               )}
               <MenuItemTextWrapper

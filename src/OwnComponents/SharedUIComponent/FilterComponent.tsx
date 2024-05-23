@@ -215,7 +215,7 @@ export default function FilterComponent(props: FilterProps) {
             aria-label='Vertical tabs example'
           >
             <StyledTab
-              icon={<FilterAltOutlinedIcon />}
+              icon={<span className='icon-filter-search'></span>}
               label={
                 <Stack direction='row' justifyContent='space-between' alignItems='center' flex='1'>
                   <Typography>Filter</Typography>
@@ -225,7 +225,7 @@ export default function FilterComponent(props: FilterProps) {
               {...a11yProps(0)}
             />
             <StyledTab
-              icon={<ViewWeekOutlinedIcon />}
+              icon={<span className='icon-slider-horizontal'></span>}
               label={
                 <Stack direction='row' justifyContent='space-between' alignItems='center' flex='1'>
                   <Typography>Column</Typography>
@@ -235,7 +235,7 @@ export default function FilterComponent(props: FilterProps) {
               {...a11yProps(1)}
             />
             <StyledTab
-              icon={<StickyNote2OutlinedIcon />}
+              icon={<span className='icon-sticker'></span>}
               label={
                 <Stack direction='row' justifyContent='space-between' alignItems='center' flex='1'>
                   <Typography>Sticky Column</Typography>

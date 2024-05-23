@@ -175,7 +175,7 @@ function AdditionalDutyRoleListing() {
     },
     {
       flex: 0.2,
-      minWidth: 100,
+      minWidth: 150,
       field: 'status',
       headerAlign: 'center',
       align: 'center',
@@ -206,12 +206,12 @@ function AdditionalDutyRoleListing() {
           <>
             <Tooltip title='Edit'>
               <IconButton disableFocusRipple disableRipple onClick={() => handleEdit(params)}>
-                <EditIcon />
+                <span className='icon-edit-2'></span>
               </IconButton>
             </Tooltip>
             <Tooltip title='Delete'>
               <IconButton disableFocusRipple disableRipple onClick={() => handleDelete(params)}>
-                <DeleteIcon />
+                <span className='icon-trash'></span>
               </IconButton>
             </Tooltip>
           </>
@@ -440,7 +440,7 @@ function AdditionalDutyRoleListing() {
                     }
                   }}
                 >
-                  <SimCardDownloadOutlinedIcon />
+                  <span className='icon-document-download'></span>
                 </Fab>
               </Tooltip>
               <Button
@@ -452,7 +452,7 @@ function AdditionalDutyRoleListing() {
                     ml: 3
                   }
                 }}
-                startIcon={<FilterAltIcon />}
+                startIcon={<span className='icon-filter-search'></span>}
                 onClick={handleFilterClick}
               >
                 filter
@@ -464,7 +464,7 @@ function AdditionalDutyRoleListing() {
                 onClick={e => handleChange(e)}
                 disableFocusRipple
                 disableTouchRipple
-                startIcon={<AddIcon />}
+                startIcon={<span className='icon-add'></span>}
               >
                 Create
               </Button>

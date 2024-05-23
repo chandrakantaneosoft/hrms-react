@@ -6,11 +6,11 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Dashboard',
       path: '/dashboard',
-      icon: 'mdi:home-outline'
+      icon: `icon-home-1`
     },
     {
       title: 'RBAC',
-      icon: 'mdi:list-box',
+      icon: `icon-document`,
       children: [
         {
           title: 'Permanant Role',
@@ -32,11 +32,11 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Setting',
       path: '/setting',
-      icon: 'mdi:cog'
+      icon: 'icon-setting-2'
     },
     {
       title: 'Logout',
-      icon: 'mdi:logout'
+      icon: 'icon-logout'
     }
   ]
 }

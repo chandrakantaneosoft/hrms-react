@@ -36,7 +36,7 @@ code[class*='language-'] {
 .toggle-select {
   height: 54.4px;
   border: 1px solid #e1e1e1;
-  border-radius: 8px;
+  border-radius: 4px;
 
   display: flex;
   justify-content: space-between;
@@ -44,7 +44,7 @@ code[class*='language-'] {
   padding: 0 12px;
 }
 .toggle-select .MuiSwitch-root {
-  margin-right: 0px !important;
+  margin-right: -16px !important;
 }
 .toggle-status {
   font-size: 16px;

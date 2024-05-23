@@ -9,7 +9,7 @@ const Chip = () => {
     MuiChip: {
       styleOverrides: {
         root: {
-          padding: '6px 24px',
+          padding: '6px 0px',
           fontSize: '14px ',
           fontWeight: 500,
           height: '36px',

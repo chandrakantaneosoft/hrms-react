@@ -12,11 +12,11 @@ const Button = () => {
           // height: '56px',
           borderRadius: '16px',
           backgroundColor: theme.palette.customColors.chipTonalBackground,
-          color: theme.palette.customColors.text3,
+          color: theme.palette.customColors.mainText,
           '&:hover': {
             boxShadow: theme.shadows[1],
             backgroundColor: theme.palette.customColors.chipTonalBackground,
-            color: theme.palette.customColors.text3
+            color: theme.palette.customColors.mainText
           },
           '&.MuiFab-primary': {
             backgroundColor: theme.palette.primary.main,

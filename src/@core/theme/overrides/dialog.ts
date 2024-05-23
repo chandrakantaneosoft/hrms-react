@@ -19,6 +19,7 @@ const Dialog = (skin: Skin) => {
       styleOverrides: {
         paper: ({ theme }: OwnerStateThemeType) => ({
           borderRadius: '28px',
+          padding: '10px',
           boxShadow: theme.shadows[skin === 'bordered' ? 0 : 10],
           ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` }),
           '&:not(.MuiDialog-paperFullScreen)': {

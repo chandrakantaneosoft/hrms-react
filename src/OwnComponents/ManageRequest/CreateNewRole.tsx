@@ -381,6 +381,7 @@ const CreateNewRole = () => {
                       <Chip
                         color='default'
                         className='chip'
+                        deleteIcon={<span className='icon-close-circle'></span>}
                         variant='filled'
                         label={option}
                         {...(getTagProps({ index }) as {})}
@@ -438,7 +439,7 @@ const CreateNewRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -512,7 +513,7 @@ const CreateNewRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -575,7 +576,7 @@ const CreateNewRole = () => {
                             key={value}
                             label={value}
                             onDelete={handleDelete(value)}
-                            deleteIcon={<UserIcon icon={'mdi:close'} />}
+                            deleteIcon={<span className='icon-close-circle'></span>}
                             style={{ margin: 2 }}
                           />
                         ))}
@@ -618,6 +619,7 @@ const CreateNewRole = () => {
                       <Chip
                         color='default'
                         variant='filled'
+                        deleteIcon={<span className='icon-close-circle'></span>}
                         label={option}
                         {...(getTagProps({ index }) as {})}
                         key={index}

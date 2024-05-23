@@ -69,13 +69,13 @@ const FileUploaderMultiple = () => {
     }
   })
 
-  const renderFilePreview = (file: FileProp) => {
-    if (file.type.startsWith('image')) {
-      return <img width={38} height={38} alt={file.name} src={URL.createObjectURL(file as any)} />
-    } else {
-      return <Icon icon='mdi:file-document-outline' />
-    }
-  }
+  // const renderFilePreview = (file: FileProp) => {
+  //   if (file.type.startsWith('image')) {
+  //     return <img width={38} height={38} alt={file.name} src={URL.createObjectURL(file as any)} />
+  //   } else {
+  //     return <Icon icon='mdi:file-document-outline' />
+  //   }
+  // }
 
   const fileRejectionItems = fileRejections.map(({ file, errors }) => errors[0].code)
   console.log(fileRejectionItems[0])
@@ -100,7 +100,7 @@ const FileUploaderMultiple = () => {
   const fileList = files.map((file: FileProp) => (
     <ListItem key={file.name} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <div className='file-details'>
-        <div className='file-preview'>{renderFilePreview(file)}</div>
+        {/* <div className='file-preview'>{renderFilePreview(file)}</div> */}
         <div>
           <Typography
             variant='body2'
@@ -122,7 +122,7 @@ const FileUploaderMultiple = () => {
         </div>
       </div>
       <IconButton onClick={() => handleRemoveFile(file)}>
-        <UserIcon icon='mdi:delete-outline' />
+        <span className='icon-trash'></span>
       </IconButton>
     </ListItem>
   ))
