@@ -47,10 +47,22 @@ function DropZoneDialog({ title, subTitle, openModal, closeModal, handleSubmitCl
         >
           <Box sx={{ display: 'flex', alignItems: 'center', marginRight: '50px' }}>
             {/* <InsertDriveFileIcon sx={{ color: '#292D32' }} /> */}
-            <span className='icon-document-download' style={{ color: '#292D32', marginRight: '5px' }}></span>
-            <Typography sx={{ textTransform: 'capitalize' }} variant='button' color='primary.main'>
+
+            {/* <Typography sx={{ textTransform: 'capitalize' }} variant='button' color='primary.main'>
               Download Template
-            </Typography>
+            </Typography> */}
+            <Button
+              variant='text'
+              color='primary'
+              disableRipple
+              disableFocusRipple
+              disableTouchRipple
+              startIcon={
+                <span className='icon-document-download' style={{ color: '#292D32', marginRight: '5px' }}></span>
+              }
+            >
+              Download Template
+            </Button>
           </Box>
           <Box>
             <Button variant='outlined' color='primary' onClick={closeModal}>
