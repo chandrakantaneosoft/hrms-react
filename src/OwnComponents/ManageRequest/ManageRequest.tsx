@@ -55,7 +55,7 @@ const columnsRolCode: GridColDef[] = [
     headerName: 'Board',
     align: 'left',
     headerAlign: 'left',
-    minWidth: 120,
+    minWidth: 150,
     flex: 1
   },
   {
@@ -63,7 +63,7 @@ const columnsRolCode: GridColDef[] = [
     headerName: 'Section',
     align: 'left',
     headerAlign: 'left',
-    minWidth: 114,
+    minWidth: 154,
     flex: 1
   },
   {
@@ -79,7 +79,7 @@ const columnsRolCode: GridColDef[] = [
     headerName: 'Sub Department',
     align: 'left',
     headerAlign: 'left',
-    minWidth: 100,
+    minWidth: 150,
     flex: 1
   },
   {
@@ -87,7 +87,7 @@ const columnsRolCode: GridColDef[] = [
     headerName: 'Sub Sub Department',
     align: 'left',
     headerAlign: 'left',
-    minWidth: 135,
+    minWidth: 235,
     flex: 1
   },
   {
@@ -96,7 +96,7 @@ const columnsRolCode: GridColDef[] = [
     flex: 8,
     align: 'left',
     headerAlign: 'left',
-    minWidth: 100
+    minWidth: 200
   }
 ]
 const rowsRoleCode = [
@@ -139,7 +139,7 @@ const columnsLobAssign: GridColDef[] = [
     headerName: 'Business Vertical (LOB segment2 parent 2)',
     align: 'center',
     headerAlign: 'center',
-    minWidth: 250,
+    minWidth: 350,
     flex: 1
   },
   {
@@ -147,7 +147,7 @@ const columnsLobAssign: GridColDef[] = [
     headerName: 'Business Sub Vertical (LOB Segment2Parent1)',
     align: 'center',
     headerAlign: 'center',
-    minWidth: 290,
+    minWidth: 350,
     flex: 1
   },
   {
@@ -155,7 +155,7 @@ const columnsLobAssign: GridColDef[] = [
     headerName: 'Business sub sub vertical(LOB segment2 child)',
     align: 'center',
     headerAlign: 'center',
-    minWidth: 290,
+    minWidth: 350,
     flex: 1
   }
 ]

@@ -1,6 +1,5 @@
 // ** Type Import
 
-import { borderRadius, color, display, fontSize, fontWeight, lineHeight, padding, textAlign } from '@mui/system'
 import { OwnerStateThemeType } from './'
 
 const DataGrid = () => {
@@ -67,6 +66,16 @@ const DataGrid = () => {
             }
           },
 
+          // '& .MuiDataGrid-columnHeaders': {
+          //   overflow: 'inherit !important'
+          // },
+
+          // '& .MuiDataGrid-virtualScroller': {
+          //   overflow: 'inherit !important'
+          // },
+          '& .MuiDataGrid-main': {
+            overflow: 'auto'
+          },
           '& .MuiDataGrid-menuIcon': {
             // opacity: `${1} !important`,
             // visibility: 'visible !important',
@@ -124,7 +133,58 @@ const DataGrid = () => {
                 }
               }
             }
+          },
+
+          //Fixed Column
+
+          '.MuiDataGrid-virtualScroller': {
+            height: 'auto',
+            overflow: 'inherit !important',
+
+            '& .MuiDataGrid-cell:first-child': {
+              position: 'sticky',
+              top: '0',
+              left: '0',
+              paddingLeft: '10px',
+              zIndex: 999,
+              backgroundColor: theme.palette.common.white
+            },
+            '& .MuiDataGrid-cell:last-child': {
+              position: 'sticky',
+              top: '0',
+              right: '0',
+              paddingRight: '0',
+              zIndex: 999,
+              backgroundColor: theme.palette.common.white,
+              overflow: 'hidden'
+            }
+          },
+
+          '& .MuiDataGrid-columnHeaders': {
+            overflow: 'initial',
+            '& .MuiDataGrid-columnHeadersInner.MuiDataGrid-columnHeadersInner--scrollable': {
+              transform: 'none !important',
+              '& div': {
+                '& .MuiDataGrid-columnHeader:first-child': {
+                  backgroundColor: theme.palette.customColors.bodyBg,
+                  position: 'sticky',
+                  top: 0,
+                  left: 0,
+                  zIndex: 2
+                }
+              }
+            }
+          },
+          '& .MuiDataGrid-columnHeader:last-of-type': {
+            backgroundColor: theme.palette.customColors.bodyBg,
+            zIndex: 2,
+            position: 'sticky',
+            top: '0',
+            right: '0',
+            overflow: 'hidden'
           }
+
+          //ScrollBar Style
 
           // '& .MuiDataGrid-cell:first-of-type, & .MuiDataGrid-columnHeader:first-of-type': {
           //   position: 'sticky',
@@ -174,10 +234,11 @@ const DataGrid = () => {
           //   }
           // }
         }),
-        toolbarContainer: ({ theme }: OwnerStateThemeType) => ({
-          paddingRight: `${theme.spacing(5)} !important`,
-          paddingLeft: `${theme.spacing(3.25)} !important`
-        }),
+
+        // toolbarContainer: ({ theme }: OwnerStateThemeType) => ({
+        //   paddingRight: `${theme.spacing(5)} !important`,
+        //   paddingLeft: `${theme.spacing(3.25)} !important`
+        // }),
 
         columnHeaders: ({ theme }: OwnerStateThemeType) => ({
           backgroundColor: '#F5F5F7',
@@ -191,10 +252,11 @@ const DataGrid = () => {
             '&:first-of-type': {
               paddingLeft: theme.spacing(5)
             }
-          },
-          '&:last-of-type': {
-            paddingRight: theme.spacing(5)
           }
+
+          // '&:last-of-type': {
+          //   paddingRight: theme.spacing(5)
+          // }
         }),
         columnHeaderCheckbox: {
           maxWidth: '58px !important',
@@ -216,20 +278,49 @@ const DataGrid = () => {
             '& .MuiDataGrid-cell': {
               borderBottom: 0
             }
+          },
+          '&:hover': {
+            backgroundColor: '#f5f5f7',
+            '& .MuiDataGrid-cell:first-child': {
+              backgroundColor: '#f5f5f7'
+            },
+            '& .MuiDataGrid-cell:last-child': {
+              backgroundColor: '#f5f5f7'
+            }
+          },
+          '&.Mui-selected': {
+            backgroundColor: '#f5f5f7',
+            '& .MuiDataGrid-cell:first-child': {
+              backgroundColor: '#f5f5f7'
+            },
+            '& .MuiDataGrid-cell:last-child': {
+              backgroundColor: '#f5f5f7'
+            }
+          },
+          '&.Mui-selected:hover': {
+            backgroundColor: '#f5f5f7',
+            '& .MuiDataGrid-cell:first-child': {
+              backgroundColor: '#f5f5f7'
+            },
+            '& .MuiDataGrid-cell:last-child': {
+              backgroundColor: '#f5f5f7'
+            }
           }
         },
         cell: ({ theme }: OwnerStateThemeType) => ({
           border: 0,
           '&:not(.MuiDataGrid-cellCheckbox)': {
             paddingLeft: theme.spacing(4),
-            paddingRight: theme.spacing(4),
+
+            // paddingRight: theme.spacing(4),
             '&:first-of-type': {
               paddingLeft: theme.spacing(5)
             }
           },
-          '&:last-of-type': {
-            paddingRight: theme.spacing(5)
-          },
+
+          // '&:last-of-type': {
+          //   paddingRight: theme.spacing(5)
+          // },
           '&:focus, &:focus-within': {
             outline: 'none'
           }
@@ -301,8 +392,9 @@ const DataGrid = () => {
         }),
         selectedRowCount: ({ theme }: OwnerStateThemeType) => ({
           margin: 0,
-          paddingLeft: theme.spacing(4),
-          paddingRight: theme.spacing(4)
+          paddingLeft: theme.spacing(4)
+
+          // paddingRight: theme.spacing(4)
         })
       }
     }

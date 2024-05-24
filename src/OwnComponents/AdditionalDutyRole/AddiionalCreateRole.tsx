@@ -23,39 +23,6 @@ import { useRouter } from 'next/navigation'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
 import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
-const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ theme }) => ({
-  marginLeft: 0,
-  '& .MuiSwitch-root': {
-    width: 42,
-    height: 26,
-    padding: 0,
-    marginRight: theme.spacing(3),
-    '& .MuiSwitch-switchBase': {
-      padding: 1,
-      '&.Mui-checked': {
-        transform: 'translateX(16px)',
-        color: theme.palette.common.white,
-        '& + .MuiSwitch-track': {
-          opacity: 1,
-          border: 'none',
-          backgroundColor: '#3635C9'
-        }
-      }
-    },
-    '& .MuiSwitch-thumb': {
-      width: 24,
-      height: 24
-    },
-    '& .MuiSwitch-track': {
-      opacity: 1,
-      borderRadius: 13,
-      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.action.selected : theme.palette.grey[50],
-      border: `1px solid ${theme.palette.grey[400]}`,
-      transition: theme.transitions.create(['background-color', 'border'])
-    }
-  }
-}))
-
 // type AddiionalCreateRoleType = {
 //   handleRoleDialog: (a: boolean) => void
 // }
@@ -69,25 +36,6 @@ export const Auto1: Autocomplete[] = [
   { title: 'CBSE Primary NA NA Coordinator' },
   { title: 'CBSE Primary NA NA Coordinator' }
 ]
-
-// Define a styled FormControl component
-// const FormControl = styled(FormControl)<any>(({ theme, hasValue }) => ({
-//   '& .MuiOutlinedInput-root': {
-//     borderColor: hasValue ? 'black' : 'default', // Change border color when value is added
-//     '&:hover .MuiOutlinedInput-notchedOutline': {
-//       borderColor: '#C6C8D2' // Border color when hovering
-//     },
-//     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-//       borderColor: '#C6C8D2' // Border color when focused
-//     }
-//   },
-//   '& .MuiInputLabel-root': {
-//     color: hasValue ? 'black' : 'default', // Change label color when value is added
-//     '&.Mui-focused': {
-//       color: 'black' // Label color when focused
-//     }
-//   }
-// }))
 
 const steps = ['Create Role', 'Assign Role']
 
@@ -471,7 +419,7 @@ const AddiionalCreateRole = () => {
               <Grid item xs={12} sm={6}>
                 <div className='toggle-select'>
                   <span className='toggle-status'>Active</span>
-                  <FormControlLabel label='' control={<Switch defaultChecked />} />
+                  <Switch defaultChecked />
                 </div>
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -514,7 +462,7 @@ const AddiionalCreateRole = () => {
                 <Grid item xs={12} md={5} sx={{ marginLeft: '50px' }}>
                   <div className='toggle-select'>
                     <span className='toggle-status'>Active</span>
-                    <FormControlLabel label='' control={<Switch defaultChecked />} />
+                    <Switch defaultChecked />
                   </div>
                 </Grid>
               </Grid>
