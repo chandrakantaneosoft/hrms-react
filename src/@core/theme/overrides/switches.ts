@@ -75,7 +75,7 @@ const Switch = () => {
               '&:hover': {
                 width: '20px !important',
                 height: '20px !important',
-                margin: '2px !important'
+                margin: '4px !important'
               }
             }
           },
