@@ -233,8 +233,9 @@ export default function ViewAssignUser() {
           </Grid>
         </Grid>
 
-        <Box sx={{ height: '450px' }}>
+        <Box>
           <DataGrid
+            autoHeight
             columns={columns}
             rows={rows}
             pagination={true}

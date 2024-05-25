@@ -73,8 +73,9 @@ function TableDialog({ openModal, closeModal, header, columnsRolCode, rowsRoleCo
           </IconButton>
         </Box>
         <DialogContent>
-          <Box sx={{ height: '300px' }}>
+          <Box>
             <DataGrid
+              autoHeight
               columns={columnsRolCode}
               rows={rowsRoleCode}
               pagination={true}

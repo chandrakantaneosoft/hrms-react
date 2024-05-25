@@ -44,7 +44,7 @@ const columnsLobAssign: GridColDef[] = [
     headerName: 'Parent 2',
     align: 'center',
     headerAlign: 'center',
-    minWidth: 250,
+    minWidth: 350,
     flex: 1
   },
   {
@@ -52,7 +52,7 @@ const columnsLobAssign: GridColDef[] = [
     headerName: 'Parent 1',
     align: 'center',
     headerAlign: 'center',
-    minWidth: 290,
+    minWidth: 350,
     flex: 1
   },
   {
@@ -60,7 +60,7 @@ const columnsLobAssign: GridColDef[] = [
     headerName: 'Child LOBs',
     align: 'center',
     headerAlign: 'center',
-    minWidth: 290,
+    minWidth: 350,
     flex: 1
   }
 ]

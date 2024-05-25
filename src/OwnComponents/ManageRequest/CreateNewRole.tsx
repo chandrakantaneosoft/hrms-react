@@ -52,7 +52,9 @@ const CreateNewRole = () => {
       flex: 1,
       field: 'srNo',
       minWidth: 80,
-      headerName: 'Sr No'
+      headerName: 'Sr No',
+      headerAlign: 'center',
+      align: 'center'
     },
     {
       flex: 1,
@@ -427,9 +429,7 @@ const CreateNewRole = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={12}>
-                <Box sx={{ height: '300px' }}>
-                  <DataGrid columns={columns} rows={rows} hideFooterPagination sx={{ boxShadow: 'none' }} />
-                </Box>
+                <DataGrid autoHeight columns={columns} rows={rows} hideFooterPagination sx={{ boxShadow: 'none' }} />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <FormControl
