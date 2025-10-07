@@ -1,16 +1,14 @@
-import { getToken } from '../utils/helper'
+import { getToken, getTokenValue } from '../utils/helper'
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { AutoLogoutUser } from '../services/authService'
 import { toast } from 'react-hot-toast'
 
 const serviceURLList: any = {
-  marketing: process.env.NEXT_PUBLIC_API_BASE_URL,
-  admin: process.env.NEXT_PUBLIC_ADMIN_PANEL_BASE_URL,
-  mdm: process.env.NEXT_PUBLIC_MDM_BASE_URL
+  api: process.env.NEXT_PUBLIC_API_ENDPOINT
 }
 const token = getToken()
 const axiosInstance = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}`,
+  baseURL: `${process.env.NEXT_PUBLIC_API_ENDPOINT}`,
   headers: {
     ...(token && { Authorization: `Bearer ${token.accessToken}` })
   }
@@ -82,12 +80,30 @@ async function httpRequest(
   // }
 
   try {
+    let token = null
+    if (process.env.NODE_ENV == 'development') {
+      token = getTokenValue()
+    } else {
+      // const session: any = await getSession()
+      // token = session?.accessToken //|| tokenCookie
+      token = getTokenValue()
+    }
+
     const url = serviceURL ? serviceURLList[serviceURL] + endpoint : axiosInstance.defaults.baseURL + endpoint
+    console.log('url', url, serviceURL, serviceURLList, process.env)
+
+    const modifiedHeaders = {
+      ...(token != undefined && endpoint != 'finance/auth/validate' && { Authorization: `Bearer ${token}` }),
+      ...headers
+    }
+
     const config: AxiosRequestConfig = {
       method: method,
       url: url,
       data: data,
-      headers: headers,
+      headers: {
+        ...modifiedHeaders
+      },
       params: params
     }
     const response: AxiosResponse = await axios(config)

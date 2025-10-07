@@ -39,6 +39,7 @@ import Link from 'next/link'
 import DropZoneDialog from '../CommonDialogBox/DropZoneDialog'
 import SearchBox from '../SharedUIComponent/SearchBox'
 import FilterComponent from '../SharedUIComponent/FilterComponent'
+import { getRequest } from 'src/services/apiService'
 
 // table for PS Code Modal
 const columnsRolCode: GridColDef[] = [
@@ -484,6 +485,7 @@ function ManageRequest() {
   const [openDropzoneSuccess, setOpenDropzoneSuccess] = useState<boolean>(false)
   const [searchText, setSearchText] = useState('')
   const [filterOpen, setFilterOpen] = React.useState<any>(null)
+  const { setGlobalState } = useGlobalContext()
 
   //Handling Search Functionality
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -567,6 +569,36 @@ function ManageRequest() {
   //Handler For Filer Popover
   const handleFilterClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setFilterOpen(event.currentTarget)
+  }
+
+  useEffect(() => {
+    FetchUsers()
+  }, [])
+
+  const FetchUsers = async () => {
+    setGlobalState({
+      isLoading: true
+    })
+    try {
+      const params = {
+        url: 'auth/me',
+        serviceURL: 'api'
+      }
+
+      const response = await getRequest(params)
+
+      console.log('response', response)
+
+      // You can integrate API call or authentication logic here
+    } catch (error) {
+      console.error('Login error:', error)
+
+      // Optionally display an error message to the user
+    } finally {
+      setGlobalState({
+        isLoading: false
+      })
+    }
   }
 
   return (

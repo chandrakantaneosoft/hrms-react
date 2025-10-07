@@ -23,7 +23,7 @@ const CardStatsCharacter = ({ data }: Props) => {
     <Card sx={{ overflow: 'visible', position: 'relative' }}>
       <CardContent sx={{ pb: '0 !important' }}>
         <Grid container>
-          <Grid item xs={6}>
+          <Grid>
             <Typography sx={{ mb: 1.5, fontWeight: 600, whiteSpace: 'nowrap' }}>{title}</Typography>
             <CustomChip
               skin='light'

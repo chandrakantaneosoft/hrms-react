@@ -31,6 +31,8 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 import { signIn } from 'next-auth/react'
 import { Controller, useForm } from 'react-hook-form'
+import { postRequest } from 'src/services/apiService'
+import { useGlobalContext } from 'src/@core/global/GlobalContext'
 
 // ** Styled Components
 const LoginIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -73,6 +75,7 @@ const LoginPage = () => {
   const theme = useTheme()
   const { settings } = useSettings()
   const hidden = useMediaQuery(theme.breakpoints.down('md'))
+  const { setGlobalState, setPagePaths } = useGlobalContext()
 
   // ** Vars
   const { skin } = settings
@@ -101,10 +104,41 @@ const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState(false)
 
   // Form submit handler
-  const onSubmit = (data: any) => {
-    console.log('Form Data:', { ...data, rememberMe })
+  const onSubmit = async (data: any) => {
+    setGlobalState({
+      isLoading: true
+    })
+    try {
+      console.log('Form Data:', { ...data, rememberMe })
 
-    // You can integrate API call or authentication logic here
+      const params = {
+        url: 'auth/login',
+
+        // data: data,
+        data: {
+          username: 'emilys',
+          password: 'emilyspass'
+        },
+        serviceURL: 'api'
+      }
+
+      const response = await postRequest(params)
+      console.log('response', response)
+      localStorage.setItem('token', response?.accessToken)
+      localStorage.setItem('refreshToken', response?.refreshToken)
+      localStorage.setItem('userData', response)
+      window.location.href = '/dashboard'
+
+      // You can integrate API call or authentication logic here
+    } catch (error) {
+      console.error('Login error:', error)
+
+      // Optionally display an error message to the user
+    } finally {
+      setGlobalState({
+        isLoading: false
+      })
+    }
   }
 
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'

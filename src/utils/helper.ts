@@ -67,4 +67,10 @@ export function validateSlug(slug: any) {
   return slugRegex.test(slug)
 }
 
+export function getTokenValue() {
+  const token = typeof localStorage != 'undefined' ? localStorage.getItem('token') : null
+
+  return token
+}
+
 console.log(validateSlug('valid-slug')) // true
