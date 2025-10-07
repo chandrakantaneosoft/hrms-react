@@ -1,5 +1,5 @@
 // ** React Imports
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 
 import Button from '@mui/material/Button'
 import Box, { BoxProps } from '@mui/material/Box'
@@ -8,12 +8,29 @@ import { styled, useTheme } from '@mui/material/styles'
 
 import { useSettings } from 'src/@core/hooks/useSettings'
 
+import {
+  Checkbox,
+  Divider,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+  Typography,
+  Link
+} from '@mui/material'
+import { Icon } from '@iconify/react'
+
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 import { signIn } from 'next-auth/react'
+import { Controller, useForm } from 'react-hook-form'
 
 // ** Styled Components
 const LoginIllustrationWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -60,29 +77,40 @@ const LoginPage = () => {
   // ** Vars
   const { skin } = settings
 
-  const logintoDashboard = () => {
-    if (process.env.NODE_ENV === 'development') {
-      window.location.href = '/dashboard'
-    } else {
-      signIn('keycloak')
+  // const logintoDashboard = () => {
+  //   if (process.env.NODE_ENV === 'development') {
+  //     window.location.href = '/dashboard'
+  //   } else {
+  //     signIn('keycloak')
+  //   }
+  // }
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: ''
     }
+  })
+
+  // Local states
+  const [showPassword, setShowPassword] = useState(false)
+  const [rememberMe, setRememberMe] = useState(false)
+
+  // Form submit handler
+  const onSubmit = (data: any) => {
+    console.log('Form Data:', { ...data, rememberMe })
+
+    // You can integrate API call or authentication logic here
   }
 
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
   return (
     <Box className='content-right'>
-      {!hidden ? (
-        <Box sx={{ flex: 1, display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
-          <LoginIllustrationWrapper>
-            <LoginIllustration
-              alt='login-illustration'
-              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
-            />
-          </LoginIllustrationWrapper>
-          <FooterIllustrationsV2 />
-        </Box>
-      ) : null}
       <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
         <Box
           sx={{
@@ -95,108 +123,19 @@ const LoginPage = () => {
           }}
         >
           <BoxWrapper>
-            {/* <Box
-              sx={{
-                top: 30,
-                left: 40,
-                display: 'flex',
-                position: 'absolute',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <svg width={47} fill='none' height={26} viewBox='0 0 268 150' xmlns='http://www.w3.org/2000/svg'>
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 195.571 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fillOpacity='0.4'
-                  fill='url(#paint0_linear_7821_79167)'
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 196.084 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(0.865206 0.501417 -0.498585 0.866841 173.147 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fillOpacity='0.4'
-                  fill='url(#paint1_linear_7821_79167)'
-                  transform='matrix(-0.865206 0.501417 0.498585 0.866841 94.1973 0)'
-                />
-                <rect
-                  rx='25.1443'
-                  width='50.2886'
-                  height='143.953'
-                  fill={theme.palette.primary.main}
-                  transform='matrix(0.865206 0.501417 -0.498585 0.866841 71.7728 0)'
-                />
-                <defs>
-                  <linearGradient
-                    y1='0'
-                    x1='25.1443'
-                    x2='25.1443'
-                    y2='143.953'
-                    id='paint0_linear_7821_79167'
-                    gradientUnits='userSpaceOnUse'
-                  >
-                    <stop />
-                    <stop offset='1' stopOpacity='0' />
-                  </linearGradient>
-                  <linearGradient
-                    y1='0'
-                    x1='25.1443'
-                    x2='25.1443'
-                    y2='143.953'
-                    id='paint1_linear_7821_79167'
-                    gradientUnits='userSpaceOnUse'
-                  >
-                    <stop />
-                    <stop offset='1' stopOpacity='0' />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <Typography variant='h6' sx={{ ml: 2, lineHeight: 1, fontWeight: 700, fontSize: '1.5rem !important' }}>
-                {themeConfig.templateName}
-              </Typography>
-            </Box> */}
-            {/* <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
-              <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
-            </Box> */}
-            {/* <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
-              <Typography variant='caption' sx={{ mb: 2, display: 'block', color: 'primary.main' }}>
-                Admin: <strong>admin@materialize.com</strong> / Pass: <strong>admin</strong>
-              </Typography>
-              <Typography variant='caption' sx={{ display: 'block', color: 'primary.main' }}>
-                Client: <strong>client@materialize.com</strong> / Pass: <strong>client</strong>
-              </Typography>
-            </Alert> */}
-            {/* <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
+            <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
+              {/* Email Field */}
               <FormControl fullWidth sx={{ mb: 4 }}>
                 <Controller
                   name='email'
                   control={control}
-                  rules={{ required: true }}
+                  rules={{
+                    required: 'Email is required',
+                    pattern: {
+                      value: /^\S+@\S+\.\S+$/,
+                      message: 'Enter a valid email address'
+                    }
+                  }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <TextField
                       autoFocus
@@ -211,6 +150,8 @@ const LoginPage = () => {
                 />
                 {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
               </FormControl>
+
+              {/* Password Field */}
               <FormControl fullWidth>
                 <InputLabel htmlFor='auth-login-v2-password' error={Boolean(errors.password)}>
                   Password
@@ -218,7 +159,7 @@ const LoginPage = () => {
                 <Controller
                   name='password'
                   control={control}
-                  rules={{ required: true }}
+                  rules={{ required: 'Password is required' }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <OutlinedInput
                       value={value}
@@ -243,13 +184,19 @@ const LoginPage = () => {
                   )}
                 />
                 {errors.password && (
-                  <FormHelperText sx={{ color: 'error.main' }} id=''>
-                    {errors.password.message}
-                  </FormHelperText>
+                  <FormHelperText sx={{ color: 'error.main' }}>{errors.password.message}</FormHelperText>
                 )}
               </FormControl>
+
+              {/* Remember Me + Forgot Password */}
               <Box
-                sx={{ mb: 4, display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}
+                sx={{
+                  mb: 4,
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-between'
+                }}
               >
                 <FormControlLabel
                   label='Remember Me'
@@ -264,70 +211,26 @@ const LoginPage = () => {
                   Forgot Password?
                 </Typography>
               </Box>
+
+              {/* Submit Button */}
               <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
                 Login
               </Button>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ mr: 2, color: 'text.secondary' }}>New on our platform?</Typography>
-                <Typography href='/register' component={Link} sx={{ color: 'primary.main', textDecoration: 'none' }}>
-                  Create an account
-                </Typography>
-              </Box>
-              <Divider
-                sx={{
-                  '& .MuiDivider-wrapper': { px: 4 },
-                  mt: theme => `${theme.spacing(5)} !important`,
-                  mb: theme => `${theme.spacing(7.5)} !important`
-                }}
-              >
-                or
-              </Divider>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  sx={{ color: '#497ce2' }}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                >
-                  <Icon icon='mdi:facebook' />
-                </IconButton>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  sx={{ color: '#1da1f2' }}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                >
-                  <Icon icon='mdi:twitter' />
-                </IconButton>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                  sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : 'grey.300') }}
-                >
-                  <Icon icon='mdi:github' />
-                </IconButton>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  sx={{ color: '#db4437' }}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                >
-                  <Icon icon='mdi:google' />
-                </IconButton>
-              </Box>
-            </form> */}
-
-            {/* <Button fullWidth size='large' onClick={() => signIn("keycloak")} variant='contained' sx={{ mb: 7 }}>
-              Login
-            </Button> */}
-
-            <Button fullWidth size='large' onClick={() => logintoDashboard()} variant='contained' sx={{ mb: 7 }}>
-              Login
-            </Button>
+            </form>
           </BoxWrapper>
         </Box>
       </RightWrapper>
+      {!hidden ? (
+        <Box sx={{ flex: 1, display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center' }}>
+          <LoginIllustrationWrapper>
+            <LoginIllustration
+              alt='login-illustration'
+              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
+            />
+          </LoginIllustrationWrapper>
+          <FooterIllustrationsV2 />
+        </Box>
+      ) : null}
     </Box>
   )
 }
